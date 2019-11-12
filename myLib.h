@@ -35,7 +35,7 @@ typedef unsigned int u32;
 #define BG_SCREENBLOCK(num) ((num)<<8)
 #define BG_4BPP             (0<<7)
 #define BG_8BPP             (1<<7)
-#define BG_SIZE_SMALL       (0<<14)  // 32x32 tiles
+#define BG_SIZE_SMALL       (0<<14)  // 32x32 tiles 
 #define BG_SIZE_WIDE        (1<<14)  // 64x32 tiles
 #define BG_SIZE_TALL        (2<<14)  // 32x64 tiles
 #define BG_SIZE_LARGE       (3<<14)  // 64x64 tiles
@@ -110,7 +110,6 @@ void drawFullscreenImage4(const unsigned short *image);
 void waitForVBlank();
 void flipPage();
 
-
 // ================================= SPRITES ==================================
 
 // Sprite Attribute Struct
@@ -162,22 +161,18 @@ void hideSprites();
 
 // Generic struct for animated sprite
 typedef struct {
-    int screenRow;
-    int screenCol;
-    int worldRow;
-    int worldCol;
+    int row;
+    int col;
     int rdel;
     int cdel;
     int width;
     int height;
-    int aniCounter;
-    int aniState;
-    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
+    int bulletTimer;
+    int score; 
 } ANISPRITE;
-
 
 // ================================== INPUT ===================================
 

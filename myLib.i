@@ -44,7 +44,6 @@ void flipPage();
 
 
 
-
 typedef struct {
     unsigned short attr0;
     unsigned short attr1;
@@ -55,7 +54,7 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 157 "myLib.h"
+# 156 "myLib.h"
 void hideSprites();
 
 
@@ -64,25 +63,22 @@ void hideSprites();
 
 
 typedef struct {
-    int screenRow;
-    int screenCol;
-    int worldRow;
-    int worldCol;
+    int row;
+    int col;
     int rdel;
     int cdel;
     int width;
     int height;
-    int aniCounter;
-    int aniState;
-    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
+    int bulletTimer;
+    int score;
 } ANISPRITE;
-# 200 "myLib.h"
+# 195 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 211 "myLib.h"
+# 206 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -91,7 +87,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 251 "myLib.h"
+# 246 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 

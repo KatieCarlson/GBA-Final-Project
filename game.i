@@ -44,7 +44,6 @@ void flipPage();
 
 
 
-
 typedef struct {
     unsigned short attr0;
     unsigned short attr1;
@@ -55,7 +54,7 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 157 "myLib.h"
+# 156 "myLib.h"
 void hideSprites();
 
 
@@ -64,25 +63,22 @@ void hideSprites();
 
 
 typedef struct {
-    int screenRow;
-    int screenCol;
-    int worldRow;
-    int worldCol;
+    int row;
+    int col;
     int rdel;
     int cdel;
     int width;
     int height;
-    int aniCounter;
-    int aniState;
-    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
+    int bulletTimer;
+    int score;
 } ANISPRITE;
-# 200 "myLib.h"
+# 195 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 211 "myLib.h"
+# 206 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -91,7 +87,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 251 "myLib.h"
+# 246 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
@@ -105,10 +101,28 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 
-extern int hOff;
-extern int vOff;
 extern OBJ_ATTR shadowOAM[128];
-extern ANISPRITE pikachu;
+extern ANISPRITE rocket;
+
+typedef struct {
+ int col;
+ int row;
+ int rdel;
+ int width;
+ int height;
+ int active;
+} BULLET;
+
+typedef struct {
+ int col;
+ int row;
+ int cdel;
+ int rdel;
+ int width;
+ int height;
+ int active;
+ int num;
+} ENEMY;
 
 
 void initGame();
@@ -118,150 +132,103 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
+void initBullets();
+void fireBullet();
+void updateBullet(BULLET *);
+void drawBullet(BULLET *, int);
+void initEnemies();
+void updateEnemies();
+void drawEnemies();
+
+
+extern BULLET bullets[5];
+
+
+extern ENEMY enemies[40];
+
+
+extern BULLET enemyBullets[10];
+
+extern int enemyCounter;
 # 3 "game.c" 2
+# 1 "spritesheet2.h" 1
+# 21 "spritesheet2.h"
+extern const unsigned short spritesheet2Tiles[16384];
 
 
-int hOff;
-int vOff;
+extern const unsigned short spritesheet2Pal[256];
+# 4 "game.c" 2
+
+
 OBJ_ATTR shadowOAM[128];
-ANISPRITE pikachu;
-
-
-enum {PIKAFRONT, PIKABACK, PIKARIGHT, PIKALEFT, PIKAIDLE};
-
+ANISPRITE player;
 
 void initGame() {
 
-
-    vOff = 96;
-    hOff = 9;
-
     initPlayer();
-}
 
+}
 
 void updateGame() {
 
  updatePlayer();
 }
 
-
 void drawGame() {
 
     drawPlayer();
 
     waitForVBlank();
-    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128*4);
-
-    (*(volatile unsigned short *)0x04000010) = hOff;
-    (*(volatile unsigned short *)0x04000012) = vOff;
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
 }
-
 
 void initPlayer() {
 
-    pikachu.width = 16;
-    pikachu.height = 16;
-    pikachu.rdel = 1;
-    pikachu.cdel = 1;
+    DMANow(3, spritesheet2Pal, ((unsigned short *)0x5000200), 256);
+ DMANow(3, spritesheet2Tiles, &((charblock *)0x6000000)[4], 32768 / 2);
 
-
-    pikachu.worldRow = 160/2-pikachu.width/2 + vOff;
-    pikachu.worldCol = 240/2-pikachu.height/2 + hOff;
-    pikachu.aniCounter = 0;
-    pikachu.curFrame = 0;
-    pikachu.numFrames = 3;
-    pikachu.aniState = PIKAFRONT;
+    player.width = 16;
+    player.height = 16;
+    player.cdel = 1;
+    player.row = 135;
+    player.col = 100;
+    player.bulletTimer = 20;
+    player.score = 7;
 }
 
-
 void updatePlayer() {
+    player.cdel = 0;
+    player.rdel = 0;
 
-    int vOffdel = 0;
-    int hOffdel = 0;
-# 72 "game.c"
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
-        if (pikachu.screenRow > 0) {
-            pikachu.worldRow -= 1;
-            if (vOff > 0 && pikachu.screenRow < 80) {
-                vOffdel = -1;
-            }
-        }
-    }
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
-        if (pikachu.screenRow + pikachu.height < 160) {
-            pikachu.worldRow += 1;
-            if (vOff < 256 - 160 && pikachu.screenRow > 80) {
-                vOffdel = 1;
-            }
-        }
-    }
-    vOff += vOffdel;
+
     if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
-        if (pikachu.screenCol > 0) {
-            pikachu.worldCol -=1;
-            if (hOff > 0 && pikachu.screenCol < 120) {
-                hOffdel = -1;
-            }
+        if(player.col > 0) {
+            player.cdel = -1;
         }
     }
     if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
-        if (pikachu.screenCol + pikachu.width < 240) {
-            pikachu.worldCol += 1;
-            if (hOff < 256 - 240 && pikachu.screenCol > 120) {
-                hOffdel = 1;
-            }
+        if(player.col + player.width < 240) {
+            player.cdel = 1;
         }
     }
-    hOff += hOffdel;
-
-
-    pikachu.screenRow = pikachu.worldRow - vOff;
-    pikachu.screenCol = pikachu.worldCol - hOff;
-
-    animatePlayer();
-}
-
-
-void animatePlayer() {
-
-
-    pikachu.prevAniState = pikachu.aniState;
-    pikachu.aniState = PIKAIDLE;
-
-
-    if(pikachu.aniCounter % 20 == 0) {
-        pikachu.curFrame = (pikachu.curFrame + 1) % pikachu.numFrames;
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
+        if(player.row > 0) {
+            player.rdel = -1;
+        }
+    }
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
+        if(player.row + player.height < 160) {
+            player.rdel = 1;
+        }
     }
 
 
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6))))
-        pikachu.aniState = PIKABACK;
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7))))
-        pikachu.aniState = PIKAFRONT;
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5))))
-        pikachu.aniState = PIKALEFT;
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4))))
-        pikachu.aniState = PIKARIGHT;
-
-
-    if (pikachu.aniState == PIKAIDLE) {
-        pikachu.curFrame = 0;
-        pikachu.aniCounter = 0;
-        pikachu.aniState = pikachu.prevAniState;
-    } else {
-        pikachu.aniCounter++;
-    }
+    player.col += player.cdel;
+    player.row += player.rdel;
 }
-
 
 void drawPlayer() {
-
-    if (pikachu.hide) {
-        shadowOAM[0].attr0 |= (2<<8);
-    } else {
-        shadowOAM[0].attr0 = (0xFF & pikachu.screenRow) | (0<<14);
-        shadowOAM[0].attr1 = (0x1FF & pikachu.screenCol) | (1<<14);
-        shadowOAM[0].attr2 = ((0)<<12) | ((pikachu.curFrame * 2)*32+(pikachu.aniState * 2));
-    }
+    shadowOAM[0].attr0 = player.row | (0<<14) | (0<<13);
+    shadowOAM[0].attr1 = player.col | (1<<14);
+    shadowOAM[0].attr2 = ((0)<<12) | ((0)*32+(0));
 }

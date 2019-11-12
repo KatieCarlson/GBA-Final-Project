@@ -44,7 +44,6 @@ void flipPage();
 
 
 
-
 typedef struct {
     unsigned short attr0;
     unsigned short attr1;
@@ -55,7 +54,7 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 157 "myLib.h"
+# 156 "myLib.h"
 void hideSprites();
 
 
@@ -64,25 +63,22 @@ void hideSprites();
 
 
 typedef struct {
-    int screenRow;
-    int screenCol;
-    int worldRow;
-    int worldCol;
+    int row;
+    int col;
     int rdel;
     int cdel;
     int width;
     int height;
-    int aniCounter;
-    int aniState;
-    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
+    int bulletTimer;
+    int score;
 } ANISPRITE;
-# 200 "myLib.h"
+# 195 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 211 "myLib.h"
+# 206 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -91,7 +87,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 251 "myLib.h"
+# 246 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
@@ -105,10 +101,28 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 
-extern int hOff;
-extern int vOff;
 extern OBJ_ATTR shadowOAM[128];
-extern ANISPRITE pikachu;
+extern ANISPRITE rocket;
+
+typedef struct {
+ int col;
+ int row;
+ int rdel;
+ int width;
+ int height;
+ int active;
+} BULLET;
+
+typedef struct {
+ int col;
+ int row;
+ int cdel;
+ int rdel;
+ int width;
+ int height;
+ int active;
+ int num;
+} ENEMY;
 
 
 void initGame();
@@ -118,37 +132,103 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
+void initBullets();
+void fireBullet();
+void updateBullet(BULLET *);
+void drawBullet(BULLET *, int);
+void initEnemies();
+void updateEnemies();
+void drawEnemies();
+
+
+extern BULLET bullets[5];
+
+
+extern ENEMY enemies[40];
+
+
+extern BULLET enemyBullets[10];
+
+extern int enemyCounter;
 # 3 "main.c" 2
-# 1 "spritesheet.h" 1
-# 21 "spritesheet.h"
-extern const unsigned short spritesheetTiles[16384];
+# 1 "STATE_start.h" 1
+# 22 "STATE_start.h"
+extern const unsigned short STATE_startTiles[7680];
 
 
-extern const unsigned short spritesheetPal[256];
+extern const unsigned short STATE_startMap[1024];
+
+
+extern const unsigned short STATE_startPal[256];
 # 4 "main.c" 2
-# 1 "house.h" 1
-# 22 "house.h"
-extern const unsigned short houseTiles[896];
+# 1 "STATE_game.h" 1
+# 22 "STATE_game.h"
+extern const unsigned short STATE_gameTiles[9552];
 
 
-extern const unsigned short houseMap[1024];
+extern const unsigned short STATE_gameMap[1024];
 
 
-extern const unsigned short housePal[256];
+extern const unsigned short STATE_gamePal[256];
 # 5 "main.c" 2
+# 1 "STATE_pause.h" 1
+# 22 "STATE_pause.h"
+extern const unsigned short STATE_pauseTiles[8352];
+
+
+extern const unsigned short STATE_pauseMap[1024];
+
+
+extern const unsigned short STATE_pausePal[256];
+# 6 "main.c" 2
+# 1 "STATE_win.h" 1
+# 22 "STATE_win.h"
+extern const unsigned short STATE_winTiles[2720];
+
+
+extern const unsigned short STATE_winMap[1024];
+
+
+extern const unsigned short STATE_winPal[256];
+# 7 "main.c" 2
+# 1 "STATE_lose.h" 1
+# 22 "STATE_lose.h"
+extern const unsigned short STATE_loseTiles[2896];
+
+
+extern const unsigned short STATE_loseMap[1024];
+
+
+extern const unsigned short STATE_losePal[256];
+# 8 "main.c" 2
+
+
+enum {START, GAME, PAUSE, WIN};
+int state;
 
 
 void initialize();
+
+void goToStart();
+void start();
 void goToGame();
 void game();
-
-
-enum {GAME};
-int state;
+void goToPause();
+void pause();
+void goToWin();
+void win();
+void goToLose();
+void lose();
 
 
 unsigned short buttons;
 unsigned short oldButtons;
+
+
+int seed;
+
+
+char buffer[41];
 
 int main() {
 
@@ -162,54 +242,100 @@ int main() {
 
 
         switch(state) {
-
+            case START:
+                start();
+                break;
             case GAME:
                 game();
                 break;
+            case PAUSE:
+                pause();
+                break;
+            case WIN:
+                win();
+                break;
         }
-
     }
 }
 
 
 void initialize() {
 
-    (*(unsigned short *)0x4000000) = 0;
-
-
-    goToGame();
-    initGame();
-}
-
-
-void goToGame() {
-
-
-    waitForVBlank();
-
-
-    DMANow(3, housePal, ((unsigned short *)0x5000000), 256);
-    DMANow(3, houseTiles, &((charblock *)0x6000000)[0], 1792/2);
-    DMANow(3, houseMap, &((screenblock *)0x6000000)[31], 2048/2);
-    (*(volatile unsigned short *)0x04000012) = vOff;
-    (*(volatile unsigned short *)0x04000010) = hOff;
-    (*(volatile unsigned short*)0x4000008) = ((0)<<2) | ((31)<<8) | (0<<14);
-
-
-    DMANow(3, spritesheetTiles, &((charblock *)0x6000000)[4], 32768/2);
-    DMANow(3, spritesheetPal, ((unsigned short *)0x5000200), 512/2);
-    hideSprites();
-    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128*4);
-
-
     (*(unsigned short *)0x4000000) = 0 | (1<<8) | (1<<12);
+    (*(volatile unsigned short*)0x4000008) = ((0)<<2) | ((31)<<8) | (0<<7) | (0<<14);
 
-    state = GAME;
+    initGame();
+    goToStart();
 }
 
+void start() {
+
+    seed++;
+
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
+        srand(seed);
+        goToGame();
+        initGame();
+    }
+}
 
 void game() {
 
     updateGame();
     drawGame();
+
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
+        goToPause();
+    if ((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0))))) {
+        goToWin();
+    }
+}
+
+void pause() {
+
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
+        goToGame();
+    else if ((!(~(oldButtons)&((1<<2))) && (~buttons & ((1<<2)))))
+        goToStart();
+}
+
+void win() {
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
+        goToStart();
+}
+
+void goToStart() {
+    hideSprites();
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+    DMANow(3, STATE_startPal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[0], 15360 / 2);
+    DMANow(3, STATE_startMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    state = START;
+    seed = 0;
+}
+
+void goToGame() {
+    hideSprites();
+    DMANow(3, STATE_gamePal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_gameTiles, &((charblock *)0x6000000)[0], 19104 / 2);
+    DMANow(3, STATE_gameMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    state = GAME;
+}
+
+void goToPause() {
+    hideSprites();
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+    DMANow(3, STATE_pausePal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[0], 16704 / 2);
+    DMANow(3, STATE_pauseMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    state = PAUSE;
+}
+
+void goToWin() {
+    hideSprites();
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+    DMANow(3, STATE_winPal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[0], 5440 / 2);
+    DMANow(3, STATE_winMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    state = WIN;
 }
