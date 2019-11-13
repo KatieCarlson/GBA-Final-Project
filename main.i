@@ -10,9 +10,9 @@
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
-# 64 "myLib.h"
+# 68 "myLib.h"
 extern unsigned short *videoBuffer;
-# 85 "myLib.h"
+# 89 "myLib.h"
 typedef struct {
  u16 tileimg[8192];
 } charblock;
@@ -54,7 +54,7 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 156 "myLib.h"
+# 160 "myLib.h"
 void hideSprites();
 
 
@@ -63,22 +63,27 @@ void hideSprites();
 
 
 typedef struct {
-    int row;
-    int col;
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
     int rdel;
     int cdel;
     int width;
     int height;
+    int aniCounter;
+    int aniState;
+    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
-    int bulletTimer;
-    int score;
+    int sheetRow;
+    int sheetCol;
 } ANISPRITE;
-# 195 "myLib.h"
+# 204 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 206 "myLib.h"
+# 215 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -87,7 +92,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 246 "myLib.h"
+# 255 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
@@ -102,27 +107,7 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 extern OBJ_ATTR shadowOAM[128];
-extern ANISPRITE rocket;
-
-typedef struct {
- int col;
- int row;
- int rdel;
- int width;
- int height;
- int active;
-} BULLET;
-
-typedef struct {
- int col;
- int row;
- int cdel;
- int rdel;
- int width;
- int height;
- int active;
- int num;
-} ENEMY;
+extern ANISPRITE player;
 
 
 void initGame();
@@ -132,24 +117,6 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
-void initBullets();
-void fireBullet();
-void updateBullet(BULLET *);
-void drawBullet(BULLET *, int);
-void initEnemies();
-void updateEnemies();
-void drawEnemies();
-
-
-extern BULLET bullets[5];
-
-
-extern ENEMY enemies[40];
-
-
-extern BULLET enemyBullets[10];
-
-extern int enemyCounter;
 # 3 "main.c" 2
 # 1 "STATE_start.h" 1
 # 22 "STATE_start.h"
@@ -201,6 +168,26 @@ extern const unsigned short STATE_loseMap[1024];
 
 extern const unsigned short STATE_losePal[256];
 # 8 "main.c" 2
+# 1 "city.h" 1
+# 22 "city.h"
+extern const unsigned short cityTiles[48];
+
+
+extern const unsigned short cityMap[2048];
+
+
+extern const unsigned short cityPal[256];
+# 9 "main.c" 2
+# 1 "clocktower.h" 1
+# 22 "clocktower.h"
+extern const unsigned short clocktowerTiles[192];
+
+
+extern const unsigned short clocktowerMap[2048];
+
+
+extern const unsigned short clocktowerPal[256];
+# 10 "main.c" 2
 
 
 enum {START, GAME, PAUSE, WIN};
@@ -261,8 +248,20 @@ int main() {
 
 void initialize() {
 
-    (*(unsigned short *)0x4000000) = 0 | (1<<8) | (1<<12);
-    (*(volatile unsigned short*)0x4000008) = ((0)<<2) | ((31)<<8) | (0<<7) | (0<<14);
+    (*(unsigned short *)0x4000000) = 0 | (1<<8) | (1<<9) | (1<<10) | (1<<12);
+
+
+    DMANow(3, clocktowerPal, ((unsigned short *)0x5000000), 256);
+
+    (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (0<<7) | (0<<14);
+
+    (*(volatile unsigned short*)0x400000A) = ((1)<<2) | ((27)<<8) | (0<<7) | (2<<14);
+ DMANow(3, cityTiles, &((charblock *)0x6000000)[1], 96 / 2);
+    DMANow(3, cityMap, &((screenblock *)0x6000000)[27], 4096 / 2);
+
+    (*(volatile unsigned short*)0x400000C) = ((0)<<2) | ((29)<<8) | (0<<7) | (2<<14);
+    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 384 / 2);
+    DMANow(3, clocktowerMap, &((screenblock *)0x6000000)[29], 4096 / 2);
 
     initGame();
     goToStart();
@@ -305,37 +304,43 @@ void win() {
 }
 
 void goToStart() {
+
     hideSprites();
-    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+
     DMANow(3, STATE_startPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[0], 15360 / 2);
+    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 15360 / 2);
     DMANow(3, STATE_startMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = START;
     seed = 0;
 }
 
 void goToGame() {
+
     hideSprites();
-    DMANow(3, STATE_gamePal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_gameTiles, &((charblock *)0x6000000)[0], 19104 / 2);
-    DMANow(3, STATE_gameMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    DMANow(3, clocktowerPal, ((unsigned short *)0x5000000), 256);
+
     state = GAME;
 }
 
 void goToPause() {
+
     hideSprites();
+
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     DMANow(3, STATE_pausePal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[0], 16704 / 2);
+    DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[2], 16704 / 2);
     DMANow(3, STATE_pauseMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     state = PAUSE;
 }
 
 void goToWin() {
+
     hideSprites();
+
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     DMANow(3, STATE_winPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[0], 5440 / 2);
+    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[2], 5440 / 2);
     DMANow(3, STATE_winMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     state = WIN;
 }

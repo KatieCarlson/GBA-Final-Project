@@ -21,6 +21,10 @@ typedef unsigned int u32;
 #define BG1_ENABLE      (1<<9)
 #define BG2_ENABLE      (1<<10)
 #define BG3_ENABLE      (1<<11)
+#define BG0_DISABLE     (0<<8)
+#define BG1_DISABLE     (0<<9)
+#define BG2_DISABLE     (0<<10)
+#define BG3_DISABLE     (0<<11)
 #define SPRITE_ENABLE   (1<<12)
 #define SPRITE_MODE_2D  (0<<6)
 #define SPRITE_MODE_1D  (1<<6)
@@ -161,17 +165,22 @@ void hideSprites();
 
 // Generic struct for animated sprite
 typedef struct {
-    int row;
-    int col;
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
     int rdel;
     int cdel;
     int width;
     int height;
+    int aniCounter;
+    int aniState;
+    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
-    int bulletTimer;
-    int score; 
+    int sheetRow;
+    int sheetCol;
 } ANISPRITE;
 
 // ================================== INPUT ===================================

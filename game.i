@@ -10,9 +10,9 @@
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
-# 64 "myLib.h"
+# 68 "myLib.h"
 extern unsigned short *videoBuffer;
-# 85 "myLib.h"
+# 89 "myLib.h"
 typedef struct {
  u16 tileimg[8192];
 } charblock;
@@ -54,7 +54,7 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 156 "myLib.h"
+# 160 "myLib.h"
 void hideSprites();
 
 
@@ -63,22 +63,27 @@ void hideSprites();
 
 
 typedef struct {
-    int row;
-    int col;
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
     int rdel;
     int cdel;
     int width;
     int height;
+    int aniCounter;
+    int aniState;
+    int prevAniState;
     int curFrame;
     int numFrames;
     int hide;
-    int bulletTimer;
-    int score;
+    int sheetRow;
+    int sheetCol;
 } ANISPRITE;
-# 195 "myLib.h"
+# 204 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 206 "myLib.h"
+# 215 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -87,7 +92,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 246 "myLib.h"
+# 255 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
@@ -102,27 +107,7 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 extern OBJ_ATTR shadowOAM[128];
-extern ANISPRITE rocket;
-
-typedef struct {
- int col;
- int row;
- int rdel;
- int width;
- int height;
- int active;
-} BULLET;
-
-typedef struct {
- int col;
- int row;
- int cdel;
- int rdel;
- int width;
- int height;
- int active;
- int num;
-} ENEMY;
+extern ANISPRITE player;
 
 
 void initGame();
@@ -132,36 +117,29 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
-void initBullets();
-void fireBullet();
-void updateBullet(BULLET *);
-void drawBullet(BULLET *, int);
-void initEnemies();
-void updateEnemies();
-void drawEnemies();
-
-
-extern BULLET bullets[5];
-
-
-extern ENEMY enemies[40];
-
-
-extern BULLET enemyBullets[10];
-
-extern int enemyCounter;
 # 3 "game.c" 2
-# 1 "spritesheet2.h" 1
-# 21 "spritesheet2.h"
-extern const unsigned short spritesheet2Tiles[16384];
+# 1 "spritesheet.h" 1
+# 21 "spritesheet.h"
+extern const unsigned short spritesheetTiles[16384];
 
 
-extern const unsigned short spritesheet2Pal[256];
+extern const unsigned short spritesheetPal[256];
 # 4 "game.c" 2
+# 1 "collisionmap.h" 1
+# 20 "collisionmap.h"
+extern const unsigned short collisionmapBitmap[131072];
+# 5 "game.c" 2
 
 
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
+
+
+enum {DOWN, UP, RIGHT, LEFT, IDLE};
+
+
+unsigned short hOff;
+unsigned short vOff;
 
 void initGame() {
 
@@ -178,57 +156,129 @@ void drawGame() {
 
     drawPlayer();
 
+    (*(volatile unsigned short *)0x04000018) = hOff;
+    (*(volatile unsigned short *)0x0400001A) = vOff;
+    (*(volatile unsigned short *)0x04000014) = hOff / 2;
+    (*(volatile unsigned short *)0x04000016) = vOff / 2;
+
     waitForVBlank();
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
 }
 
 void initPlayer() {
 
-    DMANow(3, spritesheet2Pal, ((unsigned short *)0x5000200), 256);
- DMANow(3, spritesheet2Tiles, &((charblock *)0x6000000)[4], 32768 / 2);
+    DMANow(3, spritesheetPal, ((unsigned short *)0x5000200), 256);
+ DMANow(3, spritesheetTiles, &((charblock *)0x6000000)[4], 32768 / 2);
 
     player.width = 16;
     player.height = 16;
     player.cdel = 1;
-    player.row = 135;
-    player.col = 100;
-    player.bulletTimer = 20;
-    player.score = 7;
+    player.rdel = 1;
+
+    player.worldRow = 160/2-player.width/2 + vOff;
+    player.worldCol = 240/2-player.height/2 + hOff;
+    player.aniCounter = 0;
+    player.curFrame = 0;
+    player.numFrames = 3;
+    player.aniState = DOWN;
+    player.hide = 0;
+    player.sheetRow = 0;
+    player.sheetCol = 0;
 }
 
+
 void updatePlayer() {
-    player.cdel = 0;
-    player.rdel = 0;
 
+    int vOffdel = 0;
+    int hOffdel = 0;
 
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
-        if(player.col > 0) {
-            player.cdel = -1;
-        }
-    }
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
-        if(player.col + player.width < 240) {
-            player.cdel = 1;
-        }
-    }
     if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
-        if(player.row > 0) {
-            player.rdel = -1;
+        if (player.screenRow > 0
+        && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol))]
+        && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + player.width - 1))]) {
+            player.worldRow -= 1;
+            if (vOff > 0 && player.screenRow < 80) {
+                vOffdel = -1;
+            }
         }
     }
     if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
-        if(player.row + player.height < 160) {
-            player.rdel = 1;
+        if (player.screenRow + player.height < 320
+        && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol))]
+        && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + player.width - 1))]) {
+            player.worldRow += 1;
+            if (vOff < 512 - 160 && player.screenRow > 80) {
+                vOffdel = 1;
+            }
+        }
+    }
+    vOff += vOffdel;
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
+        if (player.screenCol > 0
+        && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol - 1))]
+        && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol - 1))]) {
+            player.worldCol -=1;
+            if (hOff > 0 && player.screenCol < 120) {
+                hOffdel = -1;
+            }
+        }
+    }
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
+        if (player.screenCol + player.width < 240
+        && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol + player.width))]
+        && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol + player.width))]) {
+            player.worldCol += 1;
+            if (hOff < 256 - 240 && player.screenCol > 120) {
+                hOffdel = 1;
+            }
         }
     }
 
+    hOff += hOffdel;
+    vOff += vOffdel;
 
-    player.col += player.cdel;
-    player.row += player.rdel;
+    player.screenRow = player.worldRow - vOff;
+    player.screenCol = player.worldCol - hOff;
+
+    animatePlayer();
+}
+
+
+void animatePlayer() {
+
+
+    player.prevAniState = player.aniState;
+    player.aniState = IDLE;
+
+
+    if(player.aniCounter % 20 == 0) {
+        player.curFrame = (player.curFrame + 1) % player.numFrames;
+    }
+
+
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6))))
+        player.aniState = UP;
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7))))
+        player.aniState = DOWN;
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5))))
+        player.aniState = LEFT;
+    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4))))
+        player.aniState = RIGHT;
+
+
+    if (player.aniState == IDLE) {
+        player.curFrame = 0;
+        player.aniCounter = 0;
+        player.aniState = player.prevAniState;
+    } else {
+        player.aniCounter++;
+    }
 }
 
 void drawPlayer() {
-    shadowOAM[0].attr0 = player.row | (0<<14) | (0<<13);
-    shadowOAM[0].attr1 = player.col | (1<<14);
-    shadowOAM[0].attr2 = ((0)<<12) | ((0)*32+(0));
+    shadowOAM[0].attr0 = player.screenRow | (0<<14) | (0<<13);
+    shadowOAM[0].attr1 = player.screenCol | (1<<14);
+    shadowOAM[0].attr2 = ((0)<<12) | ((player.sheetRow + player.curFrame * player.height / 8)*32+(player.sheetCol + player.aniState * player.width / 8))
+
+                                                                  ;
 }
