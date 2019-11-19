@@ -410,8 +410,8 @@ void initPieceParents() {
     for (int i = 0; i < 4; i++) {
         pieceParents[i].numOfActiveKids = 4;
         pieceParents[i].selected = 0;
-        pieceParents[i].worldRow = i * 8 + 50;
-        pieceParents[i].worldCol = i * 8 + 50;
+        pieceParents[i].worldRow = i * 2;
+        pieceParents[i].worldCol = i * 2;
         pieceParents[i].rdel = 0;
         pieceParents[i].cdel = 0;
         pieceParents[i].width = 0;
@@ -420,7 +420,7 @@ void initPieceParents() {
         pieceParents[i].sheetRow = 0;
         pieceParents[i].sheetCol = 9 + i;
         pieceParents[i].palRow = 0;
-        pieceParents[i].num = i;
+        pieceParents[i].num = i * 10;
 
         initPieceKids(&pieceParents[i]);
     }
@@ -428,10 +428,12 @@ void initPieceParents() {
 
 void drawPieceParent(pieceParent* pp) {
     for (int i = 0; i < pp->numOfActiveKids; i++) {
-        shadowOAM[pp->kids[i].spriteNum].attr0 = pp->kids[i].rowOffset + pp->screenRow | (0<<14) | (0<<13);
-        shadowOAM[pp->kids[i].spriteNum].attr1 = pp->kids[i].colOffset + pp->screenCol | (0<<14);
+        if(pp->kids[i].spriteNum > 29){
+        shadowOAM[pp->kids[i].spriteNum].attr0 = pp->kids[i].rowOffset * 8 + pp->screenRow | (0<<14) | (0<<13);
+        shadowOAM[pp->kids[i].spriteNum].attr1 = pp->kids[i].colOffset * 8 + pp->screenCol | (0<<14);
         shadowOAM[pp->kids[i].spriteNum].attr2 = ((pp->palRow)<<12) | ((pp->sheetRow)*32+(pp->sheetCol))
                                        ;
+        }
     }
 }
 
@@ -443,12 +445,12 @@ void updatePieceParent(pieceParent* pp) {
 void initPieceKids(pieceParent* pp) {
     for (int i = 0; i < pp->numOfActiveKids; i++) {
         pp->kids[i].rowOffset = i;
-        pp->kids[i].colOffset = 0;
+        pp->kids[i].colOffset = i;
         pp->kids[i].rdel = 0;
         pp->kids[i].cdel = 0;
         pp->kids[i].width = 8;
         pp->kids[i].height = 8;
         pp->kids[i].hide = 0;
-        pp->kids[i].spriteNum = (pp->num + 3) * 10 + i;
+        pp->kids[i].spriteNum = pp->num + i;
     }
 }
