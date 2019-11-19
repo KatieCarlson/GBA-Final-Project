@@ -1,20 +1,18 @@
 #include "myLib.h"
 #include "game.h"
 #include "STATE_start.h"
-#include "STATE_game.h"
+#include "STATE_instructions.h"
 #include "STATE_pause.h"
 #include "STATE_win.h"
-#include "STATE_lose.h"
 #include "city.h"
 #include "clocktower.h"
 
 // States
-enum {START, GAME, PAUSE, WIN};
+enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 
 // Prototypes
 void initialize();
-
 void goToStart();
 void start();
 void goToGame();
@@ -51,6 +49,9 @@ int main() {
             case START:
                 start();
                 break;
+            case INSTRUCTIONS:
+                instructions();
+                break;
             case GAME:
                 game();
                 break;
@@ -74,13 +75,13 @@ void initialize() {
 
     REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_4BPP | BG_SIZE_SMALL;
 
-    REG_BG1CNT = BG_CHARBLOCK(1) | BG_SCREENBLOCK(27) | BG_4BPP | BG_SIZE_TALL;
-	DMANow(3, cityTiles, &CHARBLOCK[1], cityTilesLen / 2);
-    DMANow(3, cityMap, &SCREENBLOCK[27], cityMapLen / 2);
-
-    REG_BG2CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_4BPP | BG_SIZE_TALL;
+    REG_BG1CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_4BPP | BG_SIZE_TALL;
     DMANow(3, clocktowerTiles, &CHARBLOCK[0], clocktowerTilesLen / 2);
     DMANow(3, clocktowerMap, &SCREENBLOCK[29], clocktowerMapLen / 2);
+
+    REG_BG2CNT = BG_CHARBLOCK(1) | BG_SCREENBLOCK(27) | BG_4BPP | BG_SIZE_TALL;
+	DMANow(3, cityTiles, &CHARBLOCK[1], cityTilesLen / 2);
+    DMANow(3, cityMap, &SCREENBLOCK[27], cityMapLen / 2);
 
     initGame();
     goToStart();
@@ -90,8 +91,19 @@ void start() {
 
     seed++;
 
-    if (BUTTON_PRESSED(BUTTON_START)) {
+    if (BUTTON_PRESSED(BUTTON_A)) {
         srand(seed);
+        goToGame();
+    }
+    if (BUTTON_PRESSED(BUTTON_B)) {
+        srand(seed);
+        goToInstructions();
+    }
+}
+
+void instructions() {
+
+    if (BUTTON_PRESSED(BUTTON_START)) {
         goToGame();
         initGame();
     }
@@ -125,6 +137,9 @@ void win() {
 void goToStart() {
     
     hideSprites();
+    REG_DISPCTL |= BG0_ENABLE;
+    REG_BG0HOFF = 0;
+    REG_BG0VOFF = 0;
 
     DMANow(3, STATE_startPal, PALETTE, STATE_startPalLen / 2);
     DMANow(3, STATE_startTiles, &CHARBLOCK[2], STATE_startTilesLen / 2);
@@ -134,10 +149,26 @@ void goToStart() {
     seed = 0;
 }
 
+void goToInstructions() {
+    
+    hideSprites();
+    REG_DISPCTL |= BG0_ENABLE;
+    REG_BG0HOFF = 0;
+    REG_BG0VOFF = 0;
+
+    DMANow(3, STATE_instructionsPal, PALETTE, STATE_instructionsPalLen / 2);
+    DMANow(3, STATE_instructionsTiles, &CHARBLOCK[2], STATE_instructionsTilesLen / 2);
+    DMANow(3, STATE_instructionsMap, &SCREENBLOCK[31], STATE_instructionsMapLen / 2);
+    DMANow(3, shadowOAM, OAM, 128 * 4);
+    state = INSTRUCTIONS;
+}
+
 void goToGame() {
 
     hideSprites();
     DMANow(3, clocktowerPal, PALETTE, 256);
+
+    REG_DISPCTL = MODE0 | BG1_ENABLE | BG2_ENABLE | SPRITE_ENABLE;
 
     state = GAME;
 }
@@ -145,6 +176,7 @@ void goToGame() {
 void goToPause() {
 
     hideSprites();
+    REG_DISPCTL |= BG0_ENABLE;\
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     DMANow(3, STATE_pausePal, PALETTE, STATE_pausePalLen / 2);
@@ -156,6 +188,7 @@ void goToPause() {
 void goToWin() {
 
     hideSprites();
+    REG_DISPCTL |= BG0_ENABLE;
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     DMANow(3, STATE_winPal, PALETTE, STATE_winPalLen / 2);

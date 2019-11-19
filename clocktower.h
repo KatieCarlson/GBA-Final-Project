@@ -6,10 +6,10 @@
 //	clocktower, 256x512@4, 
 //	+ palette 256 entries, not compressed
 //	+ 12 tiles (t|f|p reduced) not compressed
-//	+ regular map (in SBBs), not compressed, 32x64 
+//	+ regular map (flat), not compressed, 32x64 
 //	Total size: 512 + 384 + 4096 = 4992
 //
-//	Time-stamp: 2019-11-12, 21:52:41
+//	Time-stamp: 2019-11-18, 14:21:35
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //

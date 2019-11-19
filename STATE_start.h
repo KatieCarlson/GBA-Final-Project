@@ -5,11 +5,11 @@
 //
 //	STATE_start, 256x256@4, 
 //	+ palette 256 entries, not compressed
-//	+ 480 tiles (t|f|p reduced) not compressed
+//	+ 134 tiles (t|f|p reduced) not compressed
 //	+ regular map (in SBBs), not compressed, 32x32 
-//	Total size: 512 + 15360 + 2048 = 17920
+//	Total size: 512 + 4288 + 2048 = 6848
 //
-//	Time-stamp: 2019-10-24, 17:24:24
+//	Time-stamp: 2019-11-14, 16:59:37
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_STATE_START_H
 #define GRIT_STATE_START_H
 
-#define STATE_startTilesLen 15360
-extern const unsigned short STATE_startTiles[7680];
+#define STATE_startTilesLen 4288
+extern const unsigned short STATE_startTiles[2144];
 
 #define STATE_startMapLen 2048
 extern const unsigned short STATE_startMap[1024];

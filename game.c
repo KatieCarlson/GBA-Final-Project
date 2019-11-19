@@ -6,6 +6,16 @@
 // Variables
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
+boardSquare board[BOARDSQUARECOUNT];
+pieceParent pieceParents[PIECEPARENTCOUNT];
+
+/* Sprites
+Player = 0
+BoardSquares = 1 - 29
+PieceKids = parentsNum * 10
+*/
+
+int boardSpriteNumStart = 1;
 
 // Animation states for player
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -17,22 +27,38 @@ unsigned short vOff;
 void initGame() {
 
     initPlayer();
+    initBoard();
+    initPieceParents();
 
 }
 
 void updateGame() {
 
 	updatePlayer();
+
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
+		updateBoardSquare(&board[i]);
+	}
+    for (int i = 0; i < PIECEPARENTCOUNT; i++) {
+		updatePieceParent(&pieceParents[i]);
+	}
 }
 
 void drawGame() {
 
     drawPlayer();
 
-    REG_BG2HOFF = hOff;
-    REG_BG2VOFF = vOff;
-    REG_BG1HOFF = hOff / 2;
-    REG_BG1VOFF = vOff / 2;
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
+		drawBoardSquare(&board[i]);
+	}
+    for (int i = 0; i < PIECEPARENTCOUNT; i++) {
+		drawPieceParent(&pieceParents[i]);
+	}
+
+    REG_BG1HOFF = hOff;
+    REG_BG1VOFF = vOff;
+    REG_BG2HOFF = hOff / 2;
+    REG_BG2VOFF = vOff / 2;
 
     waitForVBlank();
     DMANow(3, shadowOAM, OAM, 128 * 4);
@@ -57,6 +83,7 @@ void initPlayer() {
     player.hide = 0;
     player.sheetRow = 0;
     player.sheetCol = 0;
+    player.palRow = 1;
 }
 
 // Handle every-frame actions of the player
@@ -151,7 +178,87 @@ void animatePlayer() {
 void drawPlayer() {
     shadowOAM[0].attr0 = player.screenRow | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[0].attr1 = player.screenCol | ATTR1_SMALL;
-    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(
+    shadowOAM[0].attr2 = ATTR2_PALROW(player.palRow) | ATTR2_TILEID(
             player.sheetCol + player.aniState * player.width / 8, 
             player.sheetRow + player.curFrame * player.height / 8);
+}
+
+void initBoard() {
+    int tempBoardVals [10] = {42, 17, 42, 18, 43, 17, 43, 18, 44, 17};
+
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
+        board[i].worldRow = tempBoardVals[i * 2];
+        board[i].worldCol = tempBoardVals[i * 2 + 1];
+        board[i].rdel = 0;
+        board[i].cdel = 0;
+        board[i].width = 8;
+        board[i].height = 8;
+        board[i].hide = 0;
+        board[i].sheetRow = 1;
+        board[i].sheetCol = 8;
+        board[i].palRow = 0;
+        board[i].spriteNum = i + boardSpriteNumStart;
+    }
+
+}
+
+void drawBoardSquare(boardSquare* bs) {
+    shadowOAM[bs->spriteNum].attr0 = bs->screenRow | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[bs->spriteNum].attr1 = bs->screenCol | ATTR1_TINY;
+    shadowOAM[bs->spriteNum].attr2 = ATTR2_PALROW(bs->palRow) | ATTR2_TILEID(
+        bs->sheetCol, bs->sheetRow);
+}
+
+void updateBoardSquare(boardSquare* bs) {
+
+    bs->screenRow = bs->worldRow * 8 - vOff;
+    bs->screenCol = bs->worldCol * 8 - hOff;
+
+}
+
+void initPieceParents() {
+    for (int i = 0; i < PIECEPARENTCOUNT; i++) {
+        pieceParents[i].numOfActiveKids = 4;
+        pieceParents[i].selected = 0;
+        pieceParents[i].worldRow = i * 8 + 50;
+        pieceParents[i].worldCol = i * 8 + 50;
+        pieceParents[i].rdel = 0;
+        pieceParents[i].cdel = 0;
+        pieceParents[i].width = 0;
+        pieceParents[i].height = 0;
+        pieceParents[i].hide = 0;
+        pieceParents[i].sheetRow = 0;
+        pieceParents[i].sheetCol = 9 + i;
+        pieceParents[i].palRow = 0;
+        pieceParents[i].num = i;
+
+        initPieceKids(&pieceParents[i]);
+    }
+}
+
+void drawPieceParent(pieceParent* pp) {
+    for (int i = 0; i < pp->numOfActiveKids; i++) {
+        shadowOAM[pp->kids[i].spriteNum].attr0 = pp->kids[i].rowOffset + pp->screenRow | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[pp->kids[i].spriteNum].attr1 = pp->kids[i].colOffset + pp->screenCol | ATTR1_TINY;
+        shadowOAM[pp->kids[i].spriteNum].attr2 = ATTR2_PALROW(pp->palRow) | ATTR2_TILEID(
+            pp->sheetCol, pp->sheetRow);
+    }
+}
+
+void updatePieceParent(pieceParent* pp) {
+    pp->screenRow = pp->worldRow * 8 - vOff;
+    pp->screenCol = pp->worldCol * 8 - hOff;
+}
+
+void initPieceKids(pieceParent* pp) {
+    for (int i = 0; i < pp->numOfActiveKids; i++) {
+        pp->kids[i].rowOffset = i;
+        pp->kids[i].colOffset = 0;
+        pp->kids[i].rdel = 0;
+        pp->kids[i].cdel = 0;
+        pp->kids[i].width = 8;
+        pp->kids[i].height = 8;
+        pp->kids[i].hide = 0;
+        pp->kids[i].spriteNum = (pp->num + 3) * 10 + i;
+    }
 }

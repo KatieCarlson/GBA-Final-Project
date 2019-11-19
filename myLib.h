@@ -181,6 +181,7 @@ typedef struct {
     int hide;
     int sheetRow;
     int sheetCol;
+    int palRow;
 } ANISPRITE;
 
 // ================================== INPUT ===================================

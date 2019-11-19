@@ -79,11 +79,12 @@ typedef struct {
     int hide;
     int sheetRow;
     int sheetCol;
+    int palRow;
 } ANISPRITE;
-# 204 "myLib.h"
+# 205 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 215 "myLib.h"
+# 216 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -92,7 +93,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 255 "myLib.h"
+# 256 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
@@ -106,8 +107,63 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 
+
+
+typedef struct {
+    int rowOffset;
+    int colOffset;
+    int rdel;
+    int cdel;
+    int width;
+    int height;
+    int hide;
+    int sheetRow;
+    int sheetCol;
+    int palRow;
+    int spriteNum;
+} pieceKid;
+
+typedef struct {
+    int numOfActiveKids;
+    int selected;
+
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
+    int rdel;
+    int cdel;
+    int width;
+    int height;
+    int hide;
+    int sheetRow;
+    int sheetCol;
+    int palRow;
+    int num;
+
+    pieceKid kids[];
+} pieceParent;
+
+typedef struct {
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
+    int rdel;
+    int cdel;
+    int width;
+    int height;
+    int hide;
+    int sheetRow;
+    int sheetCol;
+    int palRow;
+    int spriteNum;
+} boardSquare;
+
+
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
+extern boardSquare board[5];
 
 
 void initGame();
@@ -117,10 +173,17 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
+void initBoard();
+void drawBoardSquare();
+void updateBoardSquare();
+void initPieceParents();
+void drawPieceParent();
+void updatePieceParent();
+void initPieceKids();
 # 3 "main.c" 2
 # 1 "STATE_start.h" 1
 # 22 "STATE_start.h"
-extern const unsigned short STATE_startTiles[7680];
+extern const unsigned short STATE_startTiles[2144];
 
 
 extern const unsigned short STATE_startMap[1024];
@@ -128,19 +191,19 @@ extern const unsigned short STATE_startMap[1024];
 
 extern const unsigned short STATE_startPal[256];
 # 4 "main.c" 2
-# 1 "STATE_game.h" 1
-# 22 "STATE_game.h"
-extern const unsigned short STATE_gameTiles[9552];
+# 1 "STATE_instructions.h" 1
+# 22 "STATE_instructions.h"
+extern const unsigned short STATE_instructionsTiles[1600];
 
 
-extern const unsigned short STATE_gameMap[1024];
+extern const unsigned short STATE_instructionsMap[1024];
 
 
-extern const unsigned short STATE_gamePal[256];
+extern const unsigned short STATE_instructionsPal[256];
 # 5 "main.c" 2
 # 1 "STATE_pause.h" 1
 # 22 "STATE_pause.h"
-extern const unsigned short STATE_pauseTiles[8352];
+extern const unsigned short STATE_pauseTiles[1536];
 
 
 extern const unsigned short STATE_pauseMap[1024];
@@ -150,7 +213,7 @@ extern const unsigned short STATE_pausePal[256];
 # 6 "main.c" 2
 # 1 "STATE_win.h" 1
 # 22 "STATE_win.h"
-extern const unsigned short STATE_winTiles[2720];
+extern const unsigned short STATE_winTiles[1104];
 
 
 extern const unsigned short STATE_winMap[1024];
@@ -158,16 +221,6 @@ extern const unsigned short STATE_winMap[1024];
 
 extern const unsigned short STATE_winPal[256];
 # 7 "main.c" 2
-# 1 "STATE_lose.h" 1
-# 22 "STATE_lose.h"
-extern const unsigned short STATE_loseTiles[2896];
-
-
-extern const unsigned short STATE_loseMap[1024];
-
-
-extern const unsigned short STATE_losePal[256];
-# 8 "main.c" 2
 # 1 "city.h" 1
 # 22 "city.h"
 extern const unsigned short cityTiles[48];
@@ -177,7 +230,7 @@ extern const unsigned short cityMap[2048];
 
 
 extern const unsigned short cityPal[256];
-# 9 "main.c" 2
+# 8 "main.c" 2
 # 1 "clocktower.h" 1
 # 22 "clocktower.h"
 extern const unsigned short clocktowerTiles[192];
@@ -187,15 +240,14 @@ extern const unsigned short clocktowerMap[2048];
 
 
 extern const unsigned short clocktowerPal[256];
-# 10 "main.c" 2
+# 9 "main.c" 2
 
 
-enum {START, GAME, PAUSE, WIN};
+enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 
 
 void initialize();
-
 void goToStart();
 void start();
 void goToGame();
@@ -232,6 +284,9 @@ int main() {
             case START:
                 start();
                 break;
+            case INSTRUCTIONS:
+                instructions();
+                break;
             case GAME:
                 game();
                 break;
@@ -255,13 +310,13 @@ void initialize() {
 
     (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (0<<7) | (0<<14);
 
-    (*(volatile unsigned short*)0x400000A) = ((1)<<2) | ((27)<<8) | (0<<7) | (2<<14);
- DMANow(3, cityTiles, &((charblock *)0x6000000)[1], 96 / 2);
-    DMANow(3, cityMap, &((screenblock *)0x6000000)[27], 4096 / 2);
-
-    (*(volatile unsigned short*)0x400000C) = ((0)<<2) | ((29)<<8) | (0<<7) | (2<<14);
+    (*(volatile unsigned short*)0x400000A) = ((0)<<2) | ((29)<<8) | (0<<7) | (2<<14);
     DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 384 / 2);
     DMANow(3, clocktowerMap, &((screenblock *)0x6000000)[29], 4096 / 2);
+
+    (*(volatile unsigned short*)0x400000C) = ((1)<<2) | ((27)<<8) | (0<<7) | (2<<14);
+ DMANow(3, cityTiles, &((charblock *)0x6000000)[1], 96 / 2);
+    DMANow(3, cityMap, &((screenblock *)0x6000000)[27], 4096 / 2);
 
     initGame();
     goToStart();
@@ -271,8 +326,19 @@ void start() {
 
     seed++;
 
-    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
+    if ((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0))))) {
         srand(seed);
+        goToGame();
+    }
+    if ((!(~(oldButtons)&((1<<1))) && (~buttons & ((1<<1))))) {
+        srand(seed);
+        goToInstructions();
+    }
+}
+
+void instructions() {
+
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
         goToGame();
         initGame();
     }
@@ -306,13 +372,30 @@ void win() {
 void goToStart() {
 
     hideSprites();
+    (*(unsigned short *)0x4000000) |= (1<<8);
+    (*(volatile unsigned short *)0x04000010) = 0;
+    (*(volatile unsigned short *)0x04000012) = 0;
 
     DMANow(3, STATE_startPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 15360 / 2);
+    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 4288 / 2);
     DMANow(3, STATE_startMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = START;
     seed = 0;
+}
+
+void goToInstructions() {
+
+    hideSprites();
+    (*(unsigned short *)0x4000000) |= (1<<8);
+    (*(volatile unsigned short *)0x04000010) = 0;
+    (*(volatile unsigned short *)0x04000012) = 0;
+
+    DMANow(3, STATE_instructionsPal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_instructionsTiles, &((charblock *)0x6000000)[2], 3200 / 2);
+    DMANow(3, STATE_instructionsMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+    state = INSTRUCTIONS;
 }
 
 void goToGame() {
@@ -320,16 +403,19 @@ void goToGame() {
     hideSprites();
     DMANow(3, clocktowerPal, ((unsigned short *)0x5000000), 256);
 
+    (*(unsigned short *)0x4000000) = 0 | (1<<9) | (1<<10) | (1<<12);
+
     state = GAME;
 }
 
 void goToPause() {
 
     hideSprites();
+    (*(unsigned short *)0x4000000) |= (1<<8);
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     DMANow(3, STATE_pausePal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[2], 16704 / 2);
+    DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[2], 3072 / 2);
     DMANow(3, STATE_pauseMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     state = PAUSE;
 }
@@ -337,10 +423,11 @@ void goToPause() {
 void goToWin() {
 
     hideSprites();
+    (*(unsigned short *)0x4000000) |= (1<<8);
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     DMANow(3, STATE_winPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[2], 5440 / 2);
+    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[2], 2208 / 2);
     DMANow(3, STATE_winMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     state = WIN;
 }

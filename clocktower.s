@@ -1600,51 +1600,19 @@ clocktowerMap:
 	.short	3
 	.short	3
 	.short	3
-	.short	4
-	.short	5
-	.short	6
-	.short	5
-	.short	1028
 	.short	3
 	.short	3
 	.short	3
-	.short	4
-	.short	5
-	.short	6
-	.short	5
-	.short	1028
 	.short	3
 	.short	3
 	.short	3
-	.short	1
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	1
 	.short	3
 	.short	3
 	.short	3
-	.short	7
-	.short	0
-	.short	8
-	.short	0
-	.short	1031
 	.short	3
 	.short	3
 	.short	3
-	.short	7
-	.short	0
-	.short	8
-	.short	0
-	.short	1031
+	.short	3
 	.short	3
 	.short	3
 	.short	3
@@ -1664,51 +1632,19 @@ clocktowerMap:
 	.short	3
 	.short	3
 	.short	3
-	.short	9
-	.short	10
-	.short	11
-	.short	10
-	.short	1033
 	.short	3
 	.short	3
 	.short	3
-	.short	9
-	.short	10
-	.short	11
-	.short	10
-	.short	1033
 	.short	3
 	.short	3
 	.short	3
-	.short	1
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	1
 	.short	3
 	.short	3
 	.short	3
-	.short	7
-	.short	0
-	.short	8
-	.short	0
-	.short	1031
 	.short	3
 	.short	3
 	.short	3
-	.short	7
-	.short	0
-	.short	8
-	.short	0
-	.short	1031
+	.short	3
 	.short	3
 	.short	3
 	.short	3
@@ -1728,19 +1664,83 @@ clocktowerMap:
 	.short	3
 	.short	3
 	.short	3
-	.short	2052
-	.short	2053
-	.short	2054
-	.short	2053
-	.short	3076
 	.short	3
 	.short	3
 	.short	3
-	.short	2052
-	.short	2053
-	.short	2054
-	.short	2053
-	.short	3076
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	1
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	1
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	1
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	1
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
+	.short	3
 	.short	3
 	.short	3
 	.short	3

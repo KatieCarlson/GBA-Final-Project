@@ -79,11 +79,12 @@ typedef struct {
     int hide;
     int sheetRow;
     int sheetCol;
+    int palRow;
 } ANISPRITE;
-# 204 "myLib.h"
+# 205 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 215 "myLib.h"
+# 216 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -92,7 +93,7 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 255 "myLib.h"
+# 256 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
 
 
