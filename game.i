@@ -962,7 +962,8 @@ typedef struct {
 
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
-extern boardSquare board[16];
+extern boardSquare board[4];
+extern int fitted;
 
 
 void initGame();
@@ -995,7 +996,7 @@ extern const unsigned short collisionmapBitmap[131072];
 
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
-boardSquare board[16];
+boardSquare board[4];
 pieceParent pieceParents[4];
 
 
@@ -1004,9 +1005,10 @@ pieceParent pieceParents[4];
 
 
 
-int boardSpriteNumStart = 1;
+int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
+int fitted;
 
 
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -1016,6 +1018,8 @@ unsigned short hOff;
 unsigned short vOff;
 
 void initGame() {
+
+    fitted = 1;
 
     initPlayer();
     initBoard();
@@ -1027,7 +1031,7 @@ void updateGame() {
 
  updatePlayer();
 
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 4; i++) {
   updateBoardSquare(&board[i]);
  }
     for (int i = 0; i < 4; i++) {
@@ -1039,7 +1043,7 @@ void drawGame() {
 
     drawPlayer();
 
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 4; i++) {
   drawBoardSquare(&board[i]);
  }
     for (int i = 0; i < 4; i++) {
@@ -1138,16 +1142,32 @@ void updatePlayer() {
 
     if((!(~(oldButtons)&((1<<1))) && (~buttons & ((1<<1))))){
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
-                int r = pieceParents[i].worldRow + pieceParents->kids[j].rowOffset;
-                int c = pieceParents[i].worldCol + pieceParents->kids[j].colOffset;
-                if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
-                    if (pieceParents[i].selected) {
-                        pieceParents[i].selected = 0;
-                    } else {
+            if (pieceParents[i].selected == 0) {
+                for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
+                    int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
+                    int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
+                    if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
                         pieceParents[i].selected = 1;
                     }
                 }
+            } else {
+                pieceParents[i].selected = 0;
+                pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
+                pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
+
+                if ((pieceParents[i].worldCol + pieceParents[i].kids[0].colOffset) * 8 + pieceParents[i].hOffset == 17 * 8
+                 && (pieceParents[i].worldRow + pieceParents[i].kids[0].rowOffset) * 8 + pieceParents[i].vOffset == 42 * 8) {
+                    fitted = 0;
+                }
+
+                for (int x = 0; x < 4; x++) {
+                    for (int j = 0; j < pieceParents[x].numOfActiveKids; j++) {
+                  if (board[x].worldCol == (pieceParents[j].worldCol + pieceParents[i].kids[j].colOffset) + pieceParents[j].hOffset
+                         && board[x].worldRow == (pieceParents[j].worldRow + pieceParents[i].kids[j].rowOffset) + pieceParents[j].vOffset){
+                            fitted = 0;
+                        }
+                    }
+             }
             }
         }
     }
@@ -1199,12 +1219,14 @@ void drawPlayer() {
 }
 
 void initBoard() {
-    int tempBoardVals [32] = {42, 17, 42, 18, 42, 19, 42, 20,
-                              43, 17, 43, 18, 43, 19, 43, 20,
-                              44, 17, 44, 18, 44, 19, 44, 20,
-                              45, 17, 45, 18, 45, 19, 45, 20};
 
-    for (int i = 0; i < 16; i++) {
+
+
+
+
+    int tempBoardVals [8] = {42, 17, 43, 17, 44, 17, 45, 17};
+
+    for (int i = 0; i < 4; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
         board[i].worldCol = tempBoardVals[i * 2 + 1];
         board[i].rdel = 0;

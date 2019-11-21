@@ -545,44 +545,41 @@ game:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	push	{r4, lr}
-	ldr	r3, .L83
-	ldr	r4, .L83+4
+	ldr	r3, .L80
 	mov	lr, pc
 	bx	r3
-	ldr	r3, .L83+8
+	ldr	r3, .L80+4
 	mov	lr, pc
 	bx	r3
-	ldrh	r3, [r4]
+	ldr	r3, .L80+8
+	ldrh	r3, [r3]
 	tst	r3, #8
 	beq	.L72
-	ldr	r2, .L83+12
-	ldrh	r2, [r2]
-	tst	r2, #8
-	beq	.L81
-.L72:
-	tst	r3, #1
-	beq	.L71
-	ldr	r3, .L83+12
+	ldr	r3, .L80+12
 	ldrh	r3, [r3]
-	tst	r3, #1
-	beq	.L82
-.L71:
+	tst	r3, #8
+	beq	.L78
+.L72:
+	ldr	r3, .L80+16
+	ldr	r3, [r3]
+	cmp	r3, #0
+	beq	.L79
 	pop	{r4, lr}
 	bx	lr
-.L82:
+.L79:
 	pop	{r4, lr}
 	b	goToWin
-.L81:
+.L78:
 	bl	goToPause
-	ldrh	r3, [r4]
 	b	.L72
-.L84:
+.L81:
 	.align	2
-.L83:
+.L80:
 	.word	updateGame
-	.word	oldButtons
 	.word	drawGame
+	.word	oldButtons
 	.word	buttons
+	.word	fitted
 	.size	game, .-game
 	.section	.text.startup,"ax",%progbits
 	.align	2
@@ -597,18 +594,18 @@ main:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	push	{r4, r7, fp, lr}
-	ldr	r3, .L101
+	ldr	r3, .L98
 	mov	lr, pc
 	bx	r3
-	ldr	fp, .L101+4
-	ldr	r5, .L101+8
-	ldr	r10, .L101+12
-	ldr	r8, .L101+16
-	ldr	r9, .L101+20
-	ldr	r7, .L101+24
-	ldr	r6, .L101+28
-	ldr	r4, .L101+32
-.L86:
+	ldr	fp, .L98+4
+	ldr	r5, .L98+8
+	ldr	r10, .L98+12
+	ldr	r8, .L98+16
+	ldr	r9, .L98+20
+	ldr	r7, .L98+24
+	ldr	r6, .L98+28
+	ldr	r4, .L98+32
+.L83:
 	ldrh	r0, [fp]
 	strh	r0, [r5]	@ movhi
 	ldr	r2, [r10]
@@ -616,43 +613,43 @@ main:
 	strh	r3, [fp]	@ movhi
 	cmp	r2, #4
 	ldrls	pc, [pc, r2, asl #2]
-	b	.L86
-.L89:
+	b	.L83
+.L86:
+	.word	.L85
+	.word	.L87
 	.word	.L88
+	.word	.L89
 	.word	.L90
-	.word	.L91
-	.word	.L92
-	.word	.L93
-.L93:
-	tst	r0, #8
-	beq	.L86
-	tst	r3, #8
-	bne	.L86
-	ldr	r3, .L101+36
-	mov	lr, pc
-	bx	r3
-	b	.L86
-.L92:
-	mov	lr, pc
-	bx	r6
-	b	.L86
 .L90:
 	tst	r0, #8
-	beq	.L86
+	beq	.L83
+	tst	r3, #8
+	bne	.L83
+	ldr	r3, .L98+36
+	mov	lr, pc
+	bx	r3
+	b	.L83
+.L89:
+	mov	lr, pc
+	bx	r6
+	b	.L83
+.L87:
+	tst	r0, #8
+	beq	.L83
 	mov	lr, pc
 	bx	r9
-	b	.L86
-.L88:
+	b	.L83
+.L85:
 	mov	lr, pc
 	bx	r8
-	b	.L86
-.L91:
+	b	.L83
+.L88:
 	mov	lr, pc
 	bx	r7
-	b	.L86
-.L102:
+	b	.L83
+.L99:
 	.align	2
-.L101:
+.L98:
 	.word	initialize
 	.word	buttons
 	.word	oldButtons

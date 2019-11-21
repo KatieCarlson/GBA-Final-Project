@@ -7,6 +7,26 @@
 #include "city.h"
 #include "clocktower.h"
 
+/*
+What is finished about the game so far:
+Picking up pieces mostly works, the game ends if you cover the game board
+The backgrounds now work
+
+What still needs to be added:
+More complex pieces and board
+Turning pieces with wind
+
+Any bugs that you have found:
+It takes a couple tries to pick up a piece, and it seems like
+you have to put the player's top left pixel in the middle of the piece to make it work
+
+How to play the game in itscurrent state :
+Move with arrow keys, pick up a block with the 'B' key.  The block you are picking up is the one
+directly underneath the top left corner of the player
+Move the block so that it covers the 'board' that has white outlines to win
+
+*/
+
 // States
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
@@ -118,7 +138,7 @@ void game() {
 
     if (BUTTON_PRESSED(BUTTON_START))
         goToPause();
-    if (BUTTON_PRESSED(BUTTON_A)) {
+    if (fitted == 0) {
         goToWin();
     }
 }

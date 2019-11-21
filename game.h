@@ -1,7 +1,7 @@
 // Constants
 #define MAPHEIGHT 512
 #define MAPWIDTH 256
-#define BOARDSQUARECOUNT 16
+#define BOARDSQUARECOUNT 4
 #define PIECEPARENTCOUNT 4
 
 // Sprites for puzzle pieces
@@ -62,6 +62,7 @@ typedef struct {
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
 extern boardSquare board[BOARDSQUARECOUNT];
+extern int fitted;
 
 // Prototypes
 void initGame();

@@ -962,7 +962,8 @@ typedef struct {
 
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
-extern boardSquare board[16];
+extern boardSquare board[4];
+extern int fitted;
 
 
 void initGame();
@@ -1152,7 +1153,7 @@ void game() {
 
     if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
         goToPause();
-    if ((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0))))) {
+    if (fitted == 0) {
         goToWin();
     }
 }
