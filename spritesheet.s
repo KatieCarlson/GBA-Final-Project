@@ -19,13 +19,13 @@ spritesheetPal:
 	.short	32736
 	.short	29596
 	.short	832
-	.short	768
+	.short	704
 	.short	13791
-	.short	11677
+	.short	9563
 	.short	24384
-	.short	22272
+	.short	20160
 	.short	799
-	.short	733
+	.short	667
 	.short	0
 	.short	0
 	.short	0

@@ -15,6 +15,8 @@ int state;
 void initialize();
 void goToStart();
 void start();
+void goToInstructions();
+void instructions();
 void goToGame();
 void game();
 void goToPause();

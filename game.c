@@ -16,6 +16,8 @@ PieceKids = parentsNum * 10
 */
 
 int boardSpriteNumStart = 1;
+int vselDel;
+int hselDel;
 
 // Animation states for player
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -92,11 +94,15 @@ void updatePlayer() {
     int vOffdel = 0;
     int hOffdel = 0;
 
+    vselDel = 0;
+    hselDel = 0;
+
     if(BUTTON_HELD(BUTTON_UP)) {
         if (player.screenRow > 0 
         && collisionmapBitmap[OFFSET(player.worldCol, player.worldRow - 1, 256)]
         && collisionmapBitmap[OFFSET(player.worldCol + player.width - 1, player.worldRow - 1, 256)]) {
             player.worldRow -= 1;
+            vselDel = -1;
             if (vOff > 0 && player.screenRow < 80) {
                 vOffdel = -1;
             }
@@ -107,6 +113,7 @@ void updatePlayer() {
         && collisionmapBitmap[OFFSET(player.worldCol, player.worldRow + player.height, 256)]
         && collisionmapBitmap[OFFSET(player.worldCol + player.width - 1, player.worldRow + player.height, 256)]) {
             player.worldRow += 1;
+            vselDel = 1;
             if (vOff < 512 - 160 && player.screenRow > 80) {
                 vOffdel = 1;
             }
@@ -117,7 +124,8 @@ void updatePlayer() {
         if (player.screenCol > 0
         && collisionmapBitmap[OFFSET(player.worldCol - 1, player.worldRow, 256)]
         && collisionmapBitmap[OFFSET(player.worldCol - 1, player.worldRow + player.height - 1, 256)]) {
-            player.worldCol -=1;
+            player.worldCol -= 1;
+            hselDel = -1;
             if (hOff > 0 && player.screenCol < 120) {
                 hOffdel = -1;
             }
@@ -128,6 +136,7 @@ void updatePlayer() {
         && collisionmapBitmap[OFFSET(player.worldCol + player.width, player.worldRow, 256)]
         && collisionmapBitmap[OFFSET(player.worldCol + player.width, player.worldRow + player.height - 1, 256)]) {
             player.worldCol += 1;
+            hselDel = 1;
             if (hOff < 256 - 240 && player.screenCol > 120) {
                 hOffdel = 1;
             }
@@ -136,6 +145,23 @@ void updatePlayer() {
 
     hOff += hOffdel;
     vOff += vOffdel;
+
+    // Check for collision with pieces
+    if(BUTTON_PRESSED(BUTTON_B)){
+        for (int i = 0; i < PIECEPARENTCOUNT; i++) {
+            for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
+                int r = pieceParents[i].worldRow + pieceParents->kids[j].rowOffset;
+                int c = pieceParents[i].worldCol + pieceParents->kids[j].colOffset;
+                if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
+                    if (pieceParents[i].selected) {
+                        pieceParents[i].selected = 0;
+                    } else {
+                        pieceParents[i].selected = 1;
+                    }
+                }
+            }
+        }
+    }
 
     player.screenRow = player.worldRow - vOff;
     player.screenCol = player.worldCol - hOff;
@@ -184,7 +210,10 @@ void drawPlayer() {
 }
 
 void initBoard() {
-    int tempBoardVals [10] = {42, 17, 42, 18, 43, 17, 43, 18, 44, 17};
+    int tempBoardVals [32] = {42, 17, 42, 18, 42, 19, 42, 20, 
+                              43, 17, 43, 18, 43, 19, 43, 20, 
+                              44, 17, 44, 18, 44, 19, 44, 20,
+                              45, 17, 45, 18, 45, 19, 45, 20};
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
@@ -210,57 +239,51 @@ void drawBoardSquare(boardSquare* bs) {
 }
 
 void updateBoardSquare(boardSquare* bs) {
-
     bs->screenRow = bs->worldRow * 8 - vOff;
     bs->screenCol = bs->worldCol * 8 - hOff;
-
 }
 
 void initPieceParents() {
     for (int i = 0; i < PIECEPARENTCOUNT; i++) {
         pieceParents[i].numOfActiveKids = 4;
         pieceParents[i].selected = 0;
-        pieceParents[i].worldRow = i * 2;
-        pieceParents[i].worldCol = i * 2;
-        pieceParents[i].rdel = 0;
-        pieceParents[i].cdel = 0;
-        pieceParents[i].width = 0;
-        pieceParents[i].height = 0;
-        pieceParents[i].hide = 0;
+        pieceParents[i].worldRow = 25;
+        pieceParents[i].worldCol = 16 + i;
+        pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
+        pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;
+        pieceParents[i].vOffset = 0;
+        pieceParents[i].hOffset = 0;
         pieceParents[i].sheetRow = 0;
         pieceParents[i].sheetCol = 9 + i;
         pieceParents[i].palRow = 0;
-        pieceParents[i].num = i * 10;
+        pieceParents[i].num = i * 10 + 30;
 
-        initPieceKids(&pieceParents[i]);
+        for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
+            pieceParents[i].kids[j].rowOffset = j;
+            pieceParents[i].kids[j].colOffset = 0;
+            pieceParents[i].kids[j].width = 8;
+            pieceParents[i].kids[j].height = 8;
+            pieceParents[i].kids[j].spriteNum = i * 10 + 30 + j;
+        }
     }
 }
 
 void drawPieceParent(pieceParent* pp) {
     for (int i = 0; i < pp->numOfActiveKids; i++) {
-        if(pp->kids[i].spriteNum > 29){
-        shadowOAM[pp->kids[i].spriteNum].attr0 = pp->kids[i].rowOffset * 8 + pp->screenRow | ATTR0_SQUARE | ATTR0_4BPP;
-        shadowOAM[pp->kids[i].spriteNum].attr1 = pp->kids[i].colOffset * 8 + pp->screenCol | ATTR1_TINY;
-        shadowOAM[pp->kids[i].spriteNum].attr2 = ATTR2_PALROW(pp->palRow) | ATTR2_TILEID(
-            pp->sheetCol, pp->sheetRow);
-        }
+        shadowOAM[pp->kids[i].spriteNum].attr0 = (pp->kids[i].rowOffset * 8 + pp->screenRow) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[pp->kids[i].spriteNum].attr1 = (pp->kids[i].colOffset * 8 + pp->screenCol) | ATTR1_TINY;
+        shadowOAM[pp->kids[i].spriteNum].attr2 = ATTR2_PALROW(pp->palRow) | ATTR2_TILEID(pp->sheetCol, pp->sheetRow);
     }
 }
 
 void updatePieceParent(pieceParent* pp) {
-    pp->screenRow = pp->worldRow * 8 - vOff;
-    pp->screenCol = pp->worldCol * 8 - hOff;
-}
-
-void initPieceKids(pieceParent* pp) {
-    for (int i = 0; i < pp->numOfActiveKids; i++) {
-        pp->kids[i].rowOffset = i;
-        pp->kids[i].colOffset = i;
-        pp->kids[i].rdel = 0;
-        pp->kids[i].cdel = 0;
-        pp->kids[i].width = 8;
-        pp->kids[i].height = 8;
-        pp->kids[i].hide = 0;
-        pp->kids[i].spriteNum = pp->num + i;
+    if (pp->selected == 1) {
+        pp->vOffset += vselDel;
+        pp->hOffset += hselDel;
+        pp->screenRow = pp->worldRow * 8 - vOff + pp->vOffset;
+        pp->screenCol = pp->worldCol * 8 - hOff + pp->hOffset;
+    } else {
+        pp->screenRow = pp->worldRow * 8 - vOff + pp->vOffset;
+        pp->screenCol = pp->worldCol * 8 - hOff + pp->hOffset;
     }
 }

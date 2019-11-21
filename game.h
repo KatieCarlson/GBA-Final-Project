@@ -1,7 +1,7 @@
 // Constants
 #define MAPHEIGHT 512
 #define MAPWIDTH 256
-#define BOARDSQUARECOUNT 5
+#define BOARDSQUARECOUNT 16
 #define PIECEPARENTCOUNT 4
 
 // Sprites for puzzle pieces
@@ -27,6 +27,8 @@ typedef struct {
     int screenCol;
     int worldRow;
     int worldCol;
+    int vOffset;
+    int hOffset;
     int rdel;
     int cdel;
     int width;
@@ -37,7 +39,7 @@ typedef struct {
     int palRow;
     int num;
 
-    pieceKid kids[];
+    pieceKid kids[5];
 } pieceParent;
 
 typedef struct {
