@@ -38,7 +38,7 @@ goToStart:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
-	mov	r3, #2144
+	mov	r3, #16384
 	ldr	r2, .L4+12
 	ldr	r1, .L4+16
 	mov	r0, #3

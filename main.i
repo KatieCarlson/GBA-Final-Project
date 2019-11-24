@@ -983,7 +983,7 @@ void initPieceKids();
 # 3 "main.c" 2
 # 1 "STATE_start.h" 1
 # 22 "STATE_start.h"
-extern const unsigned short STATE_startTiles[2144];
+extern const unsigned short STATE_startTiles[16384];
 
 
 extern const unsigned short STATE_startMap[1024];
@@ -1041,8 +1041,7 @@ extern const unsigned short clocktowerMap[2048];
 
 extern const unsigned short clocktowerPal[256];
 # 9 "main.c" 2
-
-
+# 31 "main.c"
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 
@@ -1179,7 +1178,7 @@ void goToStart() {
     (*(volatile unsigned short *)0x04000012) = 0;
 
     DMANow(3, STATE_startPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 4288 / 2);
+    DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 32768 / 2);
     DMANow(3, STATE_startMap, &((screenblock *)0x6000000)[31], 2048 / 2);
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = START;
