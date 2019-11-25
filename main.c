@@ -6,6 +6,7 @@
 #include "STATE_win.h"
 #include "city.h"
 #include "clocktower.h"
+#include "spritesheet.h"
 
 /*
 What is finished about the game so far:
@@ -30,6 +31,7 @@ Move the block so that it covers the 'board' that has white outlines to win
 // States
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
+int cursor;
 
 // Prototypes
 void initialize();
@@ -90,20 +92,14 @@ int main() {
 // Sets up GBA
 void initialize() {
 
-    REG_DISPCTL = MODE0 | BG0_ENABLE | BG1_ENABLE | BG2_ENABLE | SPRITE_ENABLE;
+    REG_DISPCTL = MODE0 | BG0_ENABLE | SPRITE_ENABLE; // only enable what you use in start first
 
-    // load tile palette
-    DMANow(3, clocktowerPal, PALETTE, 256);
-
-    REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_4BPP | BG_SIZE_SMALL;
-
+    // 4bpp for the bg1 and 2 because they use 16 colors or less in their palettes
     REG_BG1CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_4BPP | BG_SIZE_TALL;
-    DMANow(3, clocktowerTiles, &CHARBLOCK[0], clocktowerTilesLen / 2);
-    DMANow(3, clocktowerMap, &SCREENBLOCK[29], clocktowerMapLen / 2);
-
     REG_BG2CNT = BG_CHARBLOCK(1) | BG_SCREENBLOCK(27) | BG_4BPP | BG_SIZE_TALL;
-	DMANow(3, cityTiles, &CHARBLOCK[1], cityTilesLen / 2);
-    DMANow(3, cityMap, &SCREENBLOCK[27], cityMapLen / 2);
+
+    DMANow(3, spritesheetPal, SPRITEPALETTE, 256);
+	DMANow(3, spritesheetTiles, &CHARBLOCK[4], spritesheetTilesLen / 2);
 
     initGame();
     goToStart();
@@ -113,13 +109,39 @@ void start() {
 
     seed++;
 
-    if (BUTTON_PRESSED(BUTTON_A)) {
-        srand(seed);
-        goToGame();
+    if (BUTTON_PRESSED(BUTTON_UP)) {
+        if (cursor) {
+            cursor = 0;
+        } else {
+            cursor = 1;
+        }
     }
-    if (BUTTON_PRESSED(BUTTON_B)) {
-        srand(seed);
-        goToInstructions();
+    if (BUTTON_PRESSED(BUTTON_DOWN)) {
+        if (cursor) {
+            cursor = 0;
+        } else {
+            cursor = 1;
+        }
+    }
+
+    if (cursor == 0) {
+        shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[0].attr1 = 98 | ATTR1_TINY; 
+    } else {
+        shadowOAM[0].attr0 = 129 | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[0].attr1 = 98 | ATTR1_TINY;
+    }
+
+    DMANow(3, shadowOAM, OAM, 128 * 4);
+
+    if (BUTTON_PRESSED(BUTTON_START)) {
+        if (cursor == 0) {
+            srand(seed);
+            goToGame();
+        } else {
+            srand(seed);
+            goToInstructions();
+        }
     }
 }
 
@@ -145,10 +167,38 @@ void game() {
 
 void pause() {
 
-    if (BUTTON_PRESSED(BUTTON_START))
-        goToGame();
-    else if (BUTTON_PRESSED(BUTTON_SELECT))
-        goToStart();
+    if (BUTTON_PRESSED(BUTTON_UP)) {
+        if (cursor) {
+            cursor = 0;
+        } else {
+            cursor = 1;
+        }
+    }
+    if (BUTTON_PRESSED(BUTTON_DOWN)) {
+        if (cursor) {
+            cursor = 0;
+        } else {
+            cursor = 1;
+        }
+    }
+
+    if (cursor == 0) {
+        shadowOAM[0].attr0 = 89 | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[0].attr1 = 124 | ATTR1_TINY; 
+    } else {
+        shadowOAM[0].attr0 = 121 | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[0].attr1 = 124 | ATTR1_TINY;
+    }
+
+    DMANow(3, shadowOAM, OAM, 128 * 4);
+
+    if (BUTTON_PRESSED(BUTTON_START)) {
+        if (cursor == 0) {
+            goToGame();
+        } else {
+            goToStart();
+        }
+    }
 }
 
 void win() {
@@ -157,64 +207,103 @@ void win() {
 }
 
 void goToStart() {
-    
+    cursor = 0;
+
     hideSprites();
-    REG_DISPCTL |= BG0_ENABLE;
+    REG_DISPCTL |= BG0_ENABLE | SPRITE_ENABLE;
+    // 8bpp because you use for more than 16 colors in the bg0 start palette!
+    REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_8BPP | BG_SIZE_SMALL;
     REG_BG0HOFF = 0;
     REG_BG0VOFF = 0;
 
     DMANow(3, STATE_startPal, PALETTE, STATE_startPalLen / 2);
     DMANow(3, STATE_startTiles, &CHARBLOCK[2], STATE_startTilesLen / 2);
     DMANow(3, STATE_startMap, &SCREENBLOCK[31], STATE_startMapLen / 2);
+
+    // draw cursor
+    shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[0].attr1 = 98 | ATTR1_TINY;
+    shadowOAM[0].attr2 = ATTR2_PALROW(1) | ATTR2_TILEID(9, 1);
+
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = START;
     seed = 0;
 }
 
 void goToInstructions() {
-    
+    cursor = 0;
+
     hideSprites();
-    REG_DISPCTL |= BG0_ENABLE;
+    REG_DISPCTL |= BG0_ENABLE | SPRITE_ENABLE;
+
+    REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_8BPP | BG_SIZE_SMALL;
     REG_BG0HOFF = 0;
     REG_BG0VOFF = 0;
 
     DMANow(3, STATE_instructionsPal, PALETTE, STATE_instructionsPalLen / 2);
     DMANow(3, STATE_instructionsTiles, &CHARBLOCK[2], STATE_instructionsTilesLen / 2);
     DMANow(3, STATE_instructionsMap, &SCREENBLOCK[31], STATE_instructionsMapLen / 2);
+
+    // draw cursor
+    shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[0].attr1 = 98 | ATTR1_TINY;
+    shadowOAM[0].attr2 = ATTR2_PALROW(1) | ATTR2_TILEID(9, 1);
+
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = INSTRUCTIONS;
 }
 
 void goToGame() {
+    cursor = 0;
+
+    REG_DISPCTL = MODE0 | BG1_ENABLE | BG2_ENABLE | SPRITE_ENABLE;
 
     hideSprites();
     DMANow(3, clocktowerPal, PALETTE, 256);
 
-    REG_DISPCTL = MODE0 | BG1_ENABLE | BG2_ENABLE | SPRITE_ENABLE;
+    // load tiles and map for bg1
+    DMANow(3, clocktowerTiles, &CHARBLOCK[0], clocktowerTilesLen / 2);
+    DMANow(3, clocktowerMap, &SCREENBLOCK[29], clocktowerMapLen / 2);
+
+    // load tiles and map for bg2
+    DMANow(3, cityTiles, &CHARBLOCK[1], cityTilesLen / 2);
+    DMANow(3, cityMap, &SCREENBLOCK[27], cityMapLen / 2);
 
     state = GAME;
 }
 
 void goToPause() {
+    cursor = 0;
 
     hideSprites();
-    REG_DISPCTL |= BG0_ENABLE;\
+    REG_DISPCTL |= BG0_ENABLE | SPRITE_ENABLE;
+    REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_8BPP | BG_SIZE_SMALL;
+    REG_BG0HOFF = 0;
+    REG_BG0VOFF = 0;
 
-    DMANow(3, shadowOAM, OAM, 128 * 4);
     DMANow(3, STATE_pausePal, PALETTE, STATE_pausePalLen / 2);
     DMANow(3, STATE_pauseTiles, &CHARBLOCK[2], STATE_pauseTilesLen / 2);
     DMANow(3, STATE_pauseMap, &SCREENBLOCK[31], STATE_pauseMapLen / 2);
+
+    // draw cursor
+    shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[0].attr1 = 98 | ATTR1_TINY;
+    shadowOAM[0].attr2 = ATTR2_PALROW(1) | ATTR2_TILEID(9, 1);
+
+    DMANow(3, shadowOAM, OAM, 128 * 4);
     state = PAUSE;
 }
 
 void goToWin() {
+    cursor = 0;
 
     hideSprites();
-    REG_DISPCTL |= BG0_ENABLE;
+    REG_DISPCTL |= BG0_ENABLE | SPRITE_ENABLE;
+    REG_BG0CNT = BG_CHARBLOCK(2) | BG_SCREENBLOCK(31) | BG_4BPP | BG_SIZE_SMALL;
 
-    DMANow(3, shadowOAM, OAM, 128 * 4);
     DMANow(3, STATE_winPal, PALETTE, STATE_winPalLen / 2);
     DMANow(3, STATE_winTiles, &CHARBLOCK[2], STATE_winTilesLen / 2);
     DMANow(3, STATE_winMap, &SCREENBLOCK[31], STATE_winMapLen / 2);
+    DMANow(3, shadowOAM, OAM, 128 * 4);
     state = WIN;
 }
