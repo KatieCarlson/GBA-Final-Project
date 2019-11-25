@@ -67,10 +67,10 @@ void drawGame() {
 		drawPieceParent(&pieceParents[i]);
 	}
 
-    REG_BG1HOFF = hOff;
-    REG_BG1VOFF = vOff;
-    REG_BG2HOFF = hOff / 2;
-    REG_BG2VOFF = vOff / 2;
+    REG_BG2HOFF = hOff;
+    REG_BG2VOFF = vOff;
+    REG_BG3HOFF = hOff / 2;
+    REG_BG3VOFF = vOff / 2;
 
     waitForVBlank();
     DMANow(3, shadowOAM, OAM, 128 * 4);
@@ -262,10 +262,14 @@ void initBoard() {
 }
 
 void drawBoardSquare(boardSquare* bs) {
-    shadowOAM[bs->spriteNum].attr0 = bs->screenRow | ATTR0_SQUARE | ATTR0_4BPP;
-    shadowOAM[bs->spriteNum].attr1 = bs->screenCol | ATTR1_TINY;
-    shadowOAM[bs->spriteNum].attr2 = ATTR2_PALROW(bs->palRow) | ATTR2_TILEID(
-        bs->sheetCol, bs->sheetRow);
+    if (bs->screenRow < 0 - bs->height || bs->screenRow > 160) {
+        shadowOAM[bs->spriteNum].attr0 = ATTR0_HIDE;
+    } else {
+        shadowOAM[bs->spriteNum].attr0 = (ROWMASK & bs->screenRow) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[bs->spriteNum].attr1 = (COLMASK & bs->screenCol) | ATTR1_TINY;
+        shadowOAM[bs->spriteNum].attr2 = ATTR2_PALROW(bs->palRow) | ATTR2_TILEID(
+            bs->sheetCol, bs->sheetRow);
+    }
 }
 
 void updateBoardSquare(boardSquare* bs) {
@@ -281,6 +285,8 @@ void initPieceParents() {
         pieceParents[i].worldCol = 16 + i;
         pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
         pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;
+        pieceParents[i].height = 32;
+        pieceParents[i].width = 32;
         pieceParents[i].vOffset = 0;
         pieceParents[i].hOffset = 0;
         pieceParents[i].sheetRow = 0;
@@ -300,9 +306,14 @@ void initPieceParents() {
 
 void drawPieceParent(pieceParent* pp) {
     for (int i = 0; i < pp->numOfActiveKids; i++) {
-        shadowOAM[pp->kids[i].spriteNum].attr0 = (pp->kids[i].rowOffset * 8 + pp->screenRow) | ATTR0_SQUARE | ATTR0_4BPP;
-        shadowOAM[pp->kids[i].spriteNum].attr1 = (pp->kids[i].colOffset * 8 + pp->screenCol) | ATTR1_TINY;
-        shadowOAM[pp->kids[i].spriteNum].attr2 = ATTR2_PALROW(pp->palRow) | ATTR2_TILEID(pp->sheetCol, pp->sheetRow);
+        // if screenrow or screen col aren't within 0 - 160
+        if (pp->screenRow < 0 - pp->height || pp->screenRow > 160) {
+            shadowOAM[pp->kids[i].spriteNum].attr0 = ATTR0_HIDE;
+        } else {
+            shadowOAM[pp->kids[i].spriteNum].attr0 = (ROWMASK & (pp->kids[i].rowOffset * 8 + pp->screenRow)) | ATTR0_SQUARE | ATTR0_4BPP;
+            shadowOAM[pp->kids[i].spriteNum].attr1 = (COLMASK & (pp->kids[i].colOffset * 8 + pp->screenCol)) | ATTR1_TINY;
+            shadowOAM[pp->kids[i].spriteNum].attr2 = ATTR2_PALROW(pp->palRow) | ATTR2_TILEID(pp->sheetCol, pp->sheetRow);
+        }
     }
 }
 

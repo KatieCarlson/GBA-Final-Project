@@ -1094,10 +1094,10 @@ void drawGame() {
   drawPieceParent(&pieceParents[i]);
  }
 
-    (*(volatile unsigned short *)0x04000014) = hOff;
-    (*(volatile unsigned short *)0x04000016) = vOff;
-    (*(volatile unsigned short *)0x04000018) = hOff / 2;
-    (*(volatile unsigned short *)0x0400001A) = vOff / 2;
+    (*(volatile unsigned short *)0x04000018) = hOff;
+    (*(volatile unsigned short *)0x0400001A) = vOff;
+    (*(volatile unsigned short *)0x0400001C) = hOff / 2;
+    (*(volatile unsigned short *)0x0400001E) = vOff / 2;
 
     waitForVBlank();
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
@@ -1289,10 +1289,14 @@ void initBoard() {
 }
 
 void drawBoardSquare(boardSquare* bs) {
-    shadowOAM[bs->spriteNum].attr0 = bs->screenRow | (0<<14) | (0<<13);
-    shadowOAM[bs->spriteNum].attr1 = bs->screenCol | (0<<14);
-    shadowOAM[bs->spriteNum].attr2 = ((bs->palRow)<<12) | ((bs->sheetRow)*32+(bs->sheetCol))
-                                   ;
+    if (bs->screenRow < 0 - bs->height || bs->screenRow > 160) {
+        shadowOAM[bs->spriteNum].attr0 = (2<<8);
+    } else {
+        shadowOAM[bs->spriteNum].attr0 = (0xFF & bs->screenRow) | (0<<14) | (0<<13);
+        shadowOAM[bs->spriteNum].attr1 = (0x1FF & bs->screenCol) | (0<<14);
+        shadowOAM[bs->spriteNum].attr2 = ((bs->palRow)<<12) | ((bs->sheetRow)*32+(bs->sheetCol))
+                                       ;
+    }
 }
 
 void updateBoardSquare(boardSquare* bs) {
@@ -1308,6 +1312,8 @@ void initPieceParents() {
         pieceParents[i].worldCol = 16 + i;
         pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
         pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;
+        pieceParents[i].height = 32;
+        pieceParents[i].width = 32;
         pieceParents[i].vOffset = 0;
         pieceParents[i].hOffset = 0;
         pieceParents[i].sheetRow = 0;
@@ -1327,9 +1333,14 @@ void initPieceParents() {
 
 void drawPieceParent(pieceParent* pp) {
     for (int i = 0; i < pp->numOfActiveKids; i++) {
-        shadowOAM[pp->kids[i].spriteNum].attr0 = (pp->kids[i].rowOffset * 8 + pp->screenRow) | (0<<14) | (0<<13);
-        shadowOAM[pp->kids[i].spriteNum].attr1 = (pp->kids[i].colOffset * 8 + pp->screenCol) | (0<<14);
-        shadowOAM[pp->kids[i].spriteNum].attr2 = ((pp->palRow)<<12) | ((pp->sheetRow)*32+(pp->sheetCol));
+
+        if (pp->screenRow < 0 - pp->height || pp->screenRow > 160) {
+            shadowOAM[pp->kids[i].spriteNum].attr0 = (2<<8);
+        } else {
+            shadowOAM[pp->kids[i].spriteNum].attr0 = (0xFF & (pp->kids[i].rowOffset * 8 + pp->screenRow)) | (0<<14) | (0<<13);
+            shadowOAM[pp->kids[i].spriteNum].attr1 = (0x1FF & (pp->kids[i].colOffset * 8 + pp->screenCol)) | (0<<14);
+            shadowOAM[pp->kids[i].spriteNum].attr2 = ((pp->palRow)<<12) | ((pp->sheetRow)*32+(pp->sheetCol));
+        }
     }
 }
 

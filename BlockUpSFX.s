@@ -16,40 +16,29 @@
 	.size	BlockUpSFX, 7488
 BlockUpSFX:
 	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -63,18 +52,15 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -85,14 +71,11 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -103,7 +86,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -112,18 +94,14 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
@@ -131,11 +109,16 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -146,7 +129,6 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -158,10 +140,8 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -169,11 +149,8 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -183,35 +160,23 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -222,7 +187,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -230,17 +194,14 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -259,9 +220,10 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -279,42 +241,31 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -324,9 +275,7 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -335,14 +284,13 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -352,41 +300,33 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -400,24 +340,23 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -441,6 +380,8 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -448,28 +389,31 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -481,22 +425,21 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -506,14 +449,15 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -532,33 +476,30 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -568,22 +509,17 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
@@ -591,17 +527,15 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -619,10 +553,7 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -633,47 +564,29 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -682,16 +595,15 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -702,116 +614,108 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -819,240 +723,186 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1063,191 +913,252 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1255,133 +1166,152 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1390,13 +1320,16 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1404,53 +1337,69 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1460,17 +1409,21 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1481,15 +1434,21 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -1499,20 +1458,30 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	0
+	.byte	0
+	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
@@ -1521,16 +1490,20 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1551,7 +1524,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -1563,19 +1535,22 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1587,10 +1562,8 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1608,11 +1581,9 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1626,28 +1597,26 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1656,17 +1625,17 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1676,34 +1645,37 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1714,14 +1686,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1732,15 +1700,12 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1749,10 +1714,16 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1766,47 +1737,57 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1823,22 +1804,27 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1850,8 +1836,8 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1859,13 +1845,14 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1874,9 +1861,14 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
@@ -1887,13 +1879,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1901,16 +1890,18 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -1921,13 +1912,13 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
@@ -1951,25 +1942,27 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -1982,15 +1975,15 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2000,18 +1993,17 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2022,7 +2014,10 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2032,11 +2027,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2048,22 +2042,16 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2078,7 +2066,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2087,11 +2074,9 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -2099,12 +2084,11 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -2116,10 +2100,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2130,31 +2114,30 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -2171,26 +2154,19 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2207,24 +2183,18 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2233,33 +2203,26 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -2268,7 +2231,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2280,9 +2242,11 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2297,16 +2261,20 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2319,16 +2287,20 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2338,10 +2310,11 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
@@ -2354,12 +2327,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2371,15 +2342,17 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2392,7 +2365,9 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2400,33 +2375,37 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2437,12 +2416,12 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2455,31 +2434,24 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
@@ -2487,67 +2459,66 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2557,15 +2528,13 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2575,21 +2544,22 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
@@ -2597,54 +2567,41 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2653,30 +2610,43 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2684,6 +2654,9 @@ BlockUpSFX:
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2696,13 +2669,19 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2714,54 +2693,40 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	0
-	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
@@ -2770,10 +2735,7 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	-1
@@ -2781,41 +2743,63 @@ BlockUpSFX:
 	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
-	.byte	0
+	.byte	-1
 	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	-1
+	.byte	0
 	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -2825,362 +2809,2944 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	0
+	.byte	0
+	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	0
-	.byte	1
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	1
 	.byte	0
 	.byte	-1
 	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-6
+	.byte	-7
+	.byte	-9
+	.byte	-11
+	.byte	6
+	.byte	50
+	.byte	98
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	125
+	.byte	126
+	.byte	126
+	.byte	99
+	.byte	34
+	.byte	-50
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-80
+	.byte	17
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	54
+	.byte	-67
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-109
+	.byte	-76
+	.byte	-57
+	.byte	-46
+	.byte	-40
+	.byte	-42
+	.byte	-66
+	.byte	-113
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-91
+	.byte	-25
+	.byte	59
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	104
+	.byte	79
+	.byte	87
+	.byte	120
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	28
+	.byte	-71
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-119
+	.byte	-30
+	.byte	46
+	.byte	112
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	91
+	.byte	35
+	.byte	-17
+	.byte	-67
+	.byte	-113
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-106
+	.byte	-61
+	.byte	-24
+	.byte	1
+	.byte	20
+	.byte	33
+	.byte	28
+	.byte	1
+	.byte	-42
+	.byte	-84
+	.byte	-113
+	.byte	-124
+	.byte	-120
+	.byte	-109
+	.byte	-93
+	.byte	-76
+	.byte	-55
+	.byte	-34
+	.byte	-12
+	.byte	12
+	.byte	37
+	.byte	62
+	.byte	84
+	.byte	108
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	107
+	.byte	43
+	.byte	-15
+	.byte	-59
+	.byte	-91
+	.byte	-121
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-115
+	.byte	-105
+	.byte	-98
+	.byte	-90
+	.byte	-84
+	.byte	-87
+	.byte	-98
+	.byte	-105
+	.byte	-101
+	.byte	-82
+	.byte	-50
+	.byte	-8
+	.byte	39
+	.byte	90
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	85
+	.byte	40
+	.byte	9
+	.byte	-10
+	.byte	-31
+	.byte	-57
+	.byte	-85
+	.byte	-106
+	.byte	-117
+	.byte	-124
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-105
+	.byte	-83
+	.byte	-62
+	.byte	-30
+	.byte	20
+	.byte	97
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	-43
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-23
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	77
+	.byte	-89
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-100
+	.byte	-43
+	.byte	-15
+	.byte	1
+	.byte	13
+	.byte	32
+	.byte	62
+	.byte	110
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	66
+	.byte	29
+	.byte	23
+	.byte	33
+	.byte	43
+	.byte	43
+	.byte	31
+	.byte	8
+	.byte	-12
+	.byte	-14
+	.byte	6
+	.byte	41
+	.byte	72
+	.byte	79
+	.byte	54
+	.byte	6
+	.byte	-50
+	.byte	-102
+	.byte	-126
+	.byte	-115
+	.byte	-88
+	.byte	-76
+	.byte	-96
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-59
+	.byte	40
+	.byte	116
+	.byte	127
+	.byte	111
+	.byte	33
+	.byte	-68
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-119
+	.byte	-26
+	.byte	45
+	.byte	73
+	.byte	65
+	.byte	32
+	.byte	-26
+	.byte	-85
+	.byte	-126
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-120
+	.byte	-48
+	.byte	23
+	.byte	92
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	115
+	.byte	97
+	.byte	95
+	.byte	99
+	.byte	103
+	.byte	101
+	.byte	86
+	.byte	67
+	.byte	50
+	.byte	37
+	.byte	36
+	.byte	50
+	.byte	66
+	.byte	85
+	.byte	103
+	.byte	115
+	.byte	124
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	100
+	.byte	78
+	.byte	73
+	.byte	88
+	.byte	117
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	72
+	.byte	17
+	.byte	-28
+	.byte	-54
+	.byte	-63
+	.byte	-59
+	.byte	-51
+	.byte	-42
+	.byte	-36
+	.byte	-31
+	.byte	-33
+	.byte	-40
+	.byte	-52
+	.byte	-70
+	.byte	-92
+	.byte	-120
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-85
+	.byte	-47
+	.byte	-27
+	.byte	-21
+	.byte	-29
+	.byte	-44
+	.byte	-59
+	.byte	-74
+	.byte	-87
+	.byte	-99
+	.byte	-104
+	.byte	-99
+	.byte	-82
+	.byte	-52
+	.byte	-15
+	.byte	23
+	.byte	56
+	.byte	80
+	.byte	89
+	.byte	85
+	.byte	71
+	.byte	54
+	.byte	40
+	.byte	25
+	.byte	7
+	.byte	-20
+	.byte	-53
+	.byte	-87
+	.byte	-113
+	.byte	-127
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-125
+	.byte	-115
+	.byte	-113
+	.byte	-115
+	.byte	-113
+	.byte	-99
+	.byte	-74
+	.byte	-45
+	.byte	-18
+	.byte	2
+	.byte	11
+	.byte	8
+	.byte	-4
+	.byte	-19
+	.byte	-33
+	.byte	-40
+	.byte	-36
+	.byte	-20
+	.byte	4
+	.byte	25
+	.byte	33
+	.byte	25
+	.byte	-2
+	.byte	-42
+	.byte	-88
+	.byte	-127
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-111
+	.byte	-58
+	.byte	-7
+	.byte	34
+	.byte	61
+	.byte	80
+	.byte	100
+	.byte	123
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	118
+	.byte	84
+	.byte	49
+	.byte	11
+	.byte	-30
+	.byte	-72
+	.byte	-109
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-122
+	.byte	-89
+	.byte	-57
+	.byte	-34
+	.byte	-22
+	.byte	-20
+	.byte	-22
+	.byte	-25
+	.byte	-24
+	.byte	-15
+	.byte	5
+	.byte	41
+	.byte	90
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	106
+	.byte	46
+	.byte	-19
+	.byte	-79
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-110
+	.byte	-72
+	.byte	-29
+	.byte	17
+	.byte	66
+	.byte	120
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	114
+	.byte	90
+	.byte	63
+	.byte	38
+	.byte	22
+	.byte	10
+	.byte	0
+	.byte	-13
+	.byte	-33
+	.byte	-56
+	.byte	-77
+	.byte	-94
+	.byte	-104
+	.byte	-106
+	.byte	-100
+	.byte	-86
+	.byte	-68
+	.byte	-48
+	.byte	-30
+	.byte	-13
+	.byte	4
+	.byte	19
+	.byte	31
+	.byte	40
+	.byte	46
+	.byte	52
+	.byte	55
+	.byte	54
+	.byte	50
+	.byte	44
+	.byte	40
+	.byte	39
+	.byte	44
+	.byte	56
+	.byte	70
+	.byte	82
+	.byte	87
+	.byte	83
+	.byte	73
+	.byte	61
+	.byte	52
+	.byte	45
+	.byte	40
+	.byte	40
+	.byte	42
+	.byte	46
+	.byte	48
+	.byte	46
+	.byte	35
+	.byte	18
+	.byte	1
+	.byte	-14
+	.byte	-24
+	.byte	-36
+	.byte	-50
+	.byte	-67
+	.byte	-82
+	.byte	-93
+	.byte	-98
+	.byte	-97
+	.byte	-91
+	.byte	-81
+	.byte	-68
+	.byte	-60
+	.byte	-58
+	.byte	-63
+	.byte	-73
+	.byte	-87
+	.byte	-100
+	.byte	-111
+	.byte	-119
+	.byte	-121
+	.byte	-115
+	.byte	-101
+	.byte	-83
+	.byte	-64
+	.byte	-48
+	.byte	-35
+	.byte	-25
+	.byte	-18
+	.byte	-13
+	.byte	-11
+	.byte	-12
+	.byte	-13
+	.byte	-14
+	.byte	-14
+	.byte	-9
+	.byte	0
+	.byte	14
+	.byte	29
+	.byte	41
+	.byte	45
+	.byte	43
+	.byte	38
+	.byte	33
+	.byte	28
+	.byte	26
+	.byte	31
+	.byte	38
+	.byte	43
+	.byte	46
+	.byte	45
+	.byte	41
+	.byte	36
+	.byte	35
+	.byte	35
+	.byte	35
+	.byte	32
+	.byte	22
+	.byte	8
+	.byte	-9
+	.byte	-27
+	.byte	-45
+	.byte	-64
+	.byte	-83
+	.byte	-102
+	.byte	-115
+	.byte	-120
+	.byte	-118
+	.byte	-110
+	.byte	-99
+	.byte	-91
+	.byte	-88
+	.byte	-93
+	.byte	-108
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-127
+	.byte	-102
+	.byte	-79
+	.byte	-62
+	.byte	-50
+	.byte	-42
+	.byte	-40
+	.byte	-44
+	.byte	-51
+	.byte	-54
+	.byte	-51
+	.byte	-46
+	.byte	-42
+	.byte	-38
+	.byte	-30
+	.byte	-19
+	.byte	-7
+	.byte	6
+	.byte	17
+	.byte	23
+	.byte	25
+	.byte	21
+	.byte	9
+	.byte	-12
+	.byte	-39
+	.byte	-65
+	.byte	-83
+	.byte	-91
+	.byte	-87
+	.byte	-77
+	.byte	-62
+	.byte	-45
+	.byte	-30
+	.byte	-17
+	.byte	-11
+	.byte	-11
+	.byte	-14
+	.byte	-15
+	.byte	-17
+	.byte	-24
+	.byte	-36
+	.byte	-53
+	.byte	-66
+	.byte	-71
+	.byte	-69
+	.byte	-66
+	.byte	-64
+	.byte	-64
+	.byte	-62
+	.byte	-57
+	.byte	-54
+	.byte	-54
+	.byte	-56
+	.byte	-58
+	.byte	-56
+	.byte	-48
+	.byte	-35
+	.byte	-22
+	.byte	-9
+	.byte	3
+	.byte	11
+	.byte	16
+	.byte	17
+	.byte	15
+	.byte	10
+	.byte	6
+	.byte	5
+	.byte	4
+	.byte	2
+	.byte	2
+	.byte	5
+	.byte	11
+	.byte	19
+	.byte	24
+	.byte	25
+	.byte	24
+	.byte	25
+	.byte	29
+	.byte	32
+	.byte	31
+	.byte	26
+	.byte	20
+	.byte	16
+	.byte	16
+	.byte	18
+	.byte	22
+	.byte	24
+	.byte	26
+	.byte	29
+	.byte	33
+	.byte	33
+	.byte	26
+	.byte	14
+	.byte	-1
+	.byte	-15
+	.byte	-29
+	.byte	-44
+	.byte	-58
+	.byte	-68
+	.byte	-74
+	.byte	-73
+	.byte	-69
+	.byte	-66
+	.byte	-64
+	.byte	-58
+	.byte	-48
+	.byte	-34
+	.byte	-21
+	.byte	-13
+	.byte	-10
+	.byte	-12
+	.byte	-17
+	.byte	-22
+	.byte	-33
+	.byte	-50
+	.byte	-69
+	.byte	-87
+	.byte	-101
+	.byte	-111
+	.byte	-114
+	.byte	-112
+	.byte	-101
+	.byte	-84
+	.byte	-67
+	.byte	-54
+	.byte	-49
+	.byte	-51
+	.byte	-61
+	.byte	-76
+	.byte	-94
+	.byte	-110
+	.byte	-120
+	.byte	-121
+	.byte	-113
+	.byte	-102
+	.byte	-90
+	.byte	-82
+	.byte	-73
+	.byte	-61
+	.byte	-46
+	.byte	-30
+	.byte	-15
+	.byte	1
+	.byte	17
+	.byte	33
+	.byte	49
+	.byte	60
+	.byte	66
+	.byte	66
+	.byte	68
+	.byte	73
+	.byte	76
+	.byte	77
+	.byte	74
+	.byte	69
+	.byte	63
+	.byte	58
+	.byte	54
+	.byte	50
+	.byte	43
+	.byte	34
+	.byte	24
+	.byte	16
+	.byte	10
+	.byte	7
+	.byte	5
+	.byte	5
+	.byte	5
+	.byte	2
+	.byte	-3
+	.byte	-7
+	.byte	-12
+	.byte	-17
+	.byte	-20
+	.byte	-19
+	.byte	-12
+	.byte	1
+	.byte	17
+	.byte	30
+	.byte	42
+	.byte	53
+	.byte	63
+	.byte	68
+	.byte	69
+	.byte	67
+	.byte	62
+	.byte	55
+	.byte	45
+	.byte	33
+	.byte	17
+	.byte	1
+	.byte	-16
+	.byte	-31
+	.byte	-42
+	.byte	-47
+	.byte	-48
+	.byte	-47
+	.byte	-42
+	.byte	-33
+	.byte	-22
+	.byte	-9
+	.byte	3
+	.byte	13
+	.byte	23
+	.byte	35
+	.byte	47
+	.byte	56
+	.byte	61
+	.byte	61
+	.byte	59
+	.byte	55
+	.byte	48
+	.byte	41
+	.byte	34
+	.byte	29
+	.byte	24
+	.byte	19
+	.byte	14
+	.byte	12
+	.byte	14
+	.byte	16
+	.byte	17
+	.byte	15
+	.byte	14
+	.byte	15
+	.byte	19
+	.byte	25
+	.byte	29
+	.byte	31
+	.byte	28
+	.byte	21
+	.byte	10
+	.byte	-1
+	.byte	-11
+	.byte	-19
+	.byte	-21
+	.byte	-20
+	.byte	-12
+	.byte	0
+	.byte	13
+	.byte	23
+	.byte	27
+	.byte	27
+	.byte	25
+	.byte	21
+	.byte	17
+	.byte	13
+	.byte	8
+	.byte	3
+	.byte	-3
+	.byte	-11
+	.byte	-22
+	.byte	-32
+	.byte	-38
+	.byte	-39
+	.byte	-36
+	.byte	-30
+	.byte	-23
+	.byte	-13
+	.byte	-3
+	.byte	8
+	.byte	19
+	.byte	28
+	.byte	33
+	.byte	35
+	.byte	33
+	.byte	29
+	.byte	25
+	.byte	25
+	.byte	27
+	.byte	29
+	.byte	29
+	.byte	28
+	.byte	25
+	.byte	24
+	.byte	23
+	.byte	23
+	.byte	26
+	.byte	31
+	.byte	35
+	.byte	37
+	.byte	36
+	.byte	29
+	.byte	19
+	.byte	10
+	.byte	5
+	.byte	6
+	.byte	15
+	.byte	27
+	.byte	40
+	.byte	55
+	.byte	71
+	.byte	85
+	.byte	96
+	.byte	100
+	.byte	100
+	.byte	97
+	.byte	96
+	.byte	100
+	.byte	105
+	.byte	109
+	.byte	109
+	.byte	108
+	.byte	108
+	.byte	109
+	.byte	111
+	.byte	115
+	.byte	120
+	.byte	126
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	127
+	.byte	119
+	.byte	106
+	.byte	88
+	.byte	67
+	.byte	46
+	.byte	31
+	.byte	22
+	.byte	18
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	16
+	.byte	10
+	.byte	0
+	.byte	-9
+	.byte	-18
+	.byte	-22
+	.byte	-23
+	.byte	-23
+	.byte	-20
+	.byte	-14
+	.byte	-10
+	.byte	-7
+	.byte	-9
+	.byte	-15
+	.byte	-20
+	.byte	-22
+	.byte	-23
+	.byte	-23
+	.byte	-23
+	.byte	-22
+	.byte	-19
+	.byte	-16
+	.byte	-13
+	.byte	-10
+	.byte	-5
+	.byte	1
+	.byte	8
+	.byte	17
+	.byte	27
+	.byte	38
+	.byte	50
+	.byte	60
+	.byte	66
+	.byte	66
+	.byte	60
+	.byte	52
+	.byte	45
+	.byte	41
+	.byte	39
+	.byte	39
+	.byte	40
+	.byte	42
+	.byte	42
+	.byte	41
+	.byte	42
+	.byte	44
+	.byte	45
+	.byte	47
+	.byte	47
+	.byte	48
+	.byte	50
+	.byte	49
+	.byte	46
+	.byte	38
+	.byte	28
+	.byte	19
+	.byte	11
+	.byte	7
+	.byte	8
+	.byte	11
+	.byte	17
+	.byte	26
+	.byte	34
+	.byte	43
+	.byte	50
+	.byte	57
+	.byte	63
+	.byte	67
+	.byte	68
+	.byte	66
+	.byte	60
+	.byte	52
+	.byte	43
+	.byte	35
+	.byte	27
+	.byte	20
+	.byte	16
+	.byte	14
+	.byte	13
+	.byte	10
+	.byte	5
+	.byte	-1
+	.byte	-7
+	.byte	-11
+	.byte	-14
+	.byte	-14
+	.byte	-11
+	.byte	-4
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	7
+	.byte	3
+	.byte	-1
+	.byte	-5
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-7
+	.byte	-3
+	.byte	1
+	.byte	4
+	.byte	5
+	.byte	5
+	.byte	5
+	.byte	8
+	.byte	11
+	.byte	13
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	13
+	.byte	11
+	.byte	9
+	.byte	7
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	8
+	.byte	6
+	.byte	1
+	.byte	-5
+	.byte	-10
+	.byte	-15
+	.byte	-19
+	.byte	-21
+	.byte	-22
+	.byte	-21
+	.byte	-20
+	.byte	-20
+	.byte	-21
+	.byte	-23
+	.byte	-26
+	.byte	-29
+	.byte	-31
+	.byte	-32
+	.byte	-33
+	.byte	-34
+	.byte	-35
+	.byte	-37
+	.byte	-40
+	.byte	-44
+	.byte	-47
+	.byte	-50
+	.byte	-51
+	.byte	-49
+	.byte	-43
+	.byte	-35
+	.byte	-26
+	.byte	-20
+	.byte	-19
+	.byte	-24
+	.byte	-32
+	.byte	-38
+	.byte	-40
+	.byte	-36
+	.byte	-27
+	.byte	-15
+	.byte	-1
+	.byte	14
+	.byte	25
+	.byte	30
+	.byte	29
+	.byte	24
+	.byte	18
+	.byte	16
+	.byte	17
+	.byte	19
+	.byte	19
+	.byte	16
+	.byte	13
+	.byte	9
+	.byte	3
+	.byte	-3
+	.byte	-10
+	.byte	-16
+	.byte	-19
+	.byte	-20
+	.byte	-16
+	.byte	-10
+	.byte	-4
+	.byte	1
+	.byte	2
+	.byte	1
+	.byte	-1
 	.byte	-4
 	.byte	-5
+	.byte	-7
+	.byte	-11
+	.byte	-18
+	.byte	-25
+	.byte	-31
+	.byte	-35
+	.byte	-35
+	.byte	-31
+	.byte	-24
+	.byte	-16
+	.byte	-8
+	.byte	-1
+	.byte	3
+	.byte	5
+	.byte	4
+	.byte	2
+	.byte	-2
+	.byte	-7
+	.byte	-13
+	.byte	-18
+	.byte	-22
+	.byte	-24
+	.byte	-26
+	.byte	-29
+	.byte	-31
+	.byte	-33
+	.byte	-33
+	.byte	-32
+	.byte	-29
+	.byte	-27
+	.byte	-26
+	.byte	-28
+	.byte	-30
+	.byte	-32
+	.byte	-35
+	.byte	-39
+	.byte	-44
+	.byte	-51
+	.byte	-57
+	.byte	-61
+	.byte	-62
+	.byte	-59
+	.byte	-56
+	.byte	-52
+	.byte	-48
+	.byte	-42
+	.byte	-35
+	.byte	-27
+	.byte	-19
+	.byte	-13
+	.byte	-9
+	.byte	-8
+	.byte	-9
+	.byte	-11
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-13
+	.byte	-15
+	.byte	-17
+	.byte	-19
+	.byte	-21
+	.byte	-23
+	.byte	-24
+	.byte	-22
+	.byte	-18
+	.byte	-15
+	.byte	-12
+	.byte	-10
+	.byte	-10
+	.byte	-11
+	.byte	-15
+	.byte	-19
+	.byte	-23
+	.byte	-27
+	.byte	-27
+	.byte	-25
+	.byte	-20
+	.byte	-15
+	.byte	-10
+	.byte	-5
+	.byte	-2
+	.byte	-1
+	.byte	-2
+	.byte	-2
+	.byte	-1
+	.byte	1
+	.byte	3
+	.byte	4
+	.byte	3
+	.byte	0
+	.byte	-5
+	.byte	-9
+	.byte	-9
+	.byte	-6
+	.byte	0
+	.byte	6
+	.byte	12
+	.byte	16
+	.byte	18
+	.byte	21
+	.byte	24
+	.byte	27
+	.byte	31
+	.byte	34
+	.byte	35
+	.byte	34
+	.byte	32
+	.byte	30
+	.byte	27
+	.byte	24
+	.byte	21
+	.byte	20
+	.byte	18
+	.byte	17
+	.byte	16
+	.byte	15
+	.byte	16
+	.byte	18
+	.byte	18
+	.byte	16
+	.byte	10
+	.byte	4
+	.byte	-1
+	.byte	-6
+	.byte	-11
+	.byte	-15
+	.byte	-18
+	.byte	-21
+	.byte	-23
+	.byte	-27
+	.byte	-31
+	.byte	-35
+	.byte	-39
+	.byte	-41
+	.byte	-40
+	.byte	-35
+	.byte	-26
+	.byte	-17
+	.byte	-9
+	.byte	-2
+	.byte	2
+	.byte	5
+	.byte	6
+	.byte	5
+	.byte	2
+	.byte	1
+	.byte	1
+	.byte	0
+	.byte	-2
+	.byte	-5
+	.byte	-7
+	.byte	-6
+	.byte	-4
+	.byte	0
+	.byte	3
+	.byte	8
+	.byte	14
+	.byte	18
+	.byte	20
+	.byte	19
+	.byte	16
+	.byte	13
+	.byte	12
+	.byte	12
+	.byte	13
+	.byte	13
+	.byte	12
+	.byte	10
+	.byte	8
+	.byte	7
+	.byte	8
+	.byte	12
+	.byte	16
+	.byte	21
+	.byte	26
+	.byte	32
+	.byte	37
+	.byte	41
+	.byte	45
+	.byte	48
+	.byte	49
+	.byte	48
+	.byte	45
+	.byte	40
+	.byte	34
+	.byte	29
+	.byte	24
+	.byte	22
+	.byte	22
+	.byte	20
+	.byte	17
+	.byte	14
+	.byte	10
+	.byte	7
+	.byte	5
+	.byte	3
+	.byte	0
+	.byte	-1
+	.byte	1
+	.byte	3
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	5
+	.byte	2
+	.byte	-3
+	.byte	-8
+	.byte	-14
+	.byte	-18
+	.byte	-22
+	.byte	-23
+	.byte	-21
+	.byte	-17
+	.byte	-13
+	.byte	-9
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-8
+	.byte	-11
+	.byte	-14
+	.byte	-16
+	.byte	-20
+	.byte	-24
+	.byte	-28
+	.byte	-31
+	.byte	-31
+	.byte	-30
+	.byte	-27
+	.byte	-22
+	.byte	-14
+	.byte	-5
+	.byte	3
+	.byte	10
+	.byte	14
+	.byte	15
+	.byte	15
+	.byte	13
+	.byte	10
+	.byte	5
+	.byte	0
+	.byte	-5
+	.byte	-8
+	.byte	-10
+	.byte	-13
+	.byte	-14
+	.byte	-15
+	.byte	-15
+	.byte	-13
+	.byte	-10
+	.byte	-7
+	.byte	-3
+	.byte	1
+	.byte	4
+	.byte	6
+	.byte	8
+	.byte	8
+	.byte	9
+	.byte	8
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	6
+	.byte	4
+	.byte	3
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	7
+	.byte	6
+	.byte	5
+	.byte	4
+	.byte	6
+	.byte	8
+	.byte	10
+	.byte	11
+	.byte	13
+	.byte	15
+	.byte	18
+	.byte	20
+	.byte	22
+	.byte	23
+	.byte	24
+	.byte	24
+	.byte	24
+	.byte	22
+	.byte	19
+	.byte	15
+	.byte	11
+	.byte	6
+	.byte	0
+	.byte	-4
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-4
+	.byte	-3
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-4
+	.byte	-6
+	.byte	-10
+	.byte	-14
+	.byte	-17
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-18
+	.byte	-17
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-10
+	.byte	-7
+	.byte	-3
+	.byte	1
+	.byte	5
+	.byte	7
+	.byte	10
+	.byte	14
+	.byte	19
+	.byte	22
+	.byte	25
+	.byte	25
+	.byte	25
+	.byte	24
+	.byte	21
+	.byte	20
+	.byte	18
+	.byte	15
+	.byte	13
+	.byte	10
+	.byte	7
+	.byte	2
+	.byte	-2
+	.byte	-5
+	.byte	-6
+	.byte	-5
+	.byte	-4
+	.byte	-2
+	.byte	0
+	.byte	3
+	.byte	6
+	.byte	9
+	.byte	10
+	.byte	9
+	.byte	7
+	.byte	5
+	.byte	2
+	.byte	0
+	.byte	1
+	.byte	2
+	.byte	4
+	.byte	6
+	.byte	9
+	.byte	12
+	.byte	17
+	.byte	23
+	.byte	30
+	.byte	36
+	.byte	39
+	.byte	40
+	.byte	39
+	.byte	38
+	.byte	35
+	.byte	32
+	.byte	29
+	.byte	26
+	.byte	22
+	.byte	19
+	.byte	17
+	.byte	14
+	.byte	12
+	.byte	10
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	10
+	.byte	11
+	.byte	11
+	.byte	10
+	.byte	10
+	.byte	9
+	.byte	9
+	.byte	8
+	.byte	7
+	.byte	7
+	.byte	5
+	.byte	4
+	.byte	1
+	.byte	-2
+	.byte	-5
+	.byte	-9
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-8
+	.byte	-6
+	.byte	-4
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-3
+	.byte	-4
+	.byte	-5
+	.byte	-7
+	.byte	-8
+	.byte	-11
+	.byte	-12
+	.byte	-13
+	.byte	-12
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-7
+	.byte	-6
+	.byte	-3
+	.byte	-2
+	.byte	-1
+	.byte	-2
+	.byte	-4
+	.byte	-7
+	.byte	-9
+	.byte	-10
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-6
+	.byte	-2
+	.byte	3
+	.byte	8
+	.byte	11
+	.byte	13
+	.byte	13
+	.byte	11
+	.byte	9
+	.byte	5
+	.byte	3
+	.byte	1
+	.byte	-1
+	.byte	-3
+	.byte	-5
+	.byte	-6
+	.byte	-7
+	.byte	-6
+	.byte	-4
+	.byte	-2
+	.byte	1
+	.byte	3
+	.byte	4
+	.byte	5
+	.byte	4
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	4
+	.byte	7
+	.byte	11
+	.byte	15
+	.byte	19
+	.byte	21
+	.byte	21
+	.byte	19
+	.byte	16
+	.byte	13
+	.byte	10
+	.byte	7
+	.byte	5
+	.byte	3
+	.byte	2
+	.byte	2
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	2
+	.byte	-1
+	.byte	-3
+	.byte	-6
+	.byte	-8
+	.byte	-10
+	.byte	-12
+	.byte	-13
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-9
+	.byte	-12
+	.byte	-17
+	.byte	-21
+	.byte	-25
+	.byte	-28
+	.byte	-28
+	.byte	-28
+	.byte	-28
+	.byte	-27
+	.byte	-26
+	.byte	-25
+	.byte	-25
+	.byte	-27
+	.byte	-28
+	.byte	-27
+	.byte	-27
+	.byte	-27
+	.byte	-28
+	.byte	-29
+	.byte	-29
+	.byte	-29
+	.byte	-27
+	.byte	-24
+	.byte	-22
+	.byte	-21
+	.byte	-21
+	.byte	-20
+	.byte	-21
+	.byte	-22
+	.byte	-23
+	.byte	-23
+	.byte	-20
+	.byte	-16
+	.byte	-10
+	.byte	-6
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-6
+	.byte	-9
+	.byte	-10
+	.byte	-11
+	.byte	-10
+	.byte	-8
+	.byte	-5
+	.byte	-3
+	.byte	0
+	.byte	4
+	.byte	10
+	.byte	16
+	.byte	22
+	.byte	27
+	.byte	28
+	.byte	28
+	.byte	27
+	.byte	24
+	.byte	21
+	.byte	17
+	.byte	13
+	.byte	9
+	.byte	6
+	.byte	3
+	.byte	0
+	.byte	-4
+	.byte	-7
+	.byte	-11
+	.byte	-13
+	.byte	-15
+	.byte	-15
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-15
+	.byte	-17
+	.byte	-19
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-19
+	.byte	-18
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-20
+	.byte	-21
+	.byte	-21
+	.byte	-22
+	.byte	-21
+	.byte	-20
+	.byte	-20
+	.byte	-21
+	.byte	-21
+	.byte	-20
+	.byte	-18
+	.byte	-16
+	.byte	-14
+	.byte	-14
+	.byte	-16
+	.byte	-19
+	.byte	-20
+	.byte	-20
+	.byte	-19
+	.byte	-16
+	.byte	-14
+	.byte	-12
+	.byte	-11
+	.byte	-12
+	.byte	-14
+	.byte	-14
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-14
+	.byte	-13
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-9
+	.byte	-10
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-8
+	.byte	-12
+	.byte	-16
+	.byte	-19
+	.byte	-21
+	.byte	-22
+	.byte	-21
+	.byte	-19
+	.byte	-17
+	.byte	-14
+	.byte	-11
+	.byte	-9
+	.byte	-8
+	.byte	-7
+	.byte	-8
+	.byte	-9
+	.byte	-11
+	.byte	-12
+	.byte	-14
+	.byte	-15
+	.byte	-15
+	.byte	-14
+	.byte	-13
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-8
+	.byte	-7
+	.byte	-5
+	.byte	-3
+	.byte	-2
+	.byte	0
+	.byte	2
+	.byte	2
+	.byte	1
+	.byte	1
+	.byte	0
+	.byte	0
+	.byte	1
+	.byte	2
+	.byte	5
+	.byte	7
+	.byte	8
+	.byte	7
+	.byte	4
+	.byte	0
+	.byte	-5
+	.byte	-8
+	.byte	-10
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-10
+	.byte	-11
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-10
+	.byte	-7
+	.byte	-5
+	.byte	-5
+	.byte	-7
+	.byte	-9
+	.byte	-12
+	.byte	-14
+	.byte	-16
+	.byte	-16
+	.byte	-15
+	.byte	-13
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-12
+	.byte	-14
+	.byte	-15
+	.byte	-16
+	.byte	-14
+	.byte	-12
+	.byte	-9
+	.byte	-7
+	.byte	-6
+	.byte	-5
+	.byte	-6
 	.byte	-6
 	.byte	-7
 	.byte	-8
 	.byte	-9
-	.byte	-8
-	.byte	-8
-	.byte	-7
-	.byte	-6
-	.byte	-6
-	.byte	-5
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-5
-	.byte	-5
-	.byte	-5
-	.byte	-4
-	.byte	-4
-	.byte	-3
-	.byte	-2
-	.byte	0
-	.byte	2
-	.byte	4
-	.byte	6
-	.byte	8
-	.byte	9
-	.byte	9
-	.byte	9
-	.byte	8
-	.byte	7
-	.byte	5
-	.byte	4
-	.byte	2
-	.byte	0
-	.byte	-2
-	.byte	-3
-	.byte	-4
-	.byte	-5
-	.byte	-5
-	.byte	-4
-	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-1
-	.byte	0
-	.byte	2
-	.byte	3
-	.byte	4
-	.byte	5
-	.byte	5
-	.byte	5
-	.byte	5
-	.byte	5
-	.byte	4
-	.byte	3
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	3
-	.byte	4
-	.byte	4
-	.byte	5
-	.byte	5
-	.byte	6
-	.byte	7
-	.byte	7
-	.byte	7
-	.byte	6
-	.byte	5
-	.byte	3
-	.byte	2
-	.byte	0
-	.byte	-2
-	.byte	-3
-	.byte	-4
-	.byte	-5
-	.byte	-5
-	.byte	-5
-	.byte	-4
-	.byte	-2
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	2
-	.byte	1
-	.byte	0
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	2
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	2
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	3
-	.byte	7
-	.byte	11
-	.byte	13
-	.byte	13
-	.byte	9
-	.byte	4
-	.byte	-1
-	.byte	-5
-	.byte	-6
-	.byte	-5
-	.byte	-1
-	.byte	3
-	.byte	6
-	.byte	7
-	.byte	7
-	.byte	6
-	.byte	4
-	.byte	1
-	.byte	-2
-	.byte	-3
-	.byte	-4
-	.byte	-3
-	.byte	-3
-	.byte	-4
-	.byte	-5
-	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-10
 	.byte	-11
-	.byte	-13
-	.byte	-15
+	.byte	-11
+	.byte	-11
+	.byte	-12
+	.byte	-14
+	.byte	-16
+	.byte	-18
+	.byte	-22
+	.byte	-26
+	.byte	-30
+	.byte	-32
+	.byte	-33
+	.byte	-34
+	.byte	-34
+	.byte	-33
+	.byte	-33
+	.byte	-34
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-35
+	.byte	-36
+	.byte	-38
+	.byte	-39
+	.byte	-39
+	.byte	-39
+	.byte	-38
+	.byte	-38
+	.byte	-39
+	.byte	-39
+	.byte	-41
+	.byte	-42
+	.byte	-45
+	.byte	-48
+	.byte	-50
+	.byte	-52
+	.byte	-53
+	.byte	-54
+	.byte	-55
+	.byte	-55
+	.byte	-56
+	.byte	-56
+	.byte	-56
+	.byte	-55
+	.byte	-55
+	.byte	-55
+	.byte	-55
+	.byte	-54
+	.byte	-52
+	.byte	-50
+	.byte	-47
+	.byte	-44
+	.byte	-43
+	.byte	-42
+	.byte	-42
+	.byte	-43
+	.byte	-44
+	.byte	-46
+	.byte	-48
+	.byte	-48
+	.byte	-48
+	.byte	-47
+	.byte	-46
+	.byte	-44
+	.byte	-40
+	.byte	-37
+	.byte	-34
+	.byte	-32
+	.byte	-30
+	.byte	-28
+	.byte	-27
+	.byte	-26
+	.byte	-27
+	.byte	-27
+	.byte	-26
+	.byte	-24
+	.byte	-22
+	.byte	-20
+	.byte	-19
+	.byte	-18
 	.byte	-17
 	.byte	-16
 	.byte	-15
+	.byte	-14
 	.byte	-13
+	.byte	-12
 	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-9
+	.byte	-9
 	.byte	-8
-	.byte	-6
-	.byte	-4
-	.byte	-2
+	.byte	-8
+	.byte	-7
+	.byte	-5
+	.byte	-3
 	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	1
 	.byte	2
 	.byte	4
 	.byte	6
 	.byte	8
+	.byte	10
+	.byte	12
+	.byte	15
+	.byte	17
+	.byte	20
+	.byte	22
+	.byte	24
+	.byte	25
+	.byte	27
+	.byte	30
+	.byte	32
+	.byte	35
+	.byte	38
+	.byte	41
+	.byte	44
+	.byte	48
+	.byte	51
+	.byte	54
+	.byte	55
+	.byte	55
+	.byte	56
+	.byte	56
+	.byte	55
+	.byte	54
+	.byte	53
+	.byte	52
+	.byte	53
+	.byte	54
+	.byte	55
+	.byte	55
+	.byte	56
+	.byte	57
+	.byte	57
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	57
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	58
+	.byte	59
+	.byte	59
+	.byte	61
+	.byte	62
+	.byte	62
+	.byte	62
+	.byte	61
+	.byte	61
+	.byte	61
+	.byte	62
+	.byte	62
+	.byte	62
+	.byte	61
+	.byte	61
+	.byte	60
+	.byte	59
+	.byte	58
+	.byte	56
+	.byte	55
+	.byte	55
+	.byte	53
+	.byte	52
+	.byte	51
+	.byte	49
+	.byte	48
+	.byte	47
+	.byte	45
+	.byte	44
+	.byte	43
+	.byte	42
+	.byte	41
+	.byte	40
+	.byte	41
+	.byte	41
+	.byte	42
+	.byte	43
+	.byte	43
+	.byte	43
+	.byte	43
+	.byte	42
+	.byte	41
+	.byte	40
+	.byte	39
+	.byte	39
+	.byte	39
+	.byte	39
+	.byte	40
+	.byte	41
+	.byte	41
+	.byte	41
+	.byte	40
+	.byte	39
+	.byte	38
+	.byte	37
+	.byte	36
+	.byte	35
+	.byte	35
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	33
+	.byte	31
+	.byte	29
+	.byte	27
+	.byte	26
+	.byte	24
+	.byte	23
+	.byte	22
+	.byte	21
+	.byte	20
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	19
+	.byte	21
+	.byte	22
+	.byte	24
+	.byte	25
+	.byte	24
+	.byte	23
+	.byte	22
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	22
+	.byte	22
+	.byte	23
+	.byte	23
+	.byte	24
+	.byte	25
+	.byte	25
+	.byte	25
+	.byte	24
+	.byte	22
+	.byte	20
+	.byte	18
+	.byte	17
+	.byte	15
+	.byte	13
+	.byte	12
+	.byte	10
 	.byte	9
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	9
+	.byte	10
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	14
+	.byte	13
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	13
+	.byte	13
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	16
+	.byte	17
+	.byte	18
+	.byte	19
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	22
+	.byte	22
+	.byte	22
+	.byte	21
+	.byte	19
+	.byte	16
+	.byte	13
+	.byte	10
+	.byte	8
+	.byte	7
+	.byte	6
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	10
+	.byte	10
+	.byte	10
 	.byte	10
 	.byte	10
 	.byte	11
 	.byte	12
+	.byte	12
 	.byte	13
+	.byte	13
+	.byte	13
+	.byte	13
+	.byte	13
+	.byte	13
+	.byte	14
+	.byte	16
+	.byte	18
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	19
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	19
+	.byte	19
+	.byte	20
+	.byte	19
+	.byte	17
+	.byte	15
+	.byte	13
+	.byte	11
+	.byte	9
+	.byte	7
+	.byte	6
+	.byte	6
+	.byte	5
+	.byte	6
+	.byte	6
+	.byte	7
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	10
+	.byte	12
+	.byte	15
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	19
+	.byte	19
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	22
+	.byte	23
+	.byte	23
+	.byte	23
+	.byte	24
+	.byte	23
+	.byte	22
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	16
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	16
+	.byte	17
+	.byte	19
+	.byte	20
+	.byte	22
+	.byte	23
+	.byte	24
+	.byte	26
+	.byte	28
+	.byte	29
+	.byte	31
+	.byte	32
+	.byte	34
+	.byte	35
+	.byte	36
+	.byte	36
+	.byte	37
+	.byte	37
+	.byte	37
+	.byte	36
+	.byte	35
+	.byte	35
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	34
+	.byte	33
+	.byte	31
+	.byte	30
+	.byte	28
+	.byte	27
+	.byte	26
+	.byte	25
+	.byte	25
+	.byte	27
+	.byte	28
+	.byte	28
+	.byte	29
+	.byte	28
+	.byte	28
+	.byte	28
+	.byte	28
+	.byte	28
+	.byte	28
+	.byte	29
+	.byte	29
+	.byte	29
+	.byte	29
+	.byte	30
+	.byte	31
+	.byte	32
+	.byte	33
+	.byte	35
+	.byte	36
+	.byte	38
+	.byte	40
+	.byte	41
+	.byte	42
+	.byte	42
+	.byte	42
+	.byte	41
+	.byte	40
+	.byte	39
+	.byte	38
+	.byte	37
+	.byte	36
+	.byte	34
+	.byte	32
+	.byte	30
+	.byte	29
+	.byte	27
+	.byte	26
+	.byte	25
+	.byte	25
+	.byte	24
+	.byte	23
+	.byte	23
+	.byte	22
+	.byte	21
+	.byte	20
+	.byte	19
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	16
+	.byte	15
+	.byte	15
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	15
+	.byte	15
 	.byte	15
 	.byte	16
 	.byte	16
 	.byte	16
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	18
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	17
+	.byte	16
+	.byte	15
 	.byte	14
+	.byte	13
 	.byte	12
+	.byte	11
+	.byte	10
 	.byte	9
+	.byte	7
 	.byte	6
-	.byte	4
-	.byte	2
+	.byte	5
+	.byte	3
 	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
 	.byte	-2
 	.byte	-3
 	.byte	-3
 	.byte	-4
 	.byte	-4
-	.byte	-4
 	.byte	-3
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	2
-	.byte	1
-	.byte	0
-	.byte	-2
 	.byte	-3
-	.byte	-4
-	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
 	.byte	-2
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	0
+	.byte	-2
 	.byte	-1
 	.byte	-2
 	.byte	-2
 	.byte	-3
 	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
 	.byte	-4
-	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
 	.byte	-6
+	.byte	-7
 	.byte	-7
 	.byte	-8
 	.byte	-9
 	.byte	-10
+	.byte	-11
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-14
+	.byte	-14
+	.byte	-15
+	.byte	-15
+	.byte	-16
+	.byte	-16
+	.byte	-18
+	.byte	-19
+	.byte	-20
+	.byte	-21
+	.byte	-21
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-23
+	.byte	-23
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-25
+	.byte	-26
+	.byte	-26
+	.byte	-27
+	.byte	-27
+	.byte	-27
+	.byte	-27
+	.byte	-26
+	.byte	-25
+	.byte	-25
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-24
+	.byte	-24
+	.byte	-23
+	.byte	-23
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-23
+	.byte	-24
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-24
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-25
+	.byte	-26
+	.byte	-26
+	.byte	-26
+	.byte	-26
+	.byte	-26
+	.byte	-25
+	.byte	-24
+	.byte	-23
+	.byte	-22
+	.byte	-21
+	.byte	-21
+	.byte	-20
+	.byte	-21
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-22
+	.byte	-21
+	.byte	-21
+	.byte	-20
+	.byte	-20
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-19
+	.byte	-18
+	.byte	-17
+	.byte	-16
+	.byte	-15
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-1
+	.byte	-2
+	.byte	-2
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-6
+	.byte	-7
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-10
+	.byte	-10
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-10
+	.byte	-10
 	.byte	-10
 	.byte	-9
 	.byte	-9
@@ -3189,96 +5755,6 @@ BlockUpSFX:
 	.byte	-6
 	.byte	-5
 	.byte	-4
-	.byte	-2
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	3
-	.byte	3
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	2
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	4
-	.byte	4
-	.byte	3
-	.byte	2
-	.byte	2
-	.byte	1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-3
 	.byte	-4
 	.byte	-4
 	.byte	-3
@@ -3286,11 +5762,68 @@ BlockUpSFX:
 	.byte	-3
 	.byte	-3
 	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-2
+	.byte	-2
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-2
+	.byte	-2
+	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
 	.byte	-3
 	.byte	-3
 	.byte	-3
 	.byte	-3
-	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
 	.byte	-4
 	.byte	-4
 	.byte	-5
@@ -3298,7 +5831,114 @@ BlockUpSFX:
 	.byte	-6
 	.byte	-7
 	.byte	-7
+	.byte	-8
+	.byte	-8
 	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-10
+	.byte	-10
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
 	.byte	-7
 	.byte	-7
 	.byte	-7
@@ -3306,6 +5946,11 @@ BlockUpSFX:
 	.byte	-6
 	.byte	-5
 	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
 	.byte	-5
 	.byte	-4
 	.byte	-3
@@ -3315,79 +5960,8 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-3
-	.byte	-3
-	.byte	-3
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-4
-	.byte	-3
-	.byte	-3
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	1
 	.byte	1
 	.byte	1
 	.byte	2
@@ -3396,34 +5970,711 @@ BlockUpSFX:
 	.byte	3
 	.byte	4
 	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
+	.byte	5
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	7
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	10
+	.byte	11
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	13
+	.byte	13
+	.byte	14
+	.byte	14
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	21
+	.byte	20
+	.byte	20
+	.byte	20
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	20
+	.byte	20
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	19
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	18
+	.byte	17
+	.byte	17
+	.byte	17
+	.byte	16
+	.byte	16
+	.byte	16
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	15
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	14
+	.byte	13
+	.byte	13
+	.byte	12
+	.byte	12
+	.byte	11
+	.byte	11
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	5
+	.byte	5
+	.byte	5
+	.byte	5
 	.byte	4
 	.byte	4
 	.byte	3
 	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
 	.byte	2
 	.byte	2
 	.byte	1
 	.byte	1
+	.byte	1
 	.byte	0
 	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	-1
+	.byte	-1
+	.byte	-1
 	.byte	-1
 	.byte	-2
 	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-3
+	.byte	-3
 	.byte	-3
 	.byte	-3
 	.byte	-4
 	.byte	-4
 	.byte	-4
 	.byte	-4
+	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
 	.byte	-4
 	.byte	-3
 	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-16
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-15
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-14
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-13
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-12
+	.byte	-11
+	.byte	-11
+	.byte	-11
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-10
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-9
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-8
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-7
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-6
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
 	.byte	-2
 	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -3432,36 +6683,214 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	0
 	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
 	.byte	2
 	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	4
+	.byte	4
+	.byte	4
 	.byte	4
 	.byte	4
 	.byte	4
 	.byte	5
 	.byte	5
 	.byte	5
+	.byte	5
+	.byte	5
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	12
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	12
+	.byte	11
+	.byte	12
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	11
+	.byte	10
+	.byte	10
+	.byte	11
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	10
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	9
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	8
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	7
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	5
+	.byte	5
+	.byte	5
+	.byte	5
+	.byte	5
 	.byte	4
 	.byte	4
 	.byte	4
 	.byte	4
 	.byte	4
-	.byte	4
+	.byte	3
+	.byte	3
+	.byte	3
 	.byte	3
 	.byte	3
 	.byte	3
 	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
 	.byte	2
 	.byte	2
 	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	0
 	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-1
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
+	.byte	-2
 	.byte	-2
 	.byte	-3
 	.byte	-3
@@ -3470,157 +6899,11 @@ BlockUpSFX:
 	.byte	-3
 	.byte	-3
 	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	2
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	3
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	3
-	.byte	3
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
 	.byte	-3
 	.byte	-3
 	.byte	-3
@@ -3631,123 +6914,83 @@ BlockUpSFX:
 	.byte	-4
 	.byte	-4
 	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-5
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-4
+	.byte	-3
+	.byte	-4
 	.byte	-3
 	.byte	-3
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
+	.byte	-3
 	.byte	-2
 	.byte	-2
 	.byte	-2
@@ -3756,11 +6999,6 @@ BlockUpSFX:
 	.byte	-2
 	.byte	-2
 	.byte	-2
-	.byte	-2
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
 	.byte	-2
 	.byte	-2
 	.byte	-2
@@ -3775,113 +7013,6 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	1
-	.byte	1
-	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -3893,17 +7024,6 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
@@ -3946,64 +7066,115 @@ BlockUpSFX:
 	.byte	2
 	.byte	2
 	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	3
+	.byte	2
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	3
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
 	.byte	1
 	.byte	1
 	.byte	1
 	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	1
 	.byte	1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	2
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -4027,6 +7198,98 @@ BlockUpSFX:
 	.byte	1
 	.byte	1
 	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
+	.byte	1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -4038,25 +7301,11 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -4078,44 +7327,6 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
@@ -4128,29 +7339,31 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
 	.byte	-1
-	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -4160,28 +7373,21 @@ BlockUpSFX:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	-1
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
+	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -4231,43 +7437,10 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -4286,71 +7459,12 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	-1
 	.byte	-1
 	.byte	-1
@@ -4378,3129 +7492,15 @@ BlockUpSFX:
 	.byte	-1
 	.byte	-1
 	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0
 	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
+	.byte	-1
 	.byte	0
 	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
 	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
+	.byte	0
 	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
-	.byte	0
-	.byte	-1
 	.byte	0
 	.ident	"GCC: (devkitARM release 47) 7.1.0"

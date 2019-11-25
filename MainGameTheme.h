@@ -15,7 +15,7 @@
 #define __MAINGAMETHEMEH__
 
 #define MAINGAMETHEMEFREQ 11025
-#define MAINGAMETHEMELEN 1641600
+#define MAINGAMETHEMELEN 1641600 - 600
 
 extern const unsigned char MainGameTheme[1641600];
 

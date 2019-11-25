@@ -1002,16 +1002,66 @@ extern const unsigned short STATE_startMap[1024];
 
 extern const unsigned short STATE_startPal[256];
 # 4 "main.c" 2
-# 1 "STATE_instructions.h" 1
-# 22 "STATE_instructions.h"
-extern const unsigned short STATE_instructionsTiles[1600];
+# 1 "STATE_instructions1.h" 1
+# 22 "STATE_instructions1.h"
+extern const unsigned short STATE_instructions1Tiles[2112];
 
 
-extern const unsigned short STATE_instructionsMap[1024];
+extern const unsigned short STATE_instructions1Map[1024];
 
 
-extern const unsigned short STATE_instructionsPal[256];
+extern const unsigned short STATE_instructions1Pal[256];
 # 5 "main.c" 2
+# 1 "STATE_instructions2.h" 1
+# 22 "STATE_instructions2.h"
+extern const unsigned short STATE_instructions2Tiles[2112];
+
+
+extern const unsigned short STATE_instructions2Map[1024];
+
+
+extern const unsigned short STATE_instructions2Pal[256];
+# 6 "main.c" 2
+# 1 "STATE_instructions3.h" 1
+# 22 "STATE_instructions3.h"
+extern const unsigned short STATE_instructions3Tiles[2592];
+
+
+extern const unsigned short STATE_instructions3Map[1024];
+
+
+extern const unsigned short STATE_instructions3Pal[256];
+# 7 "main.c" 2
+# 1 "instructionsText1.h" 1
+# 22 "instructionsText1.h"
+extern const unsigned short instructionsText1Tiles[3312];
+
+
+extern const unsigned short instructionsText1Map[1024];
+
+
+extern const unsigned short instructionsText1Pal[256];
+# 8 "main.c" 2
+# 1 "instructionsText2.h" 1
+# 22 "instructionsText2.h"
+extern const unsigned short instructionsText2Tiles[3104];
+
+
+extern const unsigned short instructionsText2Map[1024];
+
+
+extern const unsigned short instructionsText2Pal[256];
+# 9 "main.c" 2
+# 1 "instructionsText3.h" 1
+# 22 "instructionsText3.h"
+extern const unsigned short instructionsText3Tiles[3504];
+
+
+extern const unsigned short instructionsText3Map[1024];
+
+
+extern const unsigned short instructionsText3Pal[256];
+# 10 "main.c" 2
 # 1 "STATE_pause.h" 1
 # 22 "STATE_pause.h"
 extern const unsigned short STATE_pauseTiles[12512];
@@ -1021,17 +1071,17 @@ extern const unsigned short STATE_pauseMap[1024];
 
 
 extern const unsigned short STATE_pausePal[256];
-# 6 "main.c" 2
+# 11 "main.c" 2
 # 1 "STATE_win.h" 1
 # 22 "STATE_win.h"
-extern const unsigned short STATE_winTiles[1104];
+extern const unsigned short STATE_winTiles[15296];
 
 
 extern const unsigned short STATE_winMap[1024];
 
 
 extern const unsigned short STATE_winPal[256];
-# 7 "main.c" 2
+# 12 "main.c" 2
 # 1 "city.h" 1
 # 22 "city.h"
 extern const unsigned short cityTiles[48];
@@ -1041,7 +1091,7 @@ extern const unsigned short cityMap[2048];
 
 
 extern const unsigned short cityPal[256];
-# 8 "main.c" 2
+# 13 "main.c" 2
 # 1 "clocktower.h" 1
 # 22 "clocktower.h"
 extern const unsigned short clocktowerTiles[192];
@@ -1051,14 +1101,14 @@ extern const unsigned short clocktowerMap[2048];
 
 
 extern const unsigned short clocktowerPal[256];
-# 9 "main.c" 2
+# 14 "main.c" 2
 # 1 "spritesheet.h" 1
 # 21 "spritesheet.h"
 extern const unsigned short spritesheetTiles[16384];
 
 
 extern const unsigned short spritesheetPal[256];
-# 10 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "sound.h" 1
 SOUND soundA;
@@ -1074,12 +1124,12 @@ void interruptHandler();
 void pauseSound();
 void unpauseSound();
 void stopSound();
-# 12 "main.c" 2
+# 17 "main.c" 2
 # 1 "MainGameTheme.h" 1
 # 20 "MainGameTheme.h"
 extern const unsigned char MainGameTheme[1641600];
-# 13 "main.c" 2
-# 34 "main.c"
+# 18 "main.c" 2
+# 45 "main.c"
 SOUND soundA;
 SOUND soundB;
 
@@ -1087,6 +1137,7 @@ SOUND soundB;
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 int cursor;
+int instructionsNum;
 
 
 void initialize();
@@ -1147,11 +1198,11 @@ int main() {
 
 void initialize() {
 
-    (*(unsigned short *)0x4000000) = 0 | (1<<8) | (1<<12);
+    (*(unsigned short *)0x4000000) = 0 | (1<<9) | (1<<12);
 
 
-    (*(volatile unsigned short*)0x400000A) = ((0)<<2) | ((29)<<8) | (0<<7) | (2<<14);
-    (*(volatile unsigned short*)0x400000C) = ((1)<<2) | ((27)<<8) | (0<<7) | (2<<14);
+    (*(volatile unsigned short*)0x400000C) = ((0)<<2) | ((29)<<8) | (0<<7) | (2<<14);
+    (*(volatile unsigned short*)0x400000E) = ((1)<<2) | ((27)<<8) | (0<<7) | (2<<14);
 
     DMANow(3, spritesheetPal, ((unsigned short *)0x5000200), 256);
  DMANow(3, spritesheetTiles, &((charblock *)0x6000000)[4], 32768 / 2);
@@ -1196,7 +1247,7 @@ void start() {
         if (cursor == 0) {
             srand(seed);
             stopSound();
-            playSoundA(MainGameTheme, 1641600, 11025, 1);
+            playSoundA(MainGameTheme, 1641600 - 600, 11025, 1);
             goToGame();
         } else {
             srand(seed);
@@ -1208,10 +1259,41 @@ void start() {
 void instructions() {
 
     if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
-        stopSound();
-        playSoundA(MainGameTheme, 1641600, 11025, 1);
-        goToGame();
-        initGame();
+        if (instructionsNum == 1) {
+            DMANow(3, STATE_instructions2Pal, ((unsigned short *)0x5000000), 512 / 2);
+            DMANow(3, STATE_instructions2Tiles, &((charblock *)0x6000000)[2], 4224 / 2);
+            DMANow(3, STATE_instructions2Map, &((screenblock *)0x6000000)[31], 2048 / 2);
+
+            DMANow(3, instructionsText2Tiles, &((charblock *)0x6000000)[0], 6208 / 2);
+            DMANow(3, instructionsText2Map, &((screenblock *)0x6000000)[29], 2048 / 2);
+
+
+            shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
+            shadowOAM[0].attr1 = 175 | (0<<14);
+            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+
+            DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+        } else if (instructionsNum == 2) {
+            DMANow(3, STATE_instructions3Pal, ((unsigned short *)0x5000000), 512 / 2);
+            DMANow(3, STATE_instructions3Tiles, &((charblock *)0x6000000)[2], 5184 / 2);
+            DMANow(3, STATE_instructions3Map, &((screenblock *)0x6000000)[31], 2048 / 2);
+
+            DMANow(3, instructionsText3Tiles, &((charblock *)0x6000000)[0], 7008 / 2);
+            DMANow(3, instructionsText3Map, &((screenblock *)0x6000000)[29], 2048 / 2);
+
+
+            shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
+            shadowOAM[0].attr1 = 120 | (0<<14);
+            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+
+            DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
+        } else {
+            stopSound();
+            playSoundA(MainGameTheme, 1641600 - 600, 11025, 1);
+            goToGame();
+            initGame();
+        }
+        instructionsNum++;
     }
 }
 
@@ -1279,11 +1361,11 @@ void goToStart() {
     cursor = 0;
 
     hideSprites();
-    (*(unsigned short *)0x4000000) |= (1<<8) | (1<<12);
+    (*(unsigned short *)0x4000000) |= (1<<9) | (1<<12);
 
-    (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
-    (*(volatile unsigned short *)0x04000010) = 0;
-    (*(volatile unsigned short *)0x04000012) = 0;
+    (*(volatile unsigned short*)0x400000A) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
+    (*(volatile unsigned short *)0x04000014) = 0;
+    (*(volatile unsigned short *)0x04000016) = 0;
 
     DMANow(3, STATE_startPal, ((unsigned short *)0x5000000), 512 / 2);
     DMANow(3, STATE_startTiles, &((charblock *)0x6000000)[2], 27968 / 2);
@@ -1292,7 +1374,7 @@ void goToStart() {
 
     shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 98 | (0<<14);
-    shadowOAM[0].attr2 = ((1)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = START;
@@ -1301,22 +1383,27 @@ void goToStart() {
 
 void goToInstructions() {
     cursor = 0;
+    instructionsNum = 1;
 
     hideSprites();
-    (*(unsigned short *)0x4000000) |= (1<<8) | (1<<12);
+    (*(unsigned short *)0x4000000) = 0 | (1<<8) | (1<<9)| (1<<12);
 
-    (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
-    (*(volatile unsigned short *)0x04000010) = 0;
-    (*(volatile unsigned short *)0x04000012) = 0;
+    (*(volatile unsigned short*)0x400000A) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
+    (*(volatile unsigned short *)0x04000014) = 0;
+    (*(volatile unsigned short *)0x04000016) = 0;
 
-    DMANow(3, STATE_instructionsPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_instructionsTiles, &((charblock *)0x6000000)[2], 3200 / 2);
-    DMANow(3, STATE_instructionsMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+    (*(volatile unsigned short*)0x4000008) = ((0)<<2) | ((29)<<8) | (0<<7) | (0<<14);
+    DMANow(3, instructionsText1Tiles, &((charblock *)0x6000000)[0], 6624 / 2);
+    DMANow(3, instructionsText1Map, &((screenblock *)0x6000000)[29], 2048 / 2);
+
+    DMANow(3, STATE_instructions1Pal, ((unsigned short *)0x5000000), 512 / 2);
+    DMANow(3, STATE_instructions1Tiles, &((charblock *)0x6000000)[2], 4224 / 2);
+    DMANow(3, STATE_instructions1Map, &((screenblock *)0x6000000)[31], 2048 / 2);
 
 
-    shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
-    shadowOAM[0].attr1 = 98 | (0<<14);
-    shadowOAM[0].attr2 = ((1)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
+    shadowOAM[0].attr1 = 175 | (0<<14);
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = INSTRUCTIONS;
@@ -1325,7 +1412,7 @@ void goToInstructions() {
 void goToGame() {
     cursor = 0;
 
-    (*(unsigned short *)0x4000000) = 0 | (1<<9) | (1<<10) | (1<<12);
+    (*(unsigned short *)0x4000000) = 0 | (1<<10) | (1<<11) | (1<<12);
 
     hideSprites();
     DMANow(3, clocktowerPal, ((unsigned short *)0x5000000), 256);
@@ -1345,10 +1432,10 @@ void goToPause() {
     cursor = 0;
 
     hideSprites();
-    (*(unsigned short *)0x4000000) |= (1<<8) | (1<<12);
-    (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
-    (*(volatile unsigned short *)0x04000010) = 0;
-    (*(volatile unsigned short *)0x04000012) = 0;
+    (*(unsigned short *)0x4000000) = 0 | (1<<9) | (1<<12);
+    (*(volatile unsigned short*)0x400000A) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
+    (*(volatile unsigned short *)0x04000014) = 0;
+    (*(volatile unsigned short *)0x04000016) = 0;
 
     DMANow(3, STATE_pausePal, ((unsigned short *)0x5000000), 512 / 2);
     DMANow(3, STATE_pauseTiles, &((charblock *)0x6000000)[2], 25024 / 2);
@@ -1357,7 +1444,7 @@ void goToPause() {
 
     shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 98 | (0<<14);
-    shadowOAM[0].attr2 = ((1)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = PAUSE;
@@ -1367,12 +1454,18 @@ void goToWin() {
     cursor = 0;
 
     hideSprites();
-    (*(unsigned short *)0x4000000) |= (1<<8) | (1<<12);
-    (*(volatile unsigned short*)0x4000008) = ((2)<<2) | ((31)<<8) | (0<<7) | (0<<14);
+    (*(unsigned short *)0x4000000) = 0 | (1<<9) | (1<<12);
+    (*(volatile unsigned short*)0x400000A) = ((2)<<2) | ((31)<<8) | (1<<7) | (0<<14);
 
     DMANow(3, STATE_winPal, ((unsigned short *)0x5000000), 512 / 2);
-    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[2], 2208 / 2);
+    DMANow(3, STATE_winTiles, &((charblock *)0x6000000)[2], 30592 / 2);
     DMANow(3, STATE_winMap, &((screenblock *)0x6000000)[31], 2048 / 2);
+
+
+    shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
+    shadowOAM[0].attr1 = 130 | (0<<14);
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = WIN;
 }

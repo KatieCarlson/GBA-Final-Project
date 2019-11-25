@@ -3,13 +3,13 @@
 
 //======================================================================
 //
-//	STATE_win, 256x256@4, 
+//	STATE_win, 256x256@8, 
 //	+ palette 256 entries, not compressed
-//	+ 69 tiles (t|f|p reduced) not compressed
+//	+ 478 tiles (t|f|p reduced) not compressed
 //	+ regular map (in SBBs), not compressed, 32x32 
-//	Total size: 512 + 2208 + 2048 = 4768
+//	Total size: 512 + 30592 + 2048 = 33152
 //
-//	Time-stamp: 2019-11-14, 16:51:20
+//	Time-stamp: 2019-11-25, 12:41:38
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_STATE_WIN_H
 #define GRIT_STATE_WIN_H
 
-#define STATE_winTilesLen 2208
-extern const unsigned short STATE_winTiles[1104];
+#define STATE_winTilesLen 30592
+extern const unsigned short STATE_winTiles[15296];
 
 #define STATE_winMapLen 2048
 extern const unsigned short STATE_winMap[1024];
