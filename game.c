@@ -3,6 +3,12 @@
 #include "spritesheet.h"
 #include "collisionmap.h"
 
+#include "sound.h"
+#include "MainGameTheme.h"
+#include "BlockDownSFX.h"
+#include "BlockTurnSFX.h"
+#include "BlockUpSFX.h"
+
 // Variables
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
@@ -40,6 +46,7 @@ void initGame() {
 void updateGame() {
 
 	updatePlayer();
+    //playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
 		updateBoardSquare(&board[i]);
@@ -158,9 +165,11 @@ void updatePlayer() {
                     int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
                     if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
                         pieceParents[i].selected = 1;
+                        playSoundB(BlockUpSFX, BLOCKUPSFXLEN, BLOCKUPSFXFREQ, 0);
                     }
                 }
             } else {
+                playSoundB(BlockDownSFX, BLOCKDOWNSFXLEN, BLOCKDOWNSFXFREQ, 0);
                 pieceParents[i].selected = 0;
                 pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
                 pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;

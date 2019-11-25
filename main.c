@@ -8,6 +8,9 @@
 #include "clocktower.h"
 #include "spritesheet.h"
 
+#include "sound.h"
+#include "MainGameTheme.h"
+
 /*
 What is finished about the game so far:
 Picking up pieces mostly works, the game ends if you cover the game board
@@ -27,6 +30,9 @@ directly underneath the top left corner of the player
 Move the block so that it covers the 'board' that has white outlines to win
 
 */
+
+SOUND soundA;
+SOUND soundB;
 
 // States
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
@@ -101,6 +107,9 @@ void initialize() {
     DMANow(3, spritesheetPal, SPRITEPALETTE, 256);
 	DMANow(3, spritesheetTiles, &CHARBLOCK[4], spritesheetTilesLen / 2);
 
+    setupSounds();
+	setupInterrupts();
+
     initGame();
     goToStart();
 }
@@ -137,6 +146,8 @@ void start() {
     if (BUTTON_PRESSED(BUTTON_START)) {
         if (cursor == 0) {
             srand(seed);
+            stopSound();
+            playSoundA(MainGameTheme, MAINGAMETHEMELEN, MAINGAMETHEMEFREQ, 1);
             goToGame();
         } else {
             srand(seed);
@@ -148,6 +159,8 @@ void start() {
 void instructions() {
 
     if (BUTTON_PRESSED(BUTTON_START)) {
+        stopSound();
+        playSoundA(MainGameTheme, MAINGAMETHEMELEN, MAINGAMETHEMEFREQ, 1);
         goToGame();
         initGame();
     }
@@ -158,9 +171,12 @@ void game() {
     updateGame();
     drawGame();
 
-    if (BUTTON_PRESSED(BUTTON_START))
+    if (BUTTON_PRESSED(BUTTON_START)) {
+        pauseSound();
         goToPause();
+    }
     if (fitted == 0) {
+        stopSound();
         goToWin();
     }
 }
@@ -194,16 +210,20 @@ void pause() {
 
     if (BUTTON_PRESSED(BUTTON_START)) {
         if (cursor == 0) {
+            unpauseSound();
             goToGame();
         } else {
+            stopSound();
             goToStart();
         }
     }
 }
 
 void win() {
-    if (BUTTON_PRESSED(BUTTON_START))
+    if (BUTTON_PRESSED(BUTTON_START)) {
+        stopSound();
         goToStart();
+    }
 }
 
 void goToStart() {

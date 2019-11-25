@@ -892,6 +892,17 @@ typedef volatile struct {
 extern DMA *dma;
 # 258 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
+# 349 "myLib.h"
+typedef struct{
+    const unsigned char* data;
+    int length;
+    int frequency;
+    int isPlaying;
+    int loops;
+    int duration;
+    int priority;
+    int vBlankCount;
+} SOUND;
 
 
 
@@ -1048,7 +1059,31 @@ extern const unsigned short spritesheetTiles[16384];
 
 extern const unsigned short spritesheetPal[256];
 # 10 "main.c" 2
-# 32 "main.c"
+
+# 1 "sound.h" 1
+SOUND soundA;
+SOUND soundB;
+
+void setupSounds();
+void playSoundA( const unsigned char* sound, int length, int frequency, int loops);
+void playSoundB( const unsigned char* sound, int length, int frequency, int loops);
+
+void setupInterrupts();
+void interruptHandler();
+
+void pauseSound();
+void unpauseSound();
+void stopSound();
+# 12 "main.c" 2
+# 1 "MainGameTheme.h" 1
+# 20 "MainGameTheme.h"
+extern const unsigned char MainGameTheme[1641600];
+# 13 "main.c" 2
+# 34 "main.c"
+SOUND soundA;
+SOUND soundB;
+
+
 enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 int cursor;
@@ -1121,6 +1156,9 @@ void initialize() {
     DMANow(3, spritesheetPal, ((unsigned short *)0x5000200), 256);
  DMANow(3, spritesheetTiles, &((charblock *)0x6000000)[4], 32768 / 2);
 
+    setupSounds();
+ setupInterrupts();
+
     initGame();
     goToStart();
 }
@@ -1157,6 +1195,8 @@ void start() {
     if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
         if (cursor == 0) {
             srand(seed);
+            stopSound();
+            playSoundA(MainGameTheme, 1641600, 11025, 1);
             goToGame();
         } else {
             srand(seed);
@@ -1168,6 +1208,8 @@ void start() {
 void instructions() {
 
     if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
+        stopSound();
+        playSoundA(MainGameTheme, 1641600, 11025, 1);
         goToGame();
         initGame();
     }
@@ -1178,9 +1220,12 @@ void game() {
     updateGame();
     drawGame();
 
-    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
+        pauseSound();
         goToPause();
+    }
     if (fitted == 0) {
+        stopSound();
         goToWin();
     }
 }
@@ -1214,16 +1259,20 @@ void pause() {
 
     if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
         if (cursor == 0) {
+            unpauseSound();
             goToGame();
         } else {
+            stopSound();
             goToStart();
         }
     }
 }
 
 void win() {
-    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3)))))
+    if ((!(~(oldButtons)&((1<<3))) && (~buttons & ((1<<3))))) {
+        stopSound();
         goToStart();
+    }
 }
 
 void goToStart() {

@@ -892,6 +892,17 @@ typedef volatile struct {
 extern DMA *dma;
 # 258 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
+# 349 "myLib.h"
+typedef struct{
+    const unsigned char* data;
+    int length;
+    int frequency;
+    int isPlaying;
+    int loops;
+    int duration;
+    int priority;
+    int vBlankCount;
+} SOUND;
 
 
 
@@ -993,6 +1004,38 @@ extern const unsigned short spritesheetPal[256];
 extern const unsigned short collisionmapBitmap[131072];
 # 5 "game.c" 2
 
+# 1 "sound.h" 1
+SOUND soundA;
+SOUND soundB;
+
+void setupSounds();
+void playSoundA( const unsigned char* sound, int length, int frequency, int loops);
+void playSoundB( const unsigned char* sound, int length, int frequency, int loops);
+
+void setupInterrupts();
+void interruptHandler();
+
+void pauseSound();
+void unpauseSound();
+void stopSound();
+# 7 "game.c" 2
+# 1 "MainGameTheme.h" 1
+# 20 "MainGameTheme.h"
+extern const unsigned char MainGameTheme[1641600];
+# 8 "game.c" 2
+# 1 "BlockDownSFX.h" 1
+# 20 "BlockDownSFX.h"
+extern const unsigned char BlockDownSFX[2592];
+# 9 "game.c" 2
+# 1 "BlockTurnSFX.h" 1
+# 20 "BlockTurnSFX.h"
+extern const unsigned char BlockTurnSFX[6336];
+# 10 "game.c" 2
+# 1 "BlockUpSFX.h" 1
+# 20 "BlockUpSFX.h"
+extern const unsigned char BlockUpSFX[7488];
+# 11 "game.c" 2
+
 
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
@@ -1030,6 +1073,7 @@ void initGame() {
 void updateGame() {
 
  updatePlayer();
+
 
     for (int i = 0; i < 4; i++) {
   updateBoardSquare(&board[i]);
@@ -1148,9 +1192,11 @@ void updatePlayer() {
                     int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
                     if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
                         pieceParents[i].selected = 1;
+                        playSoundB(BlockUpSFX, 7488, 11025, 0);
                     }
                 }
             } else {
+                playSoundB(BlockDownSFX, 2592, 11025, 0);
                 pieceParents[i].selected = 0;
                 pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
                 pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
