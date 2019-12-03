@@ -27,37 +27,40 @@ goToStart:
 	str	r4, [r2]
 	mov	lr, pc
 	bx	r3
+	ldr	r3, .L4+8
+	mov	lr, pc
+	bx	r3
 	mov	r2, #67108864
 	ldrh	r3, [r2]
-	ldr	r1, .L4+8
+	ldr	r1, .L4+12
 	orr	r3, r3, #4608
 	strh	r1, [r2, #10]	@ movhi
-	ldr	r5, .L4+12
+	ldr	r5, .L4+16
 	strh	r4, [r2, #20]	@ movhi
 	strh	r3, [r2]	@ movhi
 	strh	r4, [r2, #22]	@ movhi
 	mov	r3, #256
 	mov	r2, #83886080
-	ldr	r1, .L4+16
+	ldr	r1, .L4+20
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
-	ldr	r3, .L4+20
-	ldr	r2, .L4+24
-	ldr	r1, .L4+28
+	ldr	r3, .L4+24
+	ldr	r2, .L4+28
+	ldr	r1, .L4+32
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
 	mov	r3, #1024
-	ldr	r2, .L4+32
-	ldr	r1, .L4+36
+	ldr	r2, .L4+36
+	ldr	r1, .L4+40
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
 	mov	r1, #97
 	mov	r2, #98
-	mov	ip, #41
-	ldr	r0, .L4+40
+	mov	ip, #49
+	ldr	r0, .L4+44
 	mov	r3, #512
 	strh	r1, [r0]	@ movhi
 	strh	r2, [r0, #2]	@ movhi
@@ -67,8 +70,8 @@ goToStart:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
-	ldr	r2, .L4+44
-	ldr	r3, .L4+48
+	ldr	r2, .L4+48
+	ldr	r3, .L4+52
 	str	r4, [r2]
 	str	r4, [r3]
 	pop	{r4, r5, r6, lr}
@@ -77,6 +80,7 @@ goToStart:
 	.align	2
 .L4:
 	.word	cursor
+	.word	initGame
 	.word	hideSprites
 	.word	8072
 	.word	DMANow
@@ -253,7 +257,7 @@ goToInstructions:
 	bx	r4
 	mov	r1, #139
 	mov	r2, #175
-	mov	ip, #41
+	mov	ip, #49
 	ldr	r0, .L23+52
 	mov	r3, #512
 	strh	r1, [r0]	@ movhi
@@ -570,7 +574,7 @@ instructions:
 	mov	r1, #139
 	mov	r2, #120
 .L85:
-	mov	ip, #41
+	mov	ip, #49
 	ldr	r0, .L88+72
 	mov	r3, #512
 	strh	r1, [r0]	@ movhi
@@ -802,7 +806,7 @@ goToPause:
 	bx	r4
 	mov	r1, #97
 	mov	r2, #98
-	mov	ip, #41
+	mov	ip, #49
 	ldr	r0, .L136+40
 	mov	r3, #512
 	strh	r1, [r0]	@ movhi
@@ -877,7 +881,7 @@ goToWin:
 	bx	r4
 	mov	r1, #97
 	mov	r2, #130
-	mov	ip, #41
+	mov	ip, #49
 	ldr	r0, .L140+36
 	mov	r3, #512
 	strh	r1, [r0]	@ movhi

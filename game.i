@@ -916,7 +916,6 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 
-
 typedef struct {
     int rowOffset;
     int colOffset;
@@ -973,7 +972,6 @@ typedef struct {
 
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
-extern boardSquare board[4];
 extern int fitted;
 
 
@@ -1039,7 +1037,8 @@ extern const unsigned char BlockUpSFX[7488];
 
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
-boardSquare board[4];
+int BOARDSQUARECOUNT = 16;
+boardSquare board[16];
 pieceParent pieceParents[4];
 
 
@@ -1051,6 +1050,7 @@ pieceParent pieceParents[4];
 int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
+int fittedReset;
 int fitted;
 
 
@@ -1062,7 +1062,11 @@ unsigned short vOff;
 
 void initGame() {
 
-    fitted = 1;
+    vOff = 0;
+    hOff = 0;
+
+    fitted = BOARDSQUARECOUNT;
+    fittedReset = BOARDSQUARECOUNT;
 
     initPlayer();
     initBoard();
@@ -1075,7 +1079,7 @@ void updateGame() {
  updatePlayer();
 
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
   updateBoardSquare(&board[i]);
  }
     for (int i = 0; i < 4; i++) {
@@ -1087,7 +1091,7 @@ void drawGame() {
 
     drawPlayer();
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
   drawBoardSquare(&board[i]);
  }
     for (int i = 0; i < 4; i++) {
@@ -1108,8 +1112,8 @@ void initPlayer() {
     DMANow(3, spritesheetPal, ((unsigned short *)0x5000200), 256);
  DMANow(3, spritesheetTiles, &((charblock *)0x6000000)[4], 32768 / 2);
 
-    player.width = 16;
-    player.height = 16;
+    player.width = 32;
+    player.height = 32;
     player.cdel = 1;
     player.rdel = 1;
 
@@ -1134,92 +1138,103 @@ void updatePlayer() {
     vselDel = 0;
     hselDel = 0;
 
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
-        if (player.screenRow > 0
-        && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol))]
-        && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + player.width - 1))]) {
-            player.worldRow -= 1;
-            vselDel = -1;
-            if (vOff > 0 && player.screenRow < 80) {
-                vOffdel = -1;
-            }
-        }
-    }
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
-        if (player.screenRow + player.height < 320
-        && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol))]
-        && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + player.width - 1))]) {
-            player.worldRow += 1;
-            vselDel = 1;
-            if (vOff < 512 - 160 && player.screenRow > 80) {
-                vOffdel = 1;
-            }
-        }
-    }
-    vOff += vOffdel;
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
-        if (player.screenCol > 0
-        && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol - 1))]
-        && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol - 1))]) {
-            player.worldCol -= 1;
-            hselDel = -1;
-            if (hOff > 0 && player.screenCol < 120) {
-                hOffdel = -1;
-            }
-        }
-    }
-    if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
-        if (player.screenCol + player.width < 240
-        && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol + player.width))]
-        && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol + player.width))]) {
-            player.worldCol += 1;
-            hselDel = 1;
-            if (hOff < 256 - 240 && player.screenCol > 120) {
-                hOffdel = 1;
-            }
-        }
-    }
+    if((!(~(oldButtons)&((1<<0))) && (~buttons & ((1<<0))))) {
 
-    hOff += hOffdel;
-    vOff += vOffdel;
-
-
-    if((!(~(oldButtons)&((1<<1))) && (~buttons & ((1<<1))))){
         for (int i = 0; i < 4; i++) {
-            if (pieceParents[i].selected == 0) {
-                for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
-                    int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
-                    int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
-                    if (collision(player.worldCol, player.worldRow, 1, 1, c, r, 8, 8)){
-                        pieceParents[i].selected = 1;
-                        playSoundB(BlockUpSFX, 7488, 11025, 0);
-                    }
-                }
-            } else {
-                playSoundB(BlockDownSFX, 2592, 11025, 0);
-                pieceParents[i].selected = 0;
-                pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
-                pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
+            if (pieceParents[i].selected > 0) {
+                turnPiece(&pieceParents[i]);
+            }
+        }
 
-                if ((pieceParents[i].worldCol + pieceParents[i].kids[0].colOffset) * 8 + pieceParents[i].hOffset == 17 * 8
-                 && (pieceParents[i].worldRow + pieceParents[i].kids[0].rowOffset) * 8 + pieceParents[i].vOffset == 42 * 8) {
-                    fitted = 0;
-                }
+    } else {
 
-                for (int x = 0; x < 4; x++) {
-                    for (int j = 0; j < pieceParents[x].numOfActiveKids; j++) {
-                  if (board[x].worldCol == (pieceParents[j].worldCol + pieceParents[i].kids[j].colOffset) + pieceParents[j].hOffset
-                         && board[x].worldRow == (pieceParents[j].worldRow + pieceParents[i].kids[j].rowOffset) + pieceParents[j].vOffset){
-                            fitted = 0;
+        if((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
+            if (player.screenRow > 0
+            && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol))]
+            && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + player.width - 1))]) {
+                player.worldRow -= 1;
+                vselDel = -1;
+                if (vOff > 0 && player.screenRow < 80) {
+                    vOffdel = -1;
+                }
+            }
+        }
+        if((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
+            if (player.screenRow + player.height < 320
+            && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol))]
+            && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + player.width - 1))]) {
+                player.worldRow += 1;
+                vselDel = 1;
+                if (vOff < 512 - 160 && player.screenRow > 80) {
+                    vOffdel = 1;
+                }
+            }
+        }
+        vOff += vOffdel;
+        if((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
+            if (player.screenCol > 0
+            && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol - 1))]
+            && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol - 1))]) {
+                player.worldCol -= 1;
+                hselDel = -1;
+                if (hOff > 0 && player.screenCol < 120) {
+                    hOffdel = -1;
+                }
+            }
+        }
+        if((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
+            if (player.screenCol + player.width < 240
+            && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol + player.width))]
+            && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol + player.width))]) {
+                player.worldCol += 1;
+                hselDel = 1;
+                if (hOff < 256 - 240 && player.screenCol > 120) {
+                    hOffdel = 1;
+                }
+            }
+        }
+
+        hOff += hOffdel;
+        vOff += vOffdel;
+
+
+        if((!(~(oldButtons)&((1<<1))) && (~buttons & ((1<<1))))){
+            for (int i = 0; i < 4; i++) {
+                if (pieceParents[i].selected == 0) {
+                    for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
+                        int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
+                        int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
+                        if (collision(player.worldCol, player.worldRow, 2, 2, c, r, 8, 8)){
+                            pieceParents[i].selected = i + 1;
+                            playSoundB(BlockUpSFX, 7488, 11025, 0);
                         }
                     }
-             }
+                } else {
+                    playSoundB(BlockDownSFX, 2592, 11025, 0);
+                    pieceParents[i].selected = 0;
+                    pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
+                    pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
+
+                    int f = fittedReset;
+                    for (int x = 0; x < BOARDSQUARECOUNT; x++) {
+                        for (int pp = 0; pp < 4; pp++) {
+                            for (int j = 0; j < pieceParents[pp].numOfActiveKids; j++) {
+                                if (board[x].worldCol == (pieceParents[pp].worldCol + pieceParents[pp].kids[j].colOffset) + pieceParents[pp].hOffset / 8
+                                && board[x].worldRow == (pieceParents[pp].worldRow + pieceParents[pp].kids[j].rowOffset) + pieceParents[pp].vOffset / 8){
+                                    f--;
+                                }
+                            }
+                        }
+                    }
+                    fitted = f;
+                }
             }
         }
-    }
 
-    player.screenRow = player.worldRow - vOff;
-    player.screenCol = player.worldCol - hOff;
+        player.screenRow = player.worldRow - vOff;
+        player.screenCol = player.worldCol - hOff;
+
+    }
 
     animatePlayer();
 }
@@ -1258,21 +1273,31 @@ void animatePlayer() {
 
 void drawPlayer() {
     shadowOAM[0].attr0 = player.screenRow | (0<<14) | (0<<13);
-    shadowOAM[0].attr1 = player.screenCol | (1<<14);
+    shadowOAM[0].attr1 = player.screenCol | (2<<14);
     shadowOAM[0].attr2 = ((player.palRow)<<12) | ((player.sheetRow + player.curFrame * player.height / 8)*32+(player.sheetCol + player.aniState * player.width / 8))
 
                                                                   ;
 }
 
+void turnPiece(pieceParent* pp) {
+    pieceKid kid = pp->kids[pp->selected - 1];
+
+
+    pp->worldRow += -1 * kid.colOffset + 1 * kid.rowOffset;
+    pp->worldCol += -3 + (1 * kid.colOffset) + 1 * kid.rowOffset;
+
+
+}
+
 void initBoard() {
+    int tempBoardVals [32] = {42, 17, 42, 18, 42, 19, 42, 20,
+                              43, 17, 43, 18, 43, 19, 43, 20,
+                              44, 17, 44, 18, 44, 19, 44, 20,
+                              45, 17, 45, 18, 45, 19, 45, 20};
 
 
 
-
-
-    int tempBoardVals [8] = {42, 17, 43, 17, 44, 17, 45, 17};
-
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
         board[i].worldCol = tempBoardVals[i * 2 + 1];
         board[i].rdel = 0;
@@ -1281,7 +1306,7 @@ void initBoard() {
         board[i].height = 8;
         board[i].hide = 0;
         board[i].sheetRow = 1;
-        board[i].sheetCol = 8;
+        board[i].sheetCol = 16;
         board[i].palRow = 0;
         board[i].spriteNum = i + boardSpriteNumStart;
     }
@@ -1317,7 +1342,7 @@ void initPieceParents() {
         pieceParents[i].vOffset = 0;
         pieceParents[i].hOffset = 0;
         pieceParents[i].sheetRow = 0;
-        pieceParents[i].sheetCol = 9 + i;
+        pieceParents[i].sheetCol = 17 + i;
         pieceParents[i].palRow = 0;
         pieceParents[i].num = i * 10 + 30;
 
@@ -1345,7 +1370,7 @@ void drawPieceParent(pieceParent* pp) {
 }
 
 void updatePieceParent(pieceParent* pp) {
-    if (pp->selected == 1) {
+    if (pp->selected > 0) {
         pp->vOffset += vselDel;
         pp->hOffset += hselDel;
         pp->screenRow = pp->worldRow * 8 - vOff + pp->vOffset;

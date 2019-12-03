@@ -18,7 +18,8 @@
 
 /*
 What is finished about the game so far:
-Most of the art and background are done.  I might polish up my game state backgrounds.
+Most of the art and background are done.  I might polish up my game state backgrounds, 
+and edit the art of my main fairy player because it is ugly.
 
 What still needs to be added:
 Turning pieces with the wind
@@ -33,7 +34,7 @@ Any bugs that you have found:
 It takes a couple tries to pick up a piece, and it seems like
 you have to put the player's top left pixel in the middle of the piece to make it work.
 
-How to play the game in itscurrent state :
+How to play the game in its current state :
 Move with arrow keys, pick up a block with the 'B' key.  The block you are picking up is the one
 directly underneath the top left corner of the player
 Move the block so that it covers the 'board' that has white outlines to win.
@@ -182,7 +183,7 @@ void instructions() {
             // draw cursor
             shadowOAM[0].attr0 = 139 | ATTR0_SQUARE | ATTR0_4BPP;
             shadowOAM[0].attr1 = 175 | ATTR1_TINY;
-            shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+            shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
             DMANow(3, shadowOAM, OAM, 128 * 4);
         } else if (instructionsNum == 2) {
@@ -196,7 +197,7 @@ void instructions() {
             // draw cursor
             shadowOAM[0].attr0 = 139 | ATTR0_SQUARE | ATTR0_4BPP;
             shadowOAM[0].attr1 = 120 | ATTR1_TINY;
-            shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+            shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
             DMANow(3, shadowOAM, OAM, 128 * 4);
         } else {
@@ -271,6 +272,7 @@ void win() {
 
 void goToStart() {
     cursor = 0;
+    initGame();
 
     hideSprites();
     REG_DISPCTL |= BG1_ENABLE | SPRITE_ENABLE;
@@ -286,7 +288,7 @@ void goToStart() {
     // draw cursor
     shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[0].attr1 = 98 | ATTR1_TINY;
-    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = START;
@@ -315,7 +317,7 @@ void goToInstructions() {
     // draw cursor
     shadowOAM[0].attr0 = 139 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[0].attr1 = 175 | ATTR1_TINY;
-    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = INSTRUCTIONS;
@@ -356,7 +358,7 @@ void goToPause() {
     // draw cursor
     shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[0].attr1 = 98 | ATTR1_TINY;
-    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = PAUSE;
@@ -376,7 +378,7 @@ void goToWin() {
     // draw cursor
     shadowOAM[0].attr0 = 97 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[0].attr1 = 130 | ATTR1_TINY;
-    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(9, 1);
+    shadowOAM[0].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(17, 1);
 
     DMANow(3, shadowOAM, OAM, 128 * 4);
     state = WIN;

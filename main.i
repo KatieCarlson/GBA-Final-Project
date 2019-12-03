@@ -916,7 +916,6 @@ int collision(int colA, int rowA, int widthA, int heightA, int colB, int rowB, i
 
 
 
-
 typedef struct {
     int rowOffset;
     int colOffset;
@@ -973,7 +972,6 @@ typedef struct {
 
 extern OBJ_ATTR shadowOAM[128];
 extern ANISPRITE player;
-extern boardSquare board[4];
 extern int fitted;
 
 
@@ -1129,7 +1127,7 @@ void stopSound();
 # 20 "MainGameTheme.h"
 extern const unsigned char MainGameTheme[1641600];
 # 18 "main.c" 2
-# 45 "main.c"
+# 46 "main.c"
 SOUND soundA;
 SOUND soundB;
 
@@ -1270,7 +1268,7 @@ void instructions() {
 
             shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
             shadowOAM[0].attr1 = 175 | (0<<14);
-            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
             DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
         } else if (instructionsNum == 2) {
@@ -1284,7 +1282,7 @@ void instructions() {
 
             shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
             shadowOAM[0].attr1 = 120 | (0<<14);
-            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+            shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
             DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
         } else {
@@ -1359,6 +1357,7 @@ void win() {
 
 void goToStart() {
     cursor = 0;
+    initGame();
 
     hideSprites();
     (*(unsigned short *)0x4000000) |= (1<<9) | (1<<12);
@@ -1374,7 +1373,7 @@ void goToStart() {
 
     shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 98 | (0<<14);
-    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = START;
@@ -1403,7 +1402,7 @@ void goToInstructions() {
 
     shadowOAM[0].attr0 = 139 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 175 | (0<<14);
-    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = INSTRUCTIONS;
@@ -1444,7 +1443,7 @@ void goToPause() {
 
     shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 98 | (0<<14);
-    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = PAUSE;
@@ -1464,7 +1463,7 @@ void goToWin() {
 
     shadowOAM[0].attr0 = 97 | (0<<14) | (0<<13);
     shadowOAM[0].attr1 = 130 | (0<<14);
-    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(9));
+    shadowOAM[0].attr2 = ((0)<<12) | ((1)*32+(17));
 
     DMANow(3, shadowOAM, ((OBJ_ATTR*)(0x7000000)), 128 * 4);
     state = WIN;
