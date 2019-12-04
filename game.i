@@ -1205,7 +1205,7 @@ void updatePlayer() {
                         int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
                         int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
                         if (collision(player.worldCol, player.worldRow, 2, 2, c, r, 8, 8)){
-                            pieceParents[i].selected = i + 1;
+                            pieceParents[i].selected = j + 1;
                             playSoundB(BlockUpSFX, 7488, 11025, 0);
                         }
                     }
@@ -1281,12 +1281,19 @@ void drawPlayer() {
 
 void turnPiece(pieceParent* pp) {
     pieceKid kid = pp->kids[pp->selected - 1];
+    int c = kid.colOffset;
+    int r = kid.rowOffset;
 
 
-    pp->worldRow += -1 * kid.colOffset + 1 * kid.rowOffset;
-    pp->worldCol += -3 + (1 * kid.colOffset) + 1 * kid.rowOffset;
+    pp->worldRow += (- c + r);
+    pp->worldCol += (-3 + c + r);
 
 
+    for (int i = 0; i < pp->numOfActiveKids; i++) {
+        int tempCol = pp->kids[i].colOffset;
+        pp->kids[i].colOffset = 3 - pp->kids[i].rowOffset;
+        pp->kids[i].rowOffset = tempCol;
+    }
 }
 
 void initBoard() {
