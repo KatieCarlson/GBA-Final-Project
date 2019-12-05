@@ -318,7 +318,7 @@ goToGame:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
-	mov	r3, #192
+	mov	r3, #1824
 	mov	r2, #100663296
 	ldr	r1, .L27+16
 	mov	r0, #3

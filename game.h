@@ -42,6 +42,29 @@ typedef struct {
 } pieceParent;
 
 typedef struct {
+    int selected;
+
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
+    int vOffset;
+    int hOffset;
+    int rdel;
+    int cdel;
+    int width;
+    int height;
+    int hide;
+    int sheetRow;
+    int sheetCol;
+    int palRow;
+
+    int rowOffset;
+    int colOffset;
+    int spriteNum;
+} singleBlock;
+
+typedef struct {
     int screenRow;
     int screenCol;
     int worldRow;
@@ -70,6 +93,7 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
+void turnPiece();
 void initBoard();
 void drawBoardSquare();
 void updateBoardSquare();

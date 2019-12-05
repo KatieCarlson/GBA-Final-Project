@@ -332,6 +332,7 @@ void goToGame() {
     DMANow(3, clocktowerPal, PALETTE, 256);
 
     // load tiles and map for bg2
+    //REG_BG0CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_8BPP | BG_SIZE_TALL;
     DMANow(3, clocktowerTiles, &CHARBLOCK[0], clocktowerTilesLen / 2);
     DMANow(3, clocktowerMap, &SCREENBLOCK[29], clocktowerMapLen / 2);
 

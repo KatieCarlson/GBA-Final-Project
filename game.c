@@ -16,10 +16,19 @@ int BOARDSQUARECOUNT = 16;
 boardSquare board[16];
 pieceParent pieceParents[PIECEPARENTCOUNT];
 
+// row, col
+int pieces [70] = {0,0,  1,0,  2,0,  3,0,  3,1,  3,2,  2,2,
+                   1,0,  1,1,  1,2,  1,3,  0,3,  2,2,  3,2,
+                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0,
+                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0,
+                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0};
+
 /* Sprites
 Player = 0
 BoardSquares = 100 - 128
 PieceKids = parentsNum * 10
+99: wind
+98: cheat block
 */
 
 int boardSpriteNumStart = 100;
@@ -27,6 +36,17 @@ int vselDel;
 int hselDel;
 int fittedReset;
 int fitted;
+int windTimer;
+int hasTurned;
+int cheat;
+
+int windCount;
+int windIsOn;
+int windFrameRate;
+int windRow;
+int windCol;
+
+singleBlock cheatBlock;
 
 // Animation states for player
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -43,6 +63,12 @@ void initGame() {
     fitted = BOARDSQUARECOUNT;
     fittedReset = BOARDSQUARECOUNT;
 
+    windTimer = 0;
+    hasTurned = 0;
+    cheat = 0;
+    windIsOn = 0;
+    windFrameRate = 20;
+
     initPlayer();
     initBoard();
     initPieceParents();
@@ -51,8 +77,20 @@ void initGame() {
 
 void updateGame() {
 
+    // animate wind
+    if (windIsOn) {
+        windCount++;
+        int state = windCount / windFrameRate;
+        shadowOAM[99].attr0 = (windRow + (windRow - player.screenRow) - 32) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[99].attr1 = (windCol - (windCol - player.screenCol)) | ATTR1_MEDIUM;
+        shadowOAM[99].attr2 = ATTR2_PALROW(2) | ATTR2_TILEID(18, 2 + state * 4);
+        if (windCount == 6 * windFrameRate) {
+            windIsOn = 0;
+            shadowOAM[99].attr0 |= ATTR0_HIDE;
+        }
+    }
+
 	updatePlayer();
-    //playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
 		updateBoardSquare(&board[i]);
@@ -60,6 +98,17 @@ void updateGame() {
     for (int i = 0; i < PIECEPARENTCOUNT; i++) {
 		updatePieceParent(&pieceParents[i]);
 	}
+
+    // update cheat block
+    if (cheatBlock.selected > 0) {
+        cheatBlock.vOffset += vselDel;
+        cheatBlock.hOffset += hselDel;
+        cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff + cheatBlock.vOffset;
+        cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff + cheatBlock.hOffset;
+    } else {
+        cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff + cheatBlock.vOffset;
+        cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff + cheatBlock.hOffset;
+    }
 }
 
 void drawGame() {
@@ -72,6 +121,16 @@ void drawGame() {
     for (int i = 0; i < PIECEPARENTCOUNT; i++) {
 		drawPieceParent(&pieceParents[i]);
 	}
+
+    // draw cheat block
+    // if screenrow or screen col aren't within 0 - 160
+    if (cheatBlock.screenRow < 0 - cheatBlock.height || cheatBlock.screenRow > 160) {
+        shadowOAM[cheatBlock.spriteNum].attr0 = ATTR0_HIDE;
+    } else {
+        shadowOAM[cheatBlock.spriteNum].attr0 = (ROWMASK & (cheatBlock.rowOffset * 8 + cheatBlock.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[cheatBlock.spriteNum].attr1 = (COLMASK & (cheatBlock.colOffset * 8 + cheatBlock.screenCol)) | ATTR1_TINY;
+        shadowOAM[cheatBlock.spriteNum].attr2 = ATTR2_PALROW(cheatBlock.palRow) | ATTR2_TILEID(cheatBlock.sheetCol, cheatBlock.sheetRow);
+    }
 
     REG_BG2HOFF = hOff;
     REG_BG2VOFF = vOff;
@@ -113,8 +172,16 @@ void updatePlayer() {
     vselDel = 0;
     hselDel = 0;
 
-    if(BUTTON_PRESSED(BUTTON_A)) {
+    if (collision(player.worldCol, player.worldRow, player.width, player.height, 0, 0, 8 * 8, 512) ||
+        collision(player.worldCol, player.worldRow, player.width, player.height, 0, 0, 256, 8 * 12)) {
+        windTimer++;
+    } else {
+        windTimer = 0;
+        hasTurned = 0;
+    }
 
+    if ((cheat && BUTTON_PRESSED(BUTTON_A)) || (windTimer > 80 && hasTurned == 0)) {
+        hasTurned = 1;
         for (int i = 0; i < PIECEPARENTCOUNT; i++) {
             if (pieceParents[i].selected > 0) {
                 turnPiece(&pieceParents[i]);
@@ -123,7 +190,7 @@ void updatePlayer() {
 
     } else {
 
-        if(BUTTON_HELD(BUTTON_UP)) {
+        if (BUTTON_HELD(BUTTON_UP)) {
             if (player.screenRow > 0 
             && collisionmapBitmap[OFFSET(player.worldCol, player.worldRow - 1, 256)]
             && collisionmapBitmap[OFFSET(player.worldCol + player.width - 1, player.worldRow - 1, 256)]) {
@@ -134,7 +201,7 @@ void updatePlayer() {
                 }
             }
         }
-        if(BUTTON_HELD(BUTTON_DOWN)) {
+        if (BUTTON_HELD(BUTTON_DOWN)) {
             if (player.screenRow + player.height < 320
             && collisionmapBitmap[OFFSET(player.worldCol, player.worldRow + player.height, 256)]
             && collisionmapBitmap[OFFSET(player.worldCol + player.width - 1, player.worldRow + player.height, 256)]) {
@@ -146,7 +213,7 @@ void updatePlayer() {
             }
         }
         vOff += vOffdel;
-        if(BUTTON_HELD(BUTTON_LEFT)) {
+        if (BUTTON_HELD(BUTTON_LEFT)) {
             if (player.screenCol > 0
             && collisionmapBitmap[OFFSET(player.worldCol - 1, player.worldRow, 256)]
             && collisionmapBitmap[OFFSET(player.worldCol - 1, player.worldRow + player.height - 1, 256)]) {
@@ -157,7 +224,7 @@ void updatePlayer() {
                 }
             }
         }
-        if(BUTTON_HELD(BUTTON_RIGHT)) {
+        if (BUTTON_HELD(BUTTON_RIGHT)) {
             if (player.screenCol + player.width < 240
             && collisionmapBitmap[OFFSET(player.worldCol + player.width, player.worldRow, 256)]
             && collisionmapBitmap[OFFSET(player.worldCol + player.width, player.worldRow + player.height - 1, 256)]) {
@@ -173,23 +240,16 @@ void updatePlayer() {
         vOff += vOffdel;
 
         // Check for collision with pieces
-        if(BUTTON_PRESSED(BUTTON_B)){
+        if (BUTTON_PRESSED(BUTTON_B)){
+            int actionDone = 0;
             for (int i = 0; i < PIECEPARENTCOUNT; i++) {
-                if (pieceParents[i].selected == 0) {
-                    for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
-                        int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
-                        int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
-                        if (collision(player.worldCol, player.worldRow, 2, 2, c, r, 8, 8)){
-                            pieceParents[i].selected = j + 1;
-                            playSoundB(BlockUpSFX, BLOCKUPSFXLEN, BLOCKUPSFXFREQ, 0);
-                        }
-                    }
-                } else {
+                if (pieceParents[i].selected > 0) {
+                    actionDone = 1;
                     playSoundB(BlockDownSFX, BLOCKDOWNSFXLEN, BLOCKDOWNSFXFREQ, 0);
                     pieceParents[i].selected = 0;
                     pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
                     pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
-                    
+                            
                     int f = fittedReset;
                     for (int x = 0; x < BOARDSQUARECOUNT; x++) {
                         for (int pp = 0; pp < PIECEPARENTCOUNT; pp++) {
@@ -202,7 +262,49 @@ void updatePlayer() {
                         }
                     }
                     fitted = f;
+                    i = PIECEPARENTCOUNT;
                 }
+            }
+            // check for cheat block putting down
+            if (cheatBlock.selected > 0) {
+                if(collisionmapBitmap[OFFSET(cheatBlock.worldCol * 8 + (cheatBlock.hOffset - (cheatBlock.hOffset % 8)), 
+                    cheatBlock.worldRow * 8 + (cheatBlock.vOffset - (cheatBlock.vOffset % 8)), 256)]) {
+                    playSoundB(BlockDownSFX, BLOCKDOWNSFXLEN, BLOCKDOWNSFXFREQ, 0);
+                    cheatBlock.selected = 0;
+                    cheatBlock.vOffset -= (cheatBlock.vOffset) % 8;
+                    cheatBlock.hOffset -= (cheatBlock.hOffset) % 8;
+                    actionDone = 1;
+
+                    // check if cheat should be activated
+                    if (cheatBlock.worldRow + cheatBlock.vOffset / 8 == 52 && cheatBlock.worldCol + cheatBlock.hOffset / 8 == 9) {
+                        cheat = 1;
+                    }
+                }
+            }
+            for (int i = 0; i < PIECEPARENTCOUNT && actionDone == 0; i++) {
+                int numOfKids = pieceParents[i].numOfActiveKids;
+                if (pieceParents[i].selected == 0) {
+                    for (int j = 0; j < numOfKids; j++) {
+                        int r = (pieceParents[i].worldRow + pieceParents[i].kids[j].rowOffset) * 8 + pieceParents[i].vOffset;
+                        int c = (pieceParents[i].worldCol + pieceParents[i].kids[j].colOffset) * 8 + pieceParents[i].hOffset;
+                        if (collision(player.worldCol, player.worldRow, 2, 2, c, r, 8, 8)){
+                            pieceParents[i].selected = j + 1;
+                            actionDone = 1;
+                            playSoundB(BlockUpSFX, BLOCKUPSFXLEN, BLOCKUPSFXFREQ, 0);
+                            j = pieceParents[i].numOfActiveKids;
+                            i = PIECEPARENTCOUNT;
+                        }
+                    }
+                }
+            }
+            // check for cheat block picking up
+            int r = (cheatBlock.worldRow + cheatBlock.rowOffset) * 8 + cheatBlock.vOffset;
+            int c = (cheatBlock.worldCol + cheatBlock.colOffset) * 8 + cheatBlock.hOffset;
+            if (actionDone == 0 && collision(player.worldCol, player.worldRow, 2, 2, c, r, 8, 8)) {
+                cheatBlock.selected = 1;
+                cheat = 0;
+                actionDone = 1;
+                playSoundB(BlockUpSFX, BLOCKUPSFXLEN, BLOCKUPSFXFREQ, 0);
             }
         }
 
@@ -251,10 +353,16 @@ void drawPlayer() {
     shadowOAM[0].attr1 = player.screenCol | ATTR1_MEDIUM;
     shadowOAM[0].attr2 = ATTR2_PALROW(player.palRow) | ATTR2_TILEID(
             player.sheetCol + player.aniState * player.width / 8, 
-            player.sheetRow + player.curFrame * player.height / 8);
+            player.sheetRow + player.curFrame * player.height / 8 + cheat * 12);
 }
 
 void turnPiece(pieceParent* pp) {
+    playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
+    windCount = 0;
+    windIsOn = 1;
+    windRow = player.screenRow;
+    windCol = player.screenCol;
+
     pieceKid kid = pp->kids[pp->selected - 1];
     int c = kid.colOffset;
     int r = kid.rowOffset;
@@ -299,7 +407,7 @@ void drawBoardSquare(boardSquare* bs) {
     if (bs->screenRow < 0 - bs->height || bs->screenRow > 160) {
         shadowOAM[bs->spriteNum].attr0 = ATTR0_HIDE;
     } else {
-        shadowOAM[bs->spriteNum].attr0 = (ROWMASK & bs->screenRow) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[bs->spriteNum].attr0 = (ROWMASK & bs->screenRow) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_BLEND;
         shadowOAM[bs->spriteNum].attr1 = (COLMASK & bs->screenCol) | ATTR1_TINY;
         shadowOAM[bs->spriteNum].attr2 = ATTR2_PALROW(bs->palRow) | ATTR2_TILEID(
             bs->sheetCol, bs->sheetRow);
@@ -336,6 +444,24 @@ void initPieceParents() {
             pieceParents[i].kids[j].spriteNum = i * 10 + 30 + j;
         }
     }
+
+    cheatBlock.selected = 0;
+    cheatBlock.worldRow = 2;
+    cheatBlock.worldCol = 19;
+    cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff;
+    cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff;
+    cheatBlock.vOffset = 0;
+    cheatBlock.hOffset = 0;
+    cheatBlock.sheetRow = 1;
+    cheatBlock.sheetCol = 19;
+    cheatBlock.palRow = 2;
+
+    cheatBlock.rowOffset = 0;
+    cheatBlock.colOffset = 0;
+    cheatBlock.width = 8;
+    cheatBlock.height = 8;
+    cheatBlock.spriteNum = 98;
+
 }
 
 void drawPieceParent(pieceParent* pp) {

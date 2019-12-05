@@ -954,6 +954,29 @@ typedef struct {
 } pieceParent;
 
 typedef struct {
+    int selected;
+
+    int screenRow;
+    int screenCol;
+    int worldRow;
+    int worldCol;
+    int vOffset;
+    int hOffset;
+    int rdel;
+    int cdel;
+    int width;
+    int height;
+    int hide;
+    int sheetRow;
+    int sheetCol;
+    int palRow;
+
+    int rowOffset;
+    int colOffset;
+    int spriteNum;
+} singleBlock;
+
+typedef struct {
     int screenRow;
     int screenCol;
     int worldRow;
@@ -982,6 +1005,7 @@ void initPlayer();
 void updatePlayer();
 void animatePlayer();
 void drawPlayer();
+void turnPiece();
 void initBoard();
 void drawBoardSquare();
 void updateBoardSquare();
@@ -1092,7 +1116,7 @@ extern const unsigned short cityPal[256];
 # 13 "main.c" 2
 # 1 "clocktower.h" 1
 # 22 "clocktower.h"
-extern const unsigned short clocktowerTiles[192];
+extern const unsigned short clocktowerTiles[1824];
 
 
 extern const unsigned short clocktowerMap[2048];
@@ -1417,7 +1441,8 @@ void goToGame() {
     DMANow(3, clocktowerPal, ((unsigned short *)0x5000000), 256);
 
 
-    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 384 / 2);
+
+    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 3648 / 2);
     DMANow(3, clocktowerMap, &((screenblock *)0x6000000)[29], 4096 / 2);
 
 

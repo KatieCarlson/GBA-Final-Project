@@ -5,11 +5,11 @@
 //
 //	clocktower, 256x512@4, 
 //	+ palette 256 entries, not compressed
-//	+ 12 tiles (t|f|p reduced) not compressed
-//	+ regular map (flat), not compressed, 32x64 
-//	Total size: 512 + 384 + 4096 = 4992
+//	+ 114 tiles (t|f|p reduced) not compressed
+//	+ regular map (in SBBs), not compressed, 32x64 
+//	Total size: 512 + 3648 + 4096 = 8256
 //
-//	Time-stamp: 2019-11-18, 14:21:35
+//	Time-stamp: 2019-12-05, 11:40:18
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_CLOCKTOWER_H
 #define GRIT_CLOCKTOWER_H
 
-#define clocktowerTilesLen 384
-extern const unsigned short clocktowerTiles[192];
+#define clocktowerTilesLen 3648
+extern const unsigned short clocktowerTiles[1824];
 
 #define clocktowerMapLen 4096
 extern const unsigned short clocktowerMap[2048];
