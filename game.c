@@ -12,20 +12,21 @@
 // Variables
 OBJ_ATTR shadowOAM[128];
 ANISPRITE player;
-int BOARDSQUARECOUNT = 16;
-boardSquare board[16];
+int BOARDSQUARECOUNT = 26;
+boardSquare board[26];
 pieceParent pieceParents[PIECEPARENTCOUNT];
 
 // row, col
+int numOfPieces [5] = {7, 7, 5, 2, 5};
 int pieces [70] = {0,0,  1,0,  2,0,  3,0,  3,1,  3,2,  2,2,
                    1,0,  1,1,  1,2,  1,3,  0,3,  2,2,  3,2,
-                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0,
-                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0,
-                   0,0,  0,0,  0,0,  0,0,  0,0,  0,0,  0,0};
+                   0,0,  1,0,  2,0,  3,0,  2,1,  0,0,  0,0,
+                   0,0,  0,1,  0,0,  0,0,  0,0,  0,0,  0,0,
+                   2,0,  2,1,  2,2,  1,2,  0,2,  0,0,  0,0};
 
 /* Sprites
 Player = 0
-BoardSquares = 100 - 128
+BoardSquares = 90 - 128
 PieceKids = parentsNum * 10
 99: wind
 98: cheat block
@@ -38,6 +39,8 @@ int fittedReset;
 int fitted;
 int windTimer;
 int hasTurned;
+int flipTimer;
+int hasFlipped;
 int cheat;
 
 int windCount;
@@ -65,6 +68,8 @@ void initGame() {
 
     windTimer = 0;
     hasTurned = 0;
+    flipTimer = 0;
+    hasFlipped = 0;
     cheat = 0;
     windIsOn = 0;
     windFrameRate = 20;
@@ -81,12 +86,12 @@ void updateGame() {
     if (windIsOn) {
         windCount++;
         int state = windCount / windFrameRate;
-        shadowOAM[99].attr0 = (windRow + (windRow - player.screenRow) - 32) | ATTR0_SQUARE | ATTR0_4BPP;
-        shadowOAM[99].attr1 = (windCol - (windCol - player.screenCol)) | ATTR1_MEDIUM;
-        shadowOAM[99].attr2 = ATTR2_PALROW(2) | ATTR2_TILEID(18, 2 + state * 4);
+        shadowOAM[89].attr0 = (windRow + (windRow - player.screenRow) - 32) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[89].attr1 = (windCol - (windCol - player.screenCol)) | ATTR1_MEDIUM;
+        shadowOAM[89].attr2 = ATTR2_PALROW(2) | ATTR2_TILEID(18, 2 + state * 4);
         if (windCount == 6 * windFrameRate) {
             windIsOn = 0;
-            shadowOAM[99].attr0 |= ATTR0_HIDE;
+            shadowOAM[89].attr0 |= ATTR0_HIDE;
         }
     }
 
@@ -180,6 +185,13 @@ void updatePlayer() {
         hasTurned = 0;
     }
 
+    if (collision(player.worldCol, player.worldRow, player.width, player.height, 144, 160, 32, 32)) {
+        flipTimer++;
+    } else {
+        flipTimer = 0;
+        hasFlipped = 0;
+    }
+
     if ((cheat && BUTTON_PRESSED(BUTTON_A)) || (windTimer > 80 && hasTurned == 0)) {
         hasTurned = 1;
         for (int i = 0; i < PIECEPARENTCOUNT; i++) {
@@ -188,6 +200,13 @@ void updatePlayer() {
             }
         }
 
+    } else if ((cheat && BUTTON_PRESSED(BUTTON_L)) || (flipTimer > 80 && hasFlipped == 0)) {
+        hasFlipped = 1;
+        for (int i = 0; i < PIECEPARENTCOUNT; i++) {
+            if (pieceParents[i].selected > 0) {
+                flipPiece(&pieceParents[i]);
+            }
+        }
     } else {
 
         if (BUTTON_HELD(BUTTON_UP)) {
@@ -379,13 +398,36 @@ void turnPiece(pieceParent* pp) {
     }
 }
 
+void flipPiece(pieceParent* pp) {
+    playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
+
+    pieceKid kid = pp->kids[pp->selected - 1];
+    int c = kid.colOffset;
+    int cDelta = 3;
+    if (c == 0) {
+        cDelta = -3;
+    } else if (c == 1) {
+        cDelta = -1;
+    } else if (c == 2) {
+        cDelta = 1;
+    }
+
+    //reset Parent x and y values
+    pp->worldCol += cDelta;
+
+    //reset kid values
+    for (int i = 0; i < pp->numOfActiveKids; i++) {
+        pp->kids[i].colOffset = 3 - pp->kids[i].colOffset;
+    }
+}
+
 void initBoard() {
-    int tempBoardVals [32] = {42, 17, 42, 18, 42, 19, 42, 20, 
-                              43, 17, 43, 18, 43, 19, 43, 20, 
-                              44, 17, 44, 18, 44, 19, 44, 20,
-                              45, 17, 45, 18, 45, 19, 45, 20};
-    
-    //int tempBoardVals [8] = {42, 17, 43, 17, 44, 17, 45, 17};
+    int tempBoardVals [52] = {39, 17, 39, 18, 39, 19, 39, 20, 
+                              40, 17, 40, 18, 40, 19, 40, 20, 
+                              41, 17, 41, 18, 41, 19, 41, 20,
+                              42, 17, 42, 18, 42, 19, 42, 20,
+                              43, 17, 43, 18, 43, 19, 43, 20,
+                      44, 16, 44, 17, 44, 18, 44, 19, 44, 20, 44, 21};
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
@@ -421,10 +463,10 @@ void updateBoardSquare(boardSquare* bs) {
 
 void initPieceParents() {
     for (int i = 0; i < PIECEPARENTCOUNT; i++) {
-        pieceParents[i].numOfActiveKids = 4;
+        pieceParents[i].numOfActiveKids = numOfPieces[i];
         pieceParents[i].selected = 0;
-        pieceParents[i].worldRow = 25;
-        pieceParents[i].worldCol = 16 + i;
+        pieceParents[i].worldRow = 20 + i * 4;
+        pieceParents[i].worldCol = 12 + i * 2;
         pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
         pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;
         pieceParents[i].height = 32;
@@ -437,8 +479,8 @@ void initPieceParents() {
         pieceParents[i].num = i * 10 + 30;
 
         for (int j = 0; j < pieceParents[i].numOfActiveKids; j++) {
-            pieceParents[i].kids[j].rowOffset = j;
-            pieceParents[i].kids[j].colOffset = 0;
+            pieceParents[i].kids[j].rowOffset = pieces[i * 14 + j * 2];
+            pieceParents[i].kids[j].colOffset = pieces[i * 14 + j * 2 + 1];
             pieceParents[i].kids[j].width = 8;
             pieceParents[i].kids[j].height = 8;
             pieceParents[i].kids[j].spriteNum = i * 10 + 30 + j;
@@ -460,7 +502,7 @@ void initPieceParents() {
     cheatBlock.colOffset = 0;
     cheatBlock.width = 8;
     cheatBlock.height = 8;
-    cheatBlock.spriteNum = 98;
+    cheatBlock.spriteNum = 88;
 
 }
 

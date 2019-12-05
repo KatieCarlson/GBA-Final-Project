@@ -950,7 +950,7 @@ typedef struct {
     int palRow;
     int num;
 
-    pieceKid kids[5];
+    pieceKid kids[7];
 } pieceParent;
 
 typedef struct {

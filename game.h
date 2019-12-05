@@ -1,7 +1,7 @@
 // Constants
 #define MAPHEIGHT 512
 #define MAPWIDTH 256
-#define PIECEPARENTCOUNT 4
+#define PIECEPARENTCOUNT 5
 
 // Sprites for puzzle pieces
 typedef struct {
@@ -38,7 +38,7 @@ typedef struct {
     int palRow;
     int num;
 
-    pieceKid kids[5];
+    pieceKid kids[7];
 } pieceParent;
 
 typedef struct {

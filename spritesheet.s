@@ -17,7 +17,7 @@
 	.size	spritesheetPal, 512
 spritesheetPal:
 	.short	32736
-	.short	29596
+	.short	0
 	.short	832
 	.short	704
 	.short	13791
@@ -547,38 +547,6 @@ spritesheetTiles:
 	.short	0
 	.short	1
 	.short	0
-	.short	13107
-	.short	13107
-	.short	8739
-	.short	12834
-	.short	8739
-	.short	12834
-	.short	8739
-	.short	12834
-	.short	8739
-	.short	12834
-	.short	8739
-	.short	12834
-	.short	8739
-	.short	12834
-	.short	13107
-	.short	13107
-	.short	30583
-	.short	30583
-	.short	26215
-	.short	30310
-	.short	26215
-	.short	30310
-	.short	26215
-	.short	30310
-	.short	26215
-	.short	30310
-	.short	26215
-	.short	30310
-	.short	26215
-	.short	30310
-	.short	30583
-	.short	30583
 	.short	21845
 	.short	21845
 	.short	17477
@@ -611,6 +579,38 @@ spritesheetTiles:
 	.short	-26488
 	.short	-26215
 	.short	-26215
+	.short	30583
+	.short	30583
+	.short	26215
+	.short	30310
+	.short	26215
+	.short	30310
+	.short	26215
+	.short	30310
+	.short	26215
+	.short	30310
+	.short	26215
+	.short	30310
+	.short	26215
+	.short	30310
+	.short	30583
+	.short	30583
+	.short	13107
+	.short	13107
+	.short	8739
+	.short	12834
+	.short	8739
+	.short	12834
+	.short	8739
+	.short	12834
+	.short	8739
+	.short	12834
+	.short	8739
+	.short	12834
+	.short	8739
+	.short	12834
+	.short	13107
+	.short	13107
 	.short	-4370
 	.short	-4370
 	.short	-8738
@@ -7012,7 +7012,7 @@ spritesheetTiles:
 	.short	-20480
 	.short	4107
 	.short	21845
-	.short	4597
+	.short	4373
 	.short	21829
 	.short	-21995
 	.short	21588
@@ -7027,7 +7027,7 @@ spritesheetTiles:
 	.short	5444
 	.short	17493
 	.short	5444
-	.short	24337
+	.short	20753
 	.short	21845
 	.short	20906
 	.short	21589
