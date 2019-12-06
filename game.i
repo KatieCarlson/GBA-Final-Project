@@ -1022,6 +1022,7 @@ void updatePlayer();
 void animatePlayer();
 void drawPlayer();
 void turnPiece();
+void flipPiece();
 void initBoard();
 void drawBoardSquare();
 void updateBoardSquare();
@@ -1062,20 +1063,28 @@ void stopSound();
 # 8 "game.c" 2
 # 1 "MainGameTheme.h" 1
 # 20 "MainGameTheme.h"
-extern const unsigned char MainGameTheme[1641600];
+extern const unsigned char MainGameTheme[1410560];
 # 9 "game.c" 2
+# 1 "DubstepGameTheme.h" 1
+# 20 "DubstepGameTheme.h"
+extern const unsigned char DubstepGameTheme[1719648];
+# 10 "game.c" 2
+# 1 "CheatChime.h" 1
+# 20 "CheatChime.h"
+extern const unsigned char CheatChime[16363];
+# 11 "game.c" 2
 # 1 "BlockDownSFX.h" 1
 # 20 "BlockDownSFX.h"
 extern const unsigned char BlockDownSFX[2592];
-# 10 "game.c" 2
+# 12 "game.c" 2
 # 1 "BlockTurnSFX.h" 1
 # 20 "BlockTurnSFX.h"
 extern const unsigned char BlockTurnSFX[6336];
-# 11 "game.c" 2
+# 13 "game.c" 2
 # 1 "BlockUpSFX.h" 1
 # 20 "BlockUpSFX.h"
 extern const unsigned char BlockUpSFX[7488];
-# 12 "game.c" 2
+# 14 "game.c" 2
 
 
 OBJ_ATTR shadowOAM[128];
@@ -1092,8 +1101,30 @@ int pieces [70] = {0,0, 1,0, 2,0, 3,0, 3,1, 3,2, 2,2,
                    0,0, 0,1, 0,0, 0,0, 0,0, 0,0, 0,0,
                    2,0, 2,1, 2,2, 1,2, 0,2, 0,0, 0,0};
 
-int puzzleNum = 0;
-# 38 "game.c"
+int tempBoardVals1 [52]= { 40,21, 40,22, 40,23, 40,24, 40,25,
+                                                                             41,21, 41,22, 41,25,
+                            42,14, 42,15, 42,16, 42,17, 42,18, 42,19, 42,20, 42,21, 42,22, 42,23, 42,25,
+                            43,14, 43,16, 43,21, 43,22, 43,23, 43,24, 43,25};
+
+int tempBoardVals2 [52]= { 39,18, 39,19, 39,20, 39,21,
+                            40,18, 40,19, 40,20, 40,21,
+                            41,18, 41,19, 41,20, 41,21,
+                            42,18, 42,19, 42,20, 42,21,
+                            43,18, 43,19, 43,20, 43,21,
+                    44,17, 44,18, 44,19, 44,20, 44,21, 44,22};
+
+int tempBoardVals3 [52]= { 36,18, 36,19, 36,20,
+                            37,18, 37,20,
+                            38,17, 38,18, 38,19, 38,20,
+                                                 39,20,
+                                                 40,20, 40,21, 40,22, 40,23, 40,24,
+                                                 41,20, 41,21, 41,22,
+                                                 42,20, 42,21, 42,22,
+                                                         43,21, 43,21,
+                                         44,19, 44,20, 44,21};
+
+int puzzleNum = 1;
+# 62 "game.c"
 int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
@@ -1114,6 +1145,7 @@ int windCol;
 singleBlock cheatBlock;
 singleBlock gear;
 int gearTimer;
+int soundWasSwitched;
 
 
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -1125,13 +1157,10 @@ unsigned short vOff;
 
 OBJ_AFFINE* shadowAffine = (OBJ_AFFINE*)(shadowOAM);
 
-void initGame() {
+void initGame(int p) {
 
-    puzzleNum++;
-
-    if (puzzleNum == 3) {
-        puzzleNum == 0;
-    }
+    puzzleNum = p;
+    soundWasSwitched = 0;
 
     vOff = 0;
     hOff = 0;
@@ -1159,8 +1188,8 @@ void updateGame() {
     if (windIsOn) {
         windCount++;
         int state = windCount / windFrameRate;
-        shadowOAM[89].attr0 = (windRow + (windRow - player.screenRow) - 32) | (0<<14) | (0<<13);
-        shadowOAM[89].attr1 = (windCol - (windCol - player.screenCol)) | (2<<14);
+        shadowOAM[89].attr0 = (windRow) | (0<<14) | (0<<13);
+        shadowOAM[89].attr1 = (windCol) | (2<<14);
         shadowOAM[89].attr2 = ((2)<<12) | ((2 + state * 4)*32+(18));
         if (windCount == 6 * windFrameRate) {
             windIsOn = 0;
@@ -1227,7 +1256,7 @@ void drawGame() {
 
 
 
-    if (gear.screenRow < 0 - gear.height || gear.screenRow > 160) {
+    if (gear.screenRow < 0 - gear.height - 16 || gear.screenRow > 160) {
         shadowOAM[gear.spriteNum].attr0 = (2<<8);
     } else {
         shadowOAM[gear.spriteNum].attr0 = (0xFF & (gear.screenRow)) | (0<<14) | (0<<13) | (3<<8);
@@ -1312,6 +1341,9 @@ void updatePlayer() {
         if ((~((*(volatile unsigned short *)0x04000130)) & ((1<<6)))) {
             if (player.screenRow > 0
             && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol))]
+            && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + 8))]
+            && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + 16))]
+            && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + 24))]
             && collisionmapBitmap[((player.worldRow - 1)*(256)+(player.worldCol + player.width - 1))]) {
                 player.worldRow -= 1;
                 vselDel = -1;
@@ -1323,6 +1355,9 @@ void updatePlayer() {
         if ((~((*(volatile unsigned short *)0x04000130)) & ((1<<7)))) {
             if (player.screenRow + player.height < 320
             && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol))]
+            && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + 8))]
+            && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + 16))]
+            && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + 24))]
             && collisionmapBitmap[((player.worldRow + player.height)*(256)+(player.worldCol + player.width - 1))]) {
                 player.worldRow += 1;
                 vselDel = 1;
@@ -1335,6 +1370,9 @@ void updatePlayer() {
         if ((~((*(volatile unsigned short *)0x04000130)) & ((1<<5)))) {
             if (player.screenCol > 0
             && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol - 1))]
+            && collisionmapBitmap[((player.worldRow + 8)*(256)+(player.worldCol - 1))]
+            && collisionmapBitmap[((player.worldRow + 16)*(256)+(player.worldCol - 1))]
+            && collisionmapBitmap[((player.worldRow + 24)*(256)+(player.worldCol - 1))]
             && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol - 1))]) {
                 player.worldCol -= 1;
                 hselDel = -1;
@@ -1346,6 +1384,9 @@ void updatePlayer() {
         if ((~((*(volatile unsigned short *)0x04000130)) & ((1<<4)))) {
             if (player.screenCol + player.width < 240
             && collisionmapBitmap[((player.worldRow)*(256)+(player.worldCol + player.width))]
+            && collisionmapBitmap[((player.worldRow + 8)*(256)+(player.worldCol + player.width))]
+            && collisionmapBitmap[((player.worldRow + 16)*(256)+(player.worldCol + player.width))]
+            && collisionmapBitmap[((player.worldRow + 24)*(256)+(player.worldCol + player.width))]
             && collisionmapBitmap[((player.worldRow + player.height - 1)*(256)+(player.worldCol + player.width))]) {
                 player.worldCol += 1;
                 hselDel = 1;
@@ -1369,6 +1410,11 @@ void updatePlayer() {
                     pieceParents[i].vOffset -= (pieceParents[i].vOffset) % 8;
                     pieceParents[i].hOffset -= (pieceParents[i].hOffset) % 8;
 
+                    int overlapCheck [52] = {0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0,
+                                             0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0,
+                                             0,0, 0,0, 0,0, 0,0, 0,0, 0,0};
+                    int next = 0;
+
                     int f = fittedReset;
                     for (int x = 0; x < BOARDSQUARECOUNT; x++) {
                         for (int pp = 0; pp < 5; pp++) {
@@ -1376,6 +1422,7 @@ void updatePlayer() {
                                 if (board[x].worldCol == (pieceParents[pp].worldCol + pieceParents[pp].kids[j].colOffset) + pieceParents[pp].hOffset / 8
                                 && board[x].worldRow == (pieceParents[pp].worldRow + pieceParents[pp].kids[j].rowOffset) + pieceParents[pp].vOffset / 8){
                                     f--;
+# 371 "game.c"
                                 }
                             }
                         }
@@ -1396,7 +1443,15 @@ void updatePlayer() {
 
 
                     if (cheatBlock.worldRow + cheatBlock.vOffset / 8 == 2 && cheatBlock.worldCol + cheatBlock.hOffset / 8 == 19) {
+                        stopSound();
+                        playSoundA(DubstepGameTheme, 1719648, 11025, 1);
+                        playSoundB(CheatChime, 16363, 11025, 0);
+                        soundWasSwitched = 1;
                         cheat = 1;
+                    } else if (soundWasSwitched){
+                        stopSound();
+                        playSoundA(MainGameTheme, 1410560, 11025, 1);
+                        soundWasSwitched = 0;
                     }
                 }
             }
@@ -1478,8 +1533,10 @@ void drawPlayer() {
 void turnPiece(pieceParent* pp) {
     playSoundB(BlockTurnSFX, 6336, 11025, 0);
     windCount = 0;
-    windIsOn = 1;
-    windRow = player.screenRow;
+    if (!cheat) {
+        windIsOn = 1;
+    }
+    windRow = player.screenRow - 32;
     windCol = player.screenCol;
 
     pieceKid kid = pp->kids[pp->selected - 1];
@@ -1522,34 +1579,18 @@ void flipPiece(pieceParent* pp) {
 }
 
 void initBoard() {
-    int tempBoardVals [52] = {39, 18, 39, 19, 39, 20, 39, 21,
-                              40, 18, 40, 19, 40, 20, 40, 21,
-                              41, 18, 41, 19, 41, 20, 41, 21,
-                              42, 18, 42, 19, 42, 20, 42, 21,
-                              43, 18, 43, 19, 43, 20, 43, 21,
-                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
-
-    if (puzzleNum == 0) {
-        tempBoardVals = {35, 18, 39, 19, 39, 20, 39, 21,
-                              40, 18, 40, 19, 40, 20, 40, 21,
-                              41, 18, 41, 19, 41, 20, 41, 21,
-                              42, 18, 42, 19, 42, 20, 42, 21,
-                              43, 18, 43, 19, 43, 20, 43, 21,
-                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
-    }
-
-    if (puzzleNum == 2) {
-        tempBoardVals = {29, 18, 39, 19, 39, 20, 39, 21,
-                              40, 18, 40, 19, 40, 20, 40, 21,
-                              41, 18, 41, 19, 41, 20, 41, 21,
-                              42, 18, 42, 19, 42, 20, 42, 21,
-                              43, 18, 43, 19, 43, 20, 43, 21,
-                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
-    }
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
-        board[i].worldRow = tempBoardVals[i * 2];
-        board[i].worldCol = tempBoardVals[i * 2 + 1];
+        if (puzzleNum == 0) {
+            board[i].worldRow = tempBoardVals2[i * 2];
+            board[i].worldCol = tempBoardVals2[i * 2 + 1];
+        } else if (puzzleNum == 1) {
+            board[i].worldRow = tempBoardVals1[i * 2];
+            board[i].worldCol = tempBoardVals1[i * 2 + 1];
+        } else {
+            board[i].worldRow = tempBoardVals3[i * 2];
+            board[i].worldCol = tempBoardVals3[i * 2 + 1];
+        }
         board[i].rdel = 0;
         board[i].cdel = 0;
         board[i].width = 8;
@@ -1591,11 +1632,24 @@ void updateBoardSquare(boardSquare* bs) {
 }
 
 void initPieceParents() {
+    int randPositions [15] = {0, 21, 11,
+                              0, 31, 11,
+                              0, 27, 19,
+                              0, 31, 26,
+                              0, 20, 26};
+
     for (int i = 0; i < 5; i++) {
         pieceParents[i].numOfActiveKids = numOfPieces[i];
         pieceParents[i].selected = 0;
-        pieceParents[i].worldRow = 20 + i * 4;
-        pieceParents[i].worldCol = 12 + i * 2;
+
+        int r = rand() % 5;
+        while (randPositions[r * 3] == 1) {
+            r = (r + 1) % 5;
+        }
+        pieceParents[i].worldRow = randPositions[r * 3 + 1];
+        pieceParents[i].worldCol = randPositions[r * 3 + 2];
+        randPositions[r * 3] = 1;
+
         pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
         pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;
         pieceParents[i].height = 32;

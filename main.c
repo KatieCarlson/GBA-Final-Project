@@ -15,6 +15,8 @@
 
 #include "sound.h"
 #include "MainGameTheme.h"
+#include "PuzzleDoneChime.h"
+#include "StartTheme.h"
 
 SOUND soundA;
 SOUND soundB;
@@ -24,6 +26,8 @@ enum {START, INSTRUCTIONS, GAME, PAUSE, WIN};
 int state;
 int cursor;
 int instructionsNum;
+int puzzle;
+int winV;
 
 // Prototypes
 void initialize();
@@ -90,6 +94,7 @@ void initialize() {
 
     clockHands = 0;
     clockHandsSlower = 0;
+    puzzle = 0;
 
     // 4bpp for the bg1 and 2 because they use 16 colors or less in their palettes
     REG_BG2CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_4BPP | BG_SIZE_TALL;
@@ -101,7 +106,6 @@ void initialize() {
     setupSounds();
 	setupInterrupts();
 
-    initGame();
     goToStart();
 }
 
@@ -198,7 +202,6 @@ void instructions() {
             stopSound();
             playSoundA(MainGameTheme, MAINGAMETHEMELEN, MAINGAMETHEMEFREQ, 1);
             goToGame();
-            initGame();
         }
         instructionsNum++;
     }
@@ -213,8 +216,15 @@ void game() {
         pauseSound();
         goToPause();
     }
-    if (fitted == 0) {
+    if (fitted == 0 && winV == 0) {
         stopSound();
+        playSoundA(PuzzleDoneChime, PUZZLEDONECHIMELEN, PUZZLEDONECHIMEFREQ, 0);
+        winV++;
+    }
+    if (winV > 0) {
+        winV++;
+    }
+    if (winV == 200) {
         goToWin();
     }
 }
@@ -265,8 +275,11 @@ void win() {
 }
 
 void goToStart() {
+    playSoundA(StartTheme, STARTTHEMELEN, STARTTHEMEFREQ, 1);
+
     cursor = 0;
-    initGame();
+    initGame(puzzle % 3);
+    puzzle++;
 
     hideSprites();
     REG_DISPCTL |= BG1_ENABLE | SPRITE_ENABLE;
@@ -319,6 +332,7 @@ void goToInstructions() {
 
 void goToGame() {
     cursor = 0;
+    winV = 0;
 
     REG_DISPCTL = MODE0 | BG2_ENABLE | BG3_ENABLE | SPRITE_ENABLE;
 
