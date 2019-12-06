@@ -5,11 +5,11 @@
 //
 //	STATE_instructions3, 256x256@8, 
 //	+ palette 256 entries, not compressed
-//	+ 81 tiles (t|f|p reduced) not compressed
+//	+ 177 tiles (t|f|p reduced) not compressed
 //	+ regular map (in SBBs), not compressed, 32x32 
-//	Total size: 512 + 5184 + 2048 = 7744
+//	Total size: 512 + 11328 + 2048 = 13888
 //
-//	Time-stamp: 2019-11-25, 13:40:33
+//	Time-stamp: 2019-12-06, 10:55:02
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_STATE_INSTRUCTIONS3_H
 #define GRIT_STATE_INSTRUCTIONS3_H
 
-#define STATE_instructions3TilesLen 5184
-extern const unsigned short STATE_instructions3Tiles[2592];
+#define STATE_instructions3TilesLen 11328
+extern const unsigned short STATE_instructions3Tiles[5664];
 
 #define STATE_instructions3MapLen 2048
 extern const unsigned short STATE_instructions3Map[1024];

@@ -16,33 +16,6 @@
 #include "sound.h"
 #include "MainGameTheme.h"
 
-/*
-What is finished about the game so far:
-Most of the art and background are done.  I might polish up my game state backgrounds, 
-and edit the art of my main fairy player because it is ugly.
-
-What still needs to be added:
-Turning pieces with the wind
-I need to add images to the instruction screen.
-Making the puzzle more complicated, or having multiple levels so it's more of a 'game'
-Adding the cheat, which will allow you to turn by pressing the 'A' button
-I would like to add sound to the title screen that is different from the game music
-I want to change the game music so that it is less static-y.
-I want to try and make the delay of the block sound effect a lot shorter.
-
-Any bugs that you have found:
-It takes a couple tries to pick up a piece, and it seems like
-you have to put the player's top left pixel in the middle of the piece to make it work.
-
-How to play the game in its current state :
-Move with arrow keys, pick up a block with the 'B' key.  The block you are picking up is the one
-directly underneath the top left corner of the player
-Move the block so that it covers the 'board' that has white outlines to win.
-
-The sounds that are implemented: When you pick up or put down a block, there is a wooden block sound.
-
-*/
-
 SOUND soundA;
 SOUND soundB;
 
@@ -73,6 +46,8 @@ unsigned short oldButtons;
 
 // Random Seed
 int seed;
+int clockHands;
+int clockHandsSlower;
 
 // Text Buffer
 char buffer[41];
@@ -113,6 +88,9 @@ void initialize() {
 
     REG_DISPCTL = MODE0 | BG1_ENABLE | SPRITE_ENABLE; // only enable what you use in start first
 
+    clockHands = 0;
+    clockHandsSlower = 0;
+
     // 4bpp for the bg1 and 2 because they use 16 colors or less in their palettes
     REG_BG2CNT = BG_CHARBLOCK(0) | BG_SCREENBLOCK(29) | BG_4BPP | BG_SIZE_TALL;
     REG_BG3CNT = BG_CHARBLOCK(1) | BG_SCREENBLOCK(27) | BG_4BPP | BG_SIZE_TALL;
@@ -128,6 +106,22 @@ void initialize() {
 }
 
 void start() {
+
+    clockHands++;
+    if (clockHands > 8 * 5000) {
+        clockHands = 0;
+        clockHandsSlower++;
+    }
+    int frame = clockHands / 5000;
+    int frame2 = clockHandsSlower;
+
+    shadowOAM[1].attr0 = 84 | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[1].attr1 = 37 | ATTR1_SMALL;
+    shadowOAM[1].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(16, 2 + frame * 2);
+
+    shadowOAM[2].attr0 = 84 | ATTR0_SQUARE | ATTR0_4BPP;
+    shadowOAM[2].attr1 = 37 | ATTR1_SMALL;
+    shadowOAM[2].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(22, 8 + frame2 * 2);
 
     seed++;
 

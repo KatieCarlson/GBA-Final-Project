@@ -1091,7 +1091,9 @@ int pieces [70] = {0,0, 1,0, 2,0, 3,0, 3,1, 3,2, 2,2,
                    0,0, 1,0, 2,0, 3,0, 2,1, 0,0, 0,0,
                    0,0, 0,1, 0,0, 0,0, 0,0, 0,0, 0,0,
                    2,0, 2,1, 2,2, 1,2, 0,2, 0,0, 0,0};
-# 36 "game.c"
+
+int puzzleNum = 0;
+# 38 "game.c"
 int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
@@ -1124,6 +1126,12 @@ unsigned short vOff;
 OBJ_AFFINE* shadowAffine = (OBJ_AFFINE*)(shadowOAM);
 
 void initGame() {
+
+    puzzleNum++;
+
+    if (puzzleNum == 3) {
+        puzzleNum == 0;
+    }
 
     vOff = 0;
     hOff = 0;
@@ -1387,7 +1395,7 @@ void updatePlayer() {
                     actionDone = 1;
 
 
-                    if (cheatBlock.worldRow + cheatBlock.vOffset / 8 == 52 && cheatBlock.worldCol + cheatBlock.hOffset / 8 == 9) {
+                    if (cheatBlock.worldRow + cheatBlock.vOffset / 8 == 2 && cheatBlock.worldCol + cheatBlock.hOffset / 8 == 19) {
                         cheat = 1;
                     }
                 }
@@ -1521,6 +1529,24 @@ void initBoard() {
                               43, 18, 43, 19, 43, 20, 43, 21,
                       44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
 
+    if (puzzleNum == 0) {
+        tempBoardVals = {35, 18, 39, 19, 39, 20, 39, 21,
+                              40, 18, 40, 19, 40, 20, 40, 21,
+                              41, 18, 41, 19, 41, 20, 41, 21,
+                              42, 18, 42, 19, 42, 20, 42, 21,
+                              43, 18, 43, 19, 43, 20, 43, 21,
+                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
+    }
+
+    if (puzzleNum == 2) {
+        tempBoardVals = {29, 18, 39, 19, 39, 20, 39, 21,
+                              40, 18, 40, 19, 40, 20, 40, 21,
+                              41, 18, 41, 19, 41, 20, 41, 21,
+                              42, 18, 42, 19, 42, 20, 42, 21,
+                              43, 18, 43, 19, 43, 20, 43, 21,
+                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
+    }
+
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
         board[i].worldCol = tempBoardVals[i * 2 + 1];
@@ -1591,8 +1617,8 @@ void initPieceParents() {
     }
 
     cheatBlock.selected = 0;
-    cheatBlock.worldRow = 2;
-    cheatBlock.worldCol = 19;
+    cheatBlock.worldRow = 52;
+    cheatBlock.worldCol = 9;
     cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff;
     cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff;
     cheatBlock.vOffset = 0;
@@ -1615,7 +1641,8 @@ void drawPieceParent(pieceParent* pp) {
         if (pp->screenRow < 0 - pp->height || pp->screenRow > 160) {
             shadowOAM[pp->kids[i].spriteNum].attr0 = (2<<8);
         } else {
-            shadowOAM[pp->kids[i].spriteNum].attr0 = (0xFF & (pp->kids[i].rowOffset * 8 + pp->screenRow)) | (0<<14) | (0<<13);
+            shadowOAM[pp->kids[i].spriteNum].attr0 = (0xFF & (pp->kids[i].rowOffset * 8 + pp->screenRow))
+            | (0<<14) | (0<<13) | (1<<10);
             shadowOAM[pp->kids[i].spriteNum].attr1 = (0x1FF & (pp->kids[i].colOffset * 8 + pp->screenCol)) | (0<<14);
             shadowOAM[pp->kids[i].spriteNum].attr2 = ((pp->palRow)<<12) | ((pp->sheetRow)*32+(pp->sheetCol));
         }

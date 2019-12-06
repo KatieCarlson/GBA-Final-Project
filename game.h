@@ -94,6 +94,7 @@ void updatePlayer();
 void animatePlayer();
 void drawPlayer();
 void turnPiece();
+void flipPiece();
 void initBoard();
 void drawBoardSquare();
 void updateBoardSquare();
