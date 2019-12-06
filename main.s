@@ -413,7 +413,7 @@ start:
 	add	r3, r3, #1
 	ldr	r0, .L73+8
 	cmp	r3, r2
-	push	{r4, r5, r6, r7, r8, lr}
+	push	{r4, r5, r6, lr}
 	ldr	r2, [r0]
 	str	r3, [r1]
 	bgt	.L30
@@ -425,37 +425,33 @@ start:
 	add	r3, r3, #5242880
 	lsr	r3, r3, #16
 .L31:
-	mov	lr, #84
+	mov	ip, #84
 	ldr	r4, .L73+16
-	ldr	r5, .L73+20
-	ldr	r1, .L73+24
-	ldr	ip, [r4]
-	ldrh	r0, [r5]
 	lsl	r2, r2, #6
+	ldr	r1, .L73+20
 	add	r2, r2, #276
-	strh	r3, [r1, #12]	@ movhi
-	ldr	r6, .L73+28
-	ldr	r3, .L73+32
+	ldrh	r0, [r4]
 	add	r2, r2, #2
-	add	ip, ip, #1
-	tst	r0, #64
-	strh	r3, [r1, #10]	@ movhi
-	strh	r3, [r1, #18]	@ movhi
 	strh	r2, [r1, #20]	@ movhi
-	str	ip, [r4]
+	ldr	r5, .L73+24
+	ldr	r2, .L73+28
+	tst	r0, #64
+	strh	r3, [r1, #12]	@ movhi
 	and	r0, r0, #128
-	strh	lr, [r1, #8]	@ movhi
-	strh	lr, [r1, #16]	@ movhi
-	ldr	r3, [r6]
+	strh	ip, [r1, #8]	@ movhi
+	strh	ip, [r1, #16]	@ movhi
+	strh	r2, [r1, #10]	@ movhi
+	strh	r2, [r1, #18]	@ movhi
+	ldr	r3, [r5]
 	beq	.L32
-	ldr	r2, .L73+36
+	ldr	r2, .L73+32
 	ldrh	r2, [r2]
 	ands	ip, r2, #64
 	bne	.L32
 	cmp	r3, #0
 	beq	.L33
 	cmp	r0, #0
-	str	ip, [r6]
+	str	ip, [r5]
 	beq	.L36
 	tst	r2, #128
 	beq	.L35
@@ -467,31 +463,32 @@ start:
 .L41:
 	mov	r3, #512
 	mov	r2, #117440512
-	ldr	r1, .L73+24
+	ldr	r1, .L73+20
 	mov	r0, #3
-	ldr	r7, .L73+40
+	ldr	r6, .L73+36
 	mov	lr, pc
-	bx	r7
-	ldrh	r3, [r5]
+	bx	r6
+	ldrh	r3, [r4]
 	tst	r3, #8
 	beq	.L29
-	ldr	r3, .L73+36
+	ldr	r3, .L73+32
 	ldrh	r3, [r3]
 	tst	r3, #8
 	bne	.L29
-	ldr	r3, [r6]
-	cmp	r3, #0
-	ldr	r0, [r4]
+	ldr	r2, [r5]
+	ldr	r3, .L73+40
+	cmp	r2, #0
+	ldr	r0, [r3]
 	ldr	r3, .L73+44
 	beq	.L72
 	mov	lr, pc
 	bx	r3
-	pop	{r4, r5, r6, r7, r8, lr}
+	pop	{r4, r5, r6, lr}
 	b	goToInstructions
 .L32:
 	cmp	r0, #0
 	beq	.L39
-	ldr	r2, .L73+36
+	ldr	r2, .L73+32
 	ldrh	r2, [r2]
 	tst	r2, #128
 	bne	.L39
@@ -499,7 +496,7 @@ start:
 	beq	.L35
 .L38:
 	mov	r3, #0
-	str	r3, [r6]
+	str	r3, [r5]
 	b	.L36
 .L39:
 	cmp	r3, #0
@@ -511,7 +508,7 @@ start:
 	strh	r3, [r1, #2]	@ movhi
 	b	.L41
 .L29:
-	pop	{r4, r5, r6, r7, r8, lr}
+	pop	{r4, r5, r6, lr}
 	bx	lr
 .L30:
 	mov	ip, #0
@@ -533,12 +530,12 @@ start:
 	ldr	r0, .L73+64
 	mov	lr, pc
 	bx	r4
-	pop	{r4, r5, r6, r7, r8, lr}
+	pop	{r4, r5, r6, lr}
 	b	goToGame
 .L33:
 	mov	r3, #1
 	cmp	r0, #0
-	str	r3, [r6]
+	str	r3, [r5]
 	beq	.L40
 	tst	r2, #128
 	beq	.L38
@@ -546,7 +543,7 @@ start:
 .L35:
 	mov	r3, #1
 	mov	r2, #129
-	str	r3, [r6]
+	str	r3, [r5]
 	mov	r3, #98
 	strh	r2, [r1]	@ movhi
 	strh	r3, [r1, #2]	@ movhi
@@ -558,13 +555,13 @@ start:
 	.word	40000
 	.word	clockHandsSlower
 	.word	1759218605
-	.word	seed
 	.word	oldButtons
 	.word	shadowOAM
 	.word	cursor
 	.word	16421
 	.word	buttons
 	.word	DMANow
+	.word	seed
 	.word	srand
 	.word	stopSound
 	.word	playSoundA
@@ -1087,14 +1084,18 @@ main:
 	ldr	r3, .L170
 	mov	lr, pc
 	bx	r3
-	ldr	fp, .L170+4
-	ldr	r5, .L170+8
-	ldr	r10, .L170+12
-	ldr	r9, .L170+16
-	ldr	r8, .L170+20
-	ldr	r7, .L170+24
-	ldr	r6, .L170+28
-	ldr	r4, .L170+32
+	ldr	r2, .L170+4
+	ldr	r3, [r2]
+	add	r3, r3, #1
+	str	r3, [r2]
+	ldr	fp, .L170+8
+	ldr	r5, .L170+12
+	ldr	r10, .L170+16
+	ldr	r9, .L170+20
+	ldr	r8, .L170+24
+	ldr	r7, .L170+28
+	ldr	r6, .L170+32
+	ldr	r4, .L170+36
 .L158:
 	ldrh	r2, [fp]
 	strh	r2, [r5]	@ movhi
@@ -1113,7 +1114,7 @@ main:
 .L165:
 	tst	r2, #8
 	beq	.L158
-	ldr	r3, .L170+36
+	ldr	r3, .L170+40
 	mov	lr, pc
 	bx	r3
 	b	.L158
@@ -1137,6 +1138,7 @@ main:
 	.align	2
 .L170:
 	.word	initialize
+	.word	seed
 	.word	buttons
 	.word	oldButtons
 	.word	state

@@ -2238,16 +2238,16 @@ tempBoardVals3:
 	.word	21
 	.word	40
 	.word	22
-	.word	40
+	.word	41
+	.word	20
+	.word	41
+	.word	21
+	.word	41
+	.word	22
+	.word	41
 	.word	23
-	.word	40
+	.word	41
 	.word	24
-	.word	41
-	.word	20
-	.word	41
-	.word	21
-	.word	41
-	.word	22
 	.word	42
 	.word	20
 	.word	42
@@ -2257,7 +2257,7 @@ tempBoardVals3:
 	.word	43
 	.word	21
 	.word	43
-	.word	21
+	.word	22
 	.word	44
 	.word	19
 	.word	44

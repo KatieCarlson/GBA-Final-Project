@@ -60,6 +60,8 @@ int main() {
 
     initialize();
 
+    seed++;
+
     while(1) {
 
         // Update button variables
@@ -126,8 +128,6 @@ void start() {
     shadowOAM[2].attr0 = 84 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[2].attr1 = 37 | ATTR1_SMALL;
     shadowOAM[2].attr2 = ATTR2_PALROW(0) | ATTR2_TILEID(22, 8 + frame2 * 2);
-
-    seed++;
 
     if (BUTTON_PRESSED(BUTTON_UP)) {
         if (cursor) {

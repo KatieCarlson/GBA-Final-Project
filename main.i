@@ -1219,6 +1219,8 @@ int main() {
 
     initialize();
 
+    seed++;
+
     while(1) {
 
 
@@ -1285,8 +1287,6 @@ void start() {
     shadowOAM[2].attr0 = 84 | (0<<14) | (0<<13);
     shadowOAM[2].attr1 = 37 | (1<<14);
     shadowOAM[2].attr2 = ((0)<<12) | ((8 + frame2 * 2)*32+(22));
-
-    seed++;
 
     if ((!(~(oldButtons)&((1<<6))) && (~buttons & ((1<<6))))) {
         if (cursor) {
