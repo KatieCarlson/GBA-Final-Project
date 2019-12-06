@@ -851,7 +851,23 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 162 "myLib.h"
+
+
+
+typedef struct {
+    u16 fill0[3];
+    short a;
+    u16 fill1[3];
+    short b;
+    u16 fill2[3];
+    short c;
+    u16 fill3[3];
+    short d;
+
+} __attribute__((aligned(4))) OBJ_AFFINE;
+
+extern OBJ_AFFINE* shadowAffine;
+# 179 "myLib.h"
 void hideSprites();
 
 
@@ -878,10 +894,10 @@ typedef struct {
     int sheetCol;
     int palRow;
 } ANISPRITE;
-# 207 "myLib.h"
+# 224 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 218 "myLib.h"
+# 235 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -890,9 +906,9 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 258 "myLib.h"
+# 275 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
-# 349 "myLib.h"
+# 366 "myLib.h"
 typedef struct{
     const unsigned char* data;
     int length;
@@ -1025,6 +1041,9 @@ extern const unsigned short spritesheetPal[256];
 # 20 "collisionmap.h"
 extern const unsigned short collisionmapBitmap[131072];
 # 5 "game.c" 2
+# 1 "sine.h" 1
+extern const int sin_lut_fixed8[];
+# 6 "game.c" 2
 
 # 1 "sound.h" 1
 SOUND soundA;
@@ -1040,23 +1059,23 @@ void interruptHandler();
 void pauseSound();
 void unpauseSound();
 void stopSound();
-# 7 "game.c" 2
+# 8 "game.c" 2
 # 1 "MainGameTheme.h" 1
 # 20 "MainGameTheme.h"
 extern const unsigned char MainGameTheme[1641600];
-# 8 "game.c" 2
+# 9 "game.c" 2
 # 1 "BlockDownSFX.h" 1
 # 20 "BlockDownSFX.h"
 extern const unsigned char BlockDownSFX[2592];
-# 9 "game.c" 2
+# 10 "game.c" 2
 # 1 "BlockTurnSFX.h" 1
 # 20 "BlockTurnSFX.h"
 extern const unsigned char BlockTurnSFX[6336];
-# 10 "game.c" 2
+# 11 "game.c" 2
 # 1 "BlockUpSFX.h" 1
 # 20 "BlockUpSFX.h"
 extern const unsigned char BlockUpSFX[7488];
-# 11 "game.c" 2
+# 12 "game.c" 2
 
 
 OBJ_ATTR shadowOAM[128];
@@ -1072,7 +1091,7 @@ int pieces [70] = {0,0, 1,0, 2,0, 3,0, 3,1, 3,2, 2,2,
                    0,0, 1,0, 2,0, 3,0, 2,1, 0,0, 0,0,
                    0,0, 0,1, 0,0, 0,0, 0,0, 0,0, 0,0,
                    2,0, 2,1, 2,2, 1,2, 0,2, 0,0, 0,0};
-# 35 "game.c"
+# 36 "game.c"
 int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
@@ -1091,6 +1110,8 @@ int windRow;
 int windCol;
 
 singleBlock cheatBlock;
+singleBlock gear;
+int gearTimer;
 
 
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -1098,6 +1119,9 @@ enum {DOWN, UP, RIGHT, LEFT, IDLE};
 
 unsigned short hOff;
 unsigned short vOff;
+
+
+OBJ_AFFINE* shadowAffine = (OBJ_AFFINE*)(shadowOAM);
 
 void initGame() {
 
@@ -1155,6 +1179,14 @@ void updateGame() {
         cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff + cheatBlock.vOffset;
         cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff + cheatBlock.hOffset;
     }
+
+
+    gear.screenRow = gear.worldRow - vOff;
+    gear.screenCol = gear.worldCol - hOff;
+    gearTimer++;
+    if (gearTimer > 359) {
+        gearTimer = 0;
+    }
 }
 
 void drawGame() {
@@ -1178,6 +1210,23 @@ void drawGame() {
         shadowOAM[cheatBlock.spriteNum].attr2 = ((cheatBlock.palRow)<<12) | ((cheatBlock.sheetRow)*32+(cheatBlock.sheetCol));
     }
 
+
+    int deg = (gearTimer % 360);
+        shadowAffine[0].a = sin_lut_fixed8[(deg + 90) % 360];
+        shadowAffine[0].b = sin_lut_fixed8[(deg + 180) % 360];
+        shadowAffine[0].c = sin_lut_fixed8[(deg) % 360];
+        shadowAffine[0].d = sin_lut_fixed8[(deg + 90) % 360];
+
+
+
+    if (gear.screenRow < 0 - gear.height || gear.screenRow > 160) {
+        shadowOAM[gear.spriteNum].attr0 = (2<<8);
+    } else {
+        shadowOAM[gear.spriteNum].attr0 = (0xFF & (gear.screenRow)) | (0<<14) | (0<<13) | (3<<8);
+        shadowOAM[gear.spriteNum].attr1 = (0x1FF & (gear.screenCol)) | (3<<14) | ((0) << 9);
+        shadowOAM[gear.spriteNum].attr2 = ((gear.palRow)<<12) | ((gear.sheetRow)*32+(gear.sheetCol));
+    }
+
     (*(volatile unsigned short *)0x04000018) = hOff;
     (*(volatile unsigned short *)0x0400001A) = vOff;
     (*(volatile unsigned short *)0x0400001C) = hOff / 2;
@@ -1197,8 +1246,10 @@ void initPlayer() {
     player.cdel = 1;
     player.rdel = 1;
 
-    player.worldRow = 160/2-player.width/2 + vOff;
-    player.worldCol = 240/2-player.height/2 + hOff;
+    player.worldRow = 160/2-player.width/2 + vOff + 100;
+    player.worldCol = 240/2-player.height/2 + hOff + 40;
+    vOff = 100;
+    hOff = 16;
     player.aniCounter = 0;
     player.curFrame = 0;
     player.numFrames = 3;
@@ -1226,7 +1277,7 @@ void updatePlayer() {
         hasTurned = 0;
     }
 
-    if (collision(player.worldCol, player.worldRow, player.width, player.height, 144, 160, 32, 32)) {
+    if (collision(player.worldCol, player.worldRow, player.width, player.height, 144 + 16, 160 + 16, 32, 32)) {
         flipTimer++;
     } else {
         flipTimer = 0;
@@ -1463,12 +1514,12 @@ void flipPiece(pieceParent* pp) {
 }
 
 void initBoard() {
-    int tempBoardVals [52] = {39, 17, 39, 18, 39, 19, 39, 20,
-                              40, 17, 40, 18, 40, 19, 40, 20,
-                              41, 17, 41, 18, 41, 19, 41, 20,
-                              42, 17, 42, 18, 42, 19, 42, 20,
-                              43, 17, 43, 18, 43, 19, 43, 20,
-                      44, 16, 44, 17, 44, 18, 44, 19, 44, 20, 44, 21};
+    int tempBoardVals [52] = {39, 18, 39, 19, 39, 20, 39, 21,
+                              40, 18, 40, 19, 40, 20, 40, 21,
+                              41, 18, 41, 19, 41, 20, 41, 21,
+                              42, 18, 42, 19, 42, 20, 42, 21,
+                              43, 18, 43, 19, 43, 20, 43, 21,
+                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
@@ -1483,6 +1534,17 @@ void initBoard() {
         board[i].palRow = 0;
         board[i].spriteNum = i + boardSpriteNumStart;
     }
+
+    gear.worldRow = 116;
+    gear.worldCol = 96;
+    gear.sheetRow = 0;
+    gear.sheetCol = 22;
+    gear.palRow = 2;
+    gear.width = 64;
+    gear.height = 64;
+    gear.spriteNum = 127;
+    gear.screenRow = gear.worldRow - vOff;
+    gear.screenCol = gear.worldCol - hOff;
 
 }
 

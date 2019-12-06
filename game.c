@@ -2,6 +2,7 @@
 #include "game.h"
 #include "spritesheet.h"
 #include "collisionmap.h"
+#include "sine.h"
 
 #include "sound.h"
 #include "MainGameTheme.h"
@@ -50,6 +51,8 @@ int windRow;
 int windCol;
 
 singleBlock cheatBlock;
+singleBlock gear;
+int gearTimer;
 
 // Animation states for player
 enum {DOWN, UP, RIGHT, LEFT, IDLE};
@@ -57,6 +60,9 @@ enum {DOWN, UP, RIGHT, LEFT, IDLE};
 // Background Variables
 unsigned short hOff;
 unsigned short vOff;
+
+//afine sprites
+OBJ_AFFINE* shadowAffine = (OBJ_AFFINE*)(shadowOAM);
 
 void initGame() {
 
@@ -114,6 +120,14 @@ void updateGame() {
         cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff + cheatBlock.vOffset;
         cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff + cheatBlock.hOffset;
     }
+
+    //update gear
+    gear.screenRow = gear.worldRow - vOff;
+    gear.screenCol = gear.worldCol - hOff;
+    gearTimer++;
+    if (gearTimer > 359) {
+        gearTimer = 0;
+    }
 }
 
 void drawGame() {
@@ -137,6 +151,23 @@ void drawGame() {
         shadowOAM[cheatBlock.spriteNum].attr2 = ATTR2_PALROW(cheatBlock.palRow) | ATTR2_TILEID(cheatBlock.sheetCol, cheatBlock.sheetRow);
     }
 
+    // affine sprites
+    int deg = (gearTimer % 360);
+        shadowAffine[0].a = sin_lut_fixed8[(deg + 90) % 360];
+        shadowAffine[0].b = sin_lut_fixed8[(deg + 180) % 360];
+        shadowAffine[0].c = sin_lut_fixed8[(deg) % 360];
+        shadowAffine[0].d = sin_lut_fixed8[(deg + 90) % 360];
+
+    // draw gear
+    // if screenrow or screen col aren't within 0 - 160
+    if (gear.screenRow < 0 - gear.height || gear.screenRow > 160) {
+        shadowOAM[gear.spriteNum].attr0 = ATTR0_HIDE;
+    } else {
+        shadowOAM[gear.spriteNum].attr0 = (ROWMASK & (gear.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_DOUBLEAFFINE;
+        shadowOAM[gear.spriteNum].attr1 = (COLMASK & (gear.screenCol)) | ATTR1_LARGE | ATTR1_AFFINEINDEX(0);
+        shadowOAM[gear.spriteNum].attr2 = ATTR2_PALROW(gear.palRow) | ATTR2_TILEID(gear.sheetCol, gear.sheetRow);
+    }
+
     REG_BG2HOFF = hOff;
     REG_BG2VOFF = vOff;
     REG_BG3HOFF = hOff / 2;
@@ -156,8 +187,10 @@ void initPlayer() {
     player.cdel = 1;
     player.rdel = 1;
 
-    player.worldRow = SCREENHEIGHT/2-player.width/2 + vOff;
-    player.worldCol = SCREENWIDTH/2-player.height/2 + hOff;
+    player.worldRow = SCREENHEIGHT/2-player.width/2 + vOff + 100;
+    player.worldCol = SCREENWIDTH/2-player.height/2 + hOff + 40;
+    vOff = 100;
+    hOff = 16;
     player.aniCounter = 0;
     player.curFrame = 0;
     player.numFrames = 3;
@@ -185,7 +218,7 @@ void updatePlayer() {
         hasTurned = 0;
     }
 
-    if (collision(player.worldCol, player.worldRow, player.width, player.height, 144, 160, 32, 32)) {
+    if (collision(player.worldCol, player.worldRow, player.width, player.height, 144 + 16, 160 + 16, 32, 32)) {
         flipTimer++;
     } else {
         flipTimer = 0;
@@ -422,12 +455,12 @@ void flipPiece(pieceParent* pp) {
 }
 
 void initBoard() {
-    int tempBoardVals [52] = {39, 17, 39, 18, 39, 19, 39, 20, 
-                              40, 17, 40, 18, 40, 19, 40, 20, 
-                              41, 17, 41, 18, 41, 19, 41, 20,
-                              42, 17, 42, 18, 42, 19, 42, 20,
-                              43, 17, 43, 18, 43, 19, 43, 20,
-                      44, 16, 44, 17, 44, 18, 44, 19, 44, 20, 44, 21};
+    int tempBoardVals [52] = {39, 18, 39, 19, 39, 20, 39, 21, 
+                              40, 18, 40, 19, 40, 20, 40, 21, 
+                              41, 18, 41, 19, 41, 20, 41, 21,
+                              42, 18, 42, 19, 42, 20, 42, 21,
+                              43, 18, 43, 19, 43, 20, 43, 21,
+                      44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22};
 
     for (int i = 0; i < BOARDSQUARECOUNT; i++) {
         board[i].worldRow = tempBoardVals[i * 2];
@@ -442,6 +475,17 @@ void initBoard() {
         board[i].palRow = 0;
         board[i].spriteNum = i + boardSpriteNumStart;
     }
+
+    gear.worldRow = 116;
+    gear.worldCol = 96;
+    gear.sheetRow = 0;
+    gear.sheetCol = 22;
+    gear.palRow = 2;
+    gear.width = 64;
+    gear.height = 64;
+    gear.spriteNum = 127;
+    gear.screenRow = gear.worldRow - vOff;
+    gear.screenCol = gear.worldCol - hOff;
 
 }
 

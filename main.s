@@ -318,7 +318,7 @@ goToGame:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
-	mov	r3, #1824
+	mov	r3, #2160
 	mov	r2, #100663296
 	ldr	r1, .L27+16
 	mov	r0, #3
@@ -330,20 +330,20 @@ goToGame:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
-	mov	r3, #48
-	ldr	r2, .L27+28
-	ldr	r1, .L27+32
+	ldr	r3, .L27+28
+	ldr	r2, .L27+32
+	ldr	r1, .L27+36
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
 	mov	r3, #2048
-	ldr	r2, .L27+36
-	ldr	r1, .L27+40
+	ldr	r2, .L27+40
+	ldr	r1, .L27+44
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
 	mov	r2, #2
-	ldr	r3, .L27+44
+	ldr	r3, .L27+48
 	pop	{r4, lr}
 	str	r2, [r3]
 	bx	lr
@@ -357,6 +357,7 @@ goToGame:
 	.word	clocktowerTiles
 	.word	100722688
 	.word	clocktowerMap
+	.word	4496
 	.word	100679680
 	.word	cityTiles
 	.word	100718592

@@ -5,11 +5,11 @@
 //
 //	city, 256x512@4, 
 //	+ palette 256 entries, not compressed
-//	+ 3 tiles (t|f|p reduced) not compressed
+//	+ 281 tiles (t|f|p reduced) not compressed
 //	+ regular map (in SBBs), not compressed, 32x64 
-//	Total size: 512 + 96 + 4096 = 4704
+//	Total size: 512 + 8992 + 4096 = 13600
 //
-//	Time-stamp: 2019-11-12, 21:52:10
+//	Time-stamp: 2019-12-05, 19:12:51
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_CITY_H
 #define GRIT_CITY_H
 
-#define cityTilesLen 96
-extern const unsigned short cityTiles[48];
+#define cityTilesLen 8992
+extern const unsigned short cityTiles[4496];
 
 #define cityMapLen 4096
 extern const unsigned short cityMap[2048];

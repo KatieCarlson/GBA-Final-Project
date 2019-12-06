@@ -851,7 +851,23 @@ typedef struct {
 
 
 extern OBJ_ATTR shadowOAM[];
-# 162 "myLib.h"
+
+
+
+typedef struct {
+    u16 fill0[3];
+    short a;
+    u16 fill1[3];
+    short b;
+    u16 fill2[3];
+    short c;
+    u16 fill3[3];
+    short d;
+
+} __attribute__((aligned(4))) OBJ_AFFINE;
+
+extern OBJ_AFFINE* shadowAffine;
+# 179 "myLib.h"
 void hideSprites();
 
 
@@ -878,10 +894,10 @@ typedef struct {
     int sheetCol;
     int palRow;
 } ANISPRITE;
-# 207 "myLib.h"
+# 224 "myLib.h"
 extern unsigned short oldButtons;
 extern unsigned short buttons;
-# 218 "myLib.h"
+# 235 "myLib.h"
 typedef volatile struct {
     volatile const void *src;
     volatile void *dst;
@@ -890,9 +906,9 @@ typedef volatile struct {
 
 
 extern DMA *dma;
-# 258 "myLib.h"
+# 275 "myLib.h"
 void DMANow(int channel, volatile const void *src, volatile void *dst, unsigned int cnt);
-# 349 "myLib.h"
+# 366 "myLib.h"
 typedef struct{
     const unsigned char* data;
     int length;
@@ -1106,7 +1122,7 @@ extern const unsigned short STATE_winPal[256];
 # 12 "main.c" 2
 # 1 "city.h" 1
 # 22 "city.h"
-extern const unsigned short cityTiles[48];
+extern const unsigned short cityTiles[4496];
 
 
 extern const unsigned short cityMap[2048];
@@ -1116,7 +1132,7 @@ extern const unsigned short cityPal[256];
 # 13 "main.c" 2
 # 1 "clocktower.h" 1
 # 22 "clocktower.h"
-extern const unsigned short clocktowerTiles[1824];
+extern const unsigned short clocktowerTiles[2160];
 
 
 extern const unsigned short clocktowerMap[2048];
@@ -1442,11 +1458,11 @@ void goToGame() {
 
 
 
-    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 3648 / 2);
+    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 4320 / 2);
     DMANow(3, clocktowerMap, &((screenblock *)0x6000000)[29], 4096 / 2);
 
 
-    DMANow(3, cityTiles, &((charblock *)0x6000000)[1], 96 / 2);
+    DMANow(3, cityTiles, &((charblock *)0x6000000)[1], 8992 / 2);
     DMANow(3, cityMap, &((screenblock *)0x6000000)[27], 4096 / 2);
 
     state = GAME;

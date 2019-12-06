@@ -1,0 +1,1 @@
+extern const int sin_lut_fixed8[];

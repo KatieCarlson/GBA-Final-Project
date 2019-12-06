@@ -130,6 +130,22 @@ typedef struct {
 #define OAM ((OBJ_ATTR*)(0x7000000))
 extern OBJ_ATTR shadowOAM[];
 
+#define ALIGN(x) __attribute__((aligned(x)))
+
+typedef struct {
+    u16 fill0[3];
+    short a;
+    u16 fill1[3];
+    short b;
+    u16 fill2[3];
+    short c;
+    u16 fill3[3];
+    short d;
+
+} ALIGN(4) OBJ_AFFINE;
+
+extern OBJ_AFFINE* shadowAffine;
+
 // Attribute 0
 #define ATTR0_REGULAR      (0<<8)  // Normal Rendering
 #define ATTR0_AFFINE       (1<<8)  // Affine Rendering
@@ -152,6 +168,7 @@ extern OBJ_ATTR shadowOAM[];
 #define ATTR1_SMALL  (1<<14)       // --------------------------------------------
 #define ATTR1_MEDIUM (2<<14)
 #define ATTR1_LARGE  (3<<14)
+#define ATTR1_AFFINEINDEX(i) ((i) << 9)
 
 // Attribute 2
 #define ATTR2_TILEID(col, row) ((row)*32+(col))
