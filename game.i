@@ -1073,18 +1073,22 @@ extern const unsigned char DubstepGameTheme[1719648];
 # 20 "CheatChime.h"
 extern const unsigned char CheatChime[16363];
 # 11 "game.c" 2
+# 1 "WindEffect.h" 1
+# 20 "WindEffect.h"
+extern const unsigned char WindEffect[22655];
+# 12 "game.c" 2
 # 1 "BlockDownSFX.h" 1
 # 20 "BlockDownSFX.h"
 extern const unsigned char BlockDownSFX[2592];
-# 12 "game.c" 2
+# 13 "game.c" 2
 # 1 "BlockTurnSFX.h" 1
 # 20 "BlockTurnSFX.h"
 extern const unsigned char BlockTurnSFX[6336];
-# 13 "game.c" 2
+# 14 "game.c" 2
 # 1 "BlockUpSFX.h" 1
 # 20 "BlockUpSFX.h"
 extern const unsigned char BlockUpSFX[7488];
-# 14 "game.c" 2
+# 15 "game.c" 2
 
 
 OBJ_ATTR shadowOAM[128];
@@ -1124,7 +1128,7 @@ int tempBoardVals3 [52]= { 36,18, 36,19, 36,20,
                                          44,19, 44,20, 44,21};
 
 int puzzleNum = 1;
-# 62 "game.c"
+# 63 "game.c"
 int boardSpriteNumStart = 100;
 int vselDel;
 int hselDel;
@@ -1141,6 +1145,8 @@ int windIsOn;
 int windFrameRate;
 int windRow;
 int windCol;
+int windRowdel;
+int windColdel;
 
 singleBlock cheatBlock;
 singleBlock gear;
@@ -1188,8 +1194,8 @@ void updateGame() {
     if (windIsOn) {
         windCount++;
         int state = windCount / windFrameRate;
-        shadowOAM[89].attr0 = (windRow) | (0<<14) | (0<<13);
-        shadowOAM[89].attr1 = (windCol) | (2<<14);
+        shadowOAM[89].attr0 = (windRow - windRowdel * 2) | (0<<14) | (0<<13);
+        shadowOAM[89].attr1 = (windCol - windColdel) | (2<<14);
         shadowOAM[89].attr2 = ((2)<<12) | ((2 + state * 4)*32+(18));
         if (windCount == 6 * windFrameRate) {
             windIsOn = 0;
@@ -1297,7 +1303,6 @@ void initPlayer() {
     player.palRow = 1;
 }
 
-
 void updatePlayer() {
 
     int vOffdel = 0;
@@ -1325,7 +1330,11 @@ void updatePlayer() {
         hasTurned = 1;
         for (int i = 0; i < 5; i++) {
             if (pieceParents[i].selected > 0) {
-                turnPiece(&pieceParents[i]);
+                if (windTimer > 0) {
+                    turnPiece(&pieceParents[i], 1);
+                } else {
+                    turnPiece(&pieceParents[i], 0);
+                }
             }
         }
 
@@ -1398,6 +1407,8 @@ void updatePlayer() {
 
         hOff += hOffdel;
         vOff += vOffdel;
+        windColdel += hOffdel;
+        windRowdel += vOffdel;
 
 
         if ((!(~(oldButtons)&((1<<1))) && (~buttons & ((1<<1))))){
@@ -1421,8 +1432,19 @@ void updatePlayer() {
                             for (int j = 0; j < pieceParents[pp].numOfActiveKids; j++) {
                                 if (board[x].worldCol == (pieceParents[pp].worldCol + pieceParents[pp].kids[j].colOffset) + pieceParents[pp].hOffset / 8
                                 && board[x].worldRow == (pieceParents[pp].worldRow + pieceParents[pp].kids[j].rowOffset) + pieceParents[pp].vOffset / 8){
-                                    f--;
-# 371 "game.c"
+
+                                    int alreadyTaken = 0;
+                                    for (int xx = 0; xx < next; xx++) {
+                                        if (board[x].worldCol == overlapCheck[xx] && board[x].worldRow == overlapCheck[xx + 1]) {
+                                            alreadyTaken = 1;
+                                        }
+                                    }
+                                    if (alreadyTaken == 0) {
+                                        f--;
+                                        overlapCheck[next] = board[x].worldCol;
+                                        overlapCheck[next + 1] = board[x].worldRow;
+                                        next += 2;
+                                    }
                                 }
                             }
                         }
@@ -1490,7 +1512,6 @@ void updatePlayer() {
     animatePlayer();
 }
 
-
 void animatePlayer() {
 
 
@@ -1530,14 +1551,24 @@ void drawPlayer() {
                                                                                ;
 }
 
-void turnPiece(pieceParent* pp) {
-    playSoundB(BlockTurnSFX, 6336, 11025, 0);
+void turnPiece(pieceParent* pp, int windy) {
     windCount = 0;
-    if (!cheat) {
+    if (windy) {
         windIsOn = 1;
+        playSoundB(WindEffect, 22655, 11025, 0);
+    } else {
+        playSoundB(BlockTurnSFX, 6336, 11025, 0);
     }
     windRow = player.screenRow - 32;
     windCol = player.screenCol;
+    if (windCol > 12) {
+        windCol -= 8;
+    }
+    if (windCol > 40) {
+        windCol = 40;
+    }
+    windRowdel = 0;
+    windColdel = 0;
 
     pieceKid kid = pp->kids[pp->selected - 1];
     int c = kid.colOffset;

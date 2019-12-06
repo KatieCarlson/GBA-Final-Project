@@ -8,6 +8,7 @@
 #include "MainGameTheme.h"
 #include "DubstepGameTheme.h"
 #include "CheatChime.h"
+#include "WindEffect.h"
 #include "BlockDownSFX.h"
 #include "BlockTurnSFX.h"
 #include "BlockUpSFX.h"
@@ -75,6 +76,8 @@ int windIsOn;
 int windFrameRate;
 int windRow;
 int windCol;
+int windRowdel;
+int windColdel;
 
 singleBlock cheatBlock;
 singleBlock gear;
@@ -122,8 +125,8 @@ void updateGame() {
     if (windIsOn) {
         windCount++;
         int state = windCount / windFrameRate;
-        shadowOAM[89].attr0 = (windRow) | ATTR0_SQUARE | ATTR0_4BPP;
-        shadowOAM[89].attr1 = (windCol) | ATTR1_MEDIUM;
+        shadowOAM[89].attr0 = (windRow - windRowdel * 2) | ATTR0_SQUARE | ATTR0_4BPP;
+        shadowOAM[89].attr1 = (windCol - windColdel) | ATTR1_MEDIUM;
         shadowOAM[89].attr2 = ATTR2_PALROW(2) | ATTR2_TILEID(18, 2 + state * 4);
         if (windCount == 6 * windFrameRate) {
             windIsOn = 0;
@@ -231,7 +234,6 @@ void initPlayer() {
     player.palRow = 1;
 }
 
-// Handle every-frame actions of the player
 void updatePlayer() {
 
     int vOffdel = 0;
@@ -259,7 +261,11 @@ void updatePlayer() {
         hasTurned = 1;
         for (int i = 0; i < PIECEPARENTCOUNT; i++) {
             if (pieceParents[i].selected > 0) {
-                turnPiece(&pieceParents[i]);
+                if (windTimer > 0) {
+                    turnPiece(&pieceParents[i], 1);
+                } else {
+                    turnPiece(&pieceParents[i], 0);
+                }
             }
         }
 
@@ -332,6 +338,8 @@ void updatePlayer() {
 
         hOff += hOffdel;
         vOff += vOffdel;
+        windColdel += hOffdel;
+        windRowdel += vOffdel;
 
         // Check for collision with pieces
         if (BUTTON_PRESSED(BUTTON_B)){
@@ -355,19 +363,19 @@ void updatePlayer() {
                             for (int j = 0; j < pieceParents[pp].numOfActiveKids; j++) {
                                 if (board[x].worldCol == (pieceParents[pp].worldCol + pieceParents[pp].kids[j].colOffset) + pieceParents[pp].hOffset / 8 
                                 && board[x].worldRow == (pieceParents[pp].worldRow + pieceParents[pp].kids[j].rowOffset) + pieceParents[pp].vOffset / 8){
-                                    f--;
-                                    // int alreadyTaken = 0;
-                                    // for (int x = 0; x < next; x++) {
-                                    //     if (board[x].worldCol == overlapCheck[x] && board[x].worldRow == overlapCheck[x + 1]) {
-                                    //         alreadyTaken = 1;
-                                    //     }
-                                    // }
-                                    // if (alreadyTaken == 0) {
-                                    //     f--;
-                                    //     overlapCheck[next] = board[x].worldCol;
-                                    //     overlapCheck[next + 1] = board[x].worldRow;
-                                    //     next += 2;
-                                    // }
+                                    //f--;
+                                    int alreadyTaken = 0;
+                                    for (int xx = 0; xx < next; xx++) {
+                                        if (board[x].worldCol == overlapCheck[xx] && board[x].worldRow == overlapCheck[xx + 1]) {
+                                            alreadyTaken = 1;
+                                        }
+                                    }
+                                    if (alreadyTaken == 0) {
+                                        f--;
+                                        overlapCheck[next] = board[x].worldCol;
+                                        overlapCheck[next + 1] = board[x].worldRow;
+                                        next += 2;
+                                    }
                                 }
                             }
                         }
@@ -435,7 +443,6 @@ void updatePlayer() {
     animatePlayer();
 }
 
-// Handle player animation states
 void animatePlayer() {
 
     // Set previous state to current state
@@ -475,14 +482,24 @@ void drawPlayer() {
             player.sheetRow + player.curFrame * player.height / 8 + cheat * 12);
 }
 
-void turnPiece(pieceParent* pp) {
-    playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
+void turnPiece(pieceParent* pp, int windy) {
     windCount = 0;
-    if (!cheat) {
+    if (windy) {
         windIsOn = 1;
+        playSoundB(WindEffect, WINDEFFECTLEN, WINDEFFECTFREQ, 0);
+    } else {
+        playSoundB(BlockTurnSFX, BLOCKTURNSFXLEN, BLOCKTURNSFXFREQ, 0);
     }
     windRow = player.screenRow - 32;
     windCol = player.screenCol;
+    if (windCol > 12) {
+        windCol -= 8;
+    }
+    if (windCol > 40) {
+        windCol = 40;
+    }
+    windRowdel = 0;
+    windColdel = 0;
 
     pieceKid kid = pp->kids[pp->selected - 1];
     int c = kid.colOffset;
