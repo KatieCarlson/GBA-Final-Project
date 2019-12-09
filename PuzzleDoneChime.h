@@ -15,7 +15,7 @@
 #define __PUZZLEDONECHIMEH__
 
 #define PUZZLEDONECHIMEFREQ 11025
-#define PUZZLEDONECHIMELEN 59470
+#define PUZZLEDONECHIMELEN 59470 - 100
 
 extern const unsigned char PuzzleDoneChime[59470];
 

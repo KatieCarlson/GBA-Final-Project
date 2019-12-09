@@ -28,10 +28,10 @@ int pieces [70] = {0,0,  1,0,  2,0,  3,0,  3,1,  3,2,  2,2,
                    0,0,  0,1,  0,0,  0,0,  0,0,  0,0,  0,0,
                    2,0,  2,1,  2,2,  1,2,  0,2,  0,0,  0,0};
 
-int tempBoardVals1 [52]= {                                                   40,21, 40,22, 40,23, 40,24, 40,25,
-                                                                             41,21, 41,22,               41,25,
-                            42,14, 42,15, 42,16, 42,17, 42,18, 42,19, 42,20, 42,21, 42,22, 42,23,        42,25,
-                            43,14,        43,16,                             43,21, 43,22, 43,23, 43,24, 43,25};
+int tempBoardVals1 [52]= {                                                   42,20, 42,21, 42,22, 42,23, 42,24,
+                                                                             43,20, 43,21,               43,24,
+                            44,13, 44,14, 44,15, 44,16, 44,17, 44,18, 44,19, 44,20, 44,21, 44,22,        44,24,
+                            45,13,        45,15,                             45,20, 45,21, 45,22, 45,23, 45,24};
 
 int tempBoardVals2 [52]= {  39,18, 39,19, 39,20, 39,21, 
                             40,18, 40,19, 40,20, 40,21, 
@@ -40,15 +40,15 @@ int tempBoardVals2 [52]= {  39,18, 39,19, 39,20, 39,21,
                             43,18, 43,19, 43,20, 43,21,
                     44,17, 44,18, 44,19, 44,20, 44,21, 44,22};
 
-int tempBoardVals3 [52]= {  36,18, 36,19, 36,20,
-                            37,18,        37,20,
-                            38,17, 38,18, 38,19, 38,20,
-                                                 39,20,
-                                                 40,20, 40,21, 40,22,
-                                                 41,20, 41,21, 41,22, 41,23, 41,24,
-                                                 42,20, 42,21, 42,22,
-                                                        43,21, 43,22,
-                                         44,19, 44,20, 44,21};
+int tempBoardVals3 [52]= {  38,16, 38,17, 38,18,
+                            39,16,        39,18,
+                            40,16, 40,17, 40,18, 40,19,
+                                                 41,19,
+                                                 42,19, 42,20, 42,21,
+                                                 43,19, 43,20, 43,21, 43,22, 43,23,
+                                                 44,19, 44,20, 44,21,
+                                                        45,20, 45,21,
+                                          46,18, 46,19, 46,20};
 
 int puzzleNum = 1;
 
@@ -81,6 +81,7 @@ int windColdel;
 
 singleBlock cheatBlock;
 singleBlock gear;
+singleBlock gear2;
 int gearTimer;
 int soundWasSwitched;
 
@@ -157,6 +158,8 @@ void updateGame() {
     //update gear
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
+    gear2.screenRow = gear2.worldRow - vOff;
+    gear2.screenCol = gear2.worldCol - hOff;
     gearTimer++;
     if (gearTimer > 359) {
         gearTimer = 0;
@@ -199,6 +202,13 @@ void drawGame() {
         shadowOAM[gear.spriteNum].attr0 = (ROWMASK & (gear.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_DOUBLEAFFINE;
         shadowOAM[gear.spriteNum].attr1 = (COLMASK & (gear.screenCol)) | ATTR1_LARGE | ATTR1_AFFINEINDEX(0);
         shadowOAM[gear.spriteNum].attr2 = ATTR2_PALROW(gear.palRow) | ATTR2_TILEID(gear.sheetCol, gear.sheetRow);
+    }
+    if (gear2.screenRow < 0 - gear2.height - 16 || gear2.screenRow > 160) {
+        shadowOAM[gear2.spriteNum].attr0 = ATTR0_HIDE;
+    } else {
+        shadowOAM[gear2.spriteNum].attr0 = (ROWMASK & (gear2.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_DOUBLEAFFINE;
+        shadowOAM[gear2.spriteNum].attr1 = (COLMASK & (gear2.screenCol)) | ATTR1_LARGE | ATTR1_AFFINEINDEX(0);
+        shadowOAM[gear2.spriteNum].attr2 = ATTR2_PALROW(gear2.palRow) | ATTR2_TILEID(gear2.sheetCol, gear2.sheetRow);
     }
 
     REG_BG2HOFF = hOff;
@@ -571,9 +581,20 @@ void initBoard() {
     gear.palRow = 2;
     gear.width = 64;
     gear.height = 64;
-    gear.spriteNum = 127;
+    gear.spriteNum = 126;
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
+
+    gear2.worldRow = 116;
+    gear2.worldCol = 96;
+    gear2.sheetRow = 24;
+    gear2.sheetCol = 0;
+    gear2.palRow = 2;
+    gear2.width = 64;
+    gear2.height = 64;
+    gear2.spriteNum = 127;
+    gear2.screenRow = gear2.worldRow - vOff;
+    gear2.screenCol = gear2.worldCol - hOff;
 
 }
 
@@ -594,23 +615,18 @@ void updateBoardSquare(boardSquare* bs) {
 }
 
 void initPieceParents() {
-    int randPositions [15] = {0, 21, 11,
-                              0, 31, 11,
-                              0, 27, 19,
-                              0, 31, 26,
-                              0, 20, 26};
+    int randPositions [10] = {23, 10,
+                              30, 12,
+                              23, 26,
+                              31, 25,
+                              28, 21}; // red yellow blue green purple
 
     for (int i = 0; i < PIECEPARENTCOUNT; i++) {
         pieceParents[i].numOfActiveKids = numOfPieces[i];
         pieceParents[i].selected = 0;
 
-        int r = rand() % 5;
-        while (randPositions[r * 3] == 1) {
-            r = (r + 1) % 5;
-        }
-        pieceParents[i].worldRow = randPositions[r * 3 + 1];
-        pieceParents[i].worldCol = randPositions[r * 3 + 2];
-        randPositions[r * 3] = 1;
+        pieceParents[i].worldRow = randPositions[i * 2];
+        pieceParents[i].worldCol = randPositions[i * 2 + 1];
 
         pieceParents[i].screenRow = pieceParents[i].worldRow * 8 - vOff;
         pieceParents[i].screenCol = pieceParents[i].worldCol * 8 - hOff;

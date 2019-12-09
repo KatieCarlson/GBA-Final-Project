@@ -114,12 +114,15 @@ void initialize() {
 void start() {
 
     clockHands++;
-    if (clockHands > 8 * 5000) {
+    if (clockHands > 8 * 4500) {
         clockHands = 0;
         clockHandsSlower++;
     }
-    int frame = clockHands / 5000;
+    int frame = clockHands / 4500;
     int frame2 = clockHandsSlower;
+    if (clockHandsSlower == 8) {
+        clockHandsSlower = 0;
+    }
 
     shadowOAM[1].attr0 = 84 | ATTR0_SQUARE | ATTR0_4BPP;
     shadowOAM[1].attr1 = 37 | ATTR1_SMALL;

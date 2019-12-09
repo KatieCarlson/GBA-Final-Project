@@ -1273,12 +1273,15 @@ void initialize() {
 void start() {
 
     clockHands++;
-    if (clockHands > 8 * 5000) {
+    if (clockHands > 8 * 4500) {
         clockHands = 0;
         clockHandsSlower++;
     }
-    int frame = clockHands / 5000;
+    int frame = clockHands / 4500;
     int frame2 = clockHandsSlower;
+    if (clockHandsSlower == 8) {
+        clockHandsSlower = 0;
+    }
 
     shadowOAM[1].attr0 = 84 | (0<<14) | (0<<13);
     shadowOAM[1].attr1 = 37 | (1<<14);
@@ -1377,7 +1380,7 @@ void game() {
     }
     if (fitted == 0 && winV == 0) {
         stopSound();
-        playSoundA(PuzzleDoneChime, 59470, 11025, 0);
+        playSoundA(PuzzleDoneChime, 59470 - 100, 11025, 0);
         winV++;
     }
     if (winV > 0) {
