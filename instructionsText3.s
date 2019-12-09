@@ -64,17 +64,17 @@ instructionsText3Pal:
 	.short	8456
 	.short	16845
 	.short	27581
-	.short	31468
 	.short	29392
-	.short	31672
+	.short	31468
 	.short	16912
+	.short	31672
 	.short	2464
 	.short	274
 	.short	11006
 	.short	283
 	.short	14228
-	.short	25176
 	.short	25015
+	.short	25176
 	.short	25031
 	.short	2182
 	.short	31709
@@ -99,7 +99,7 @@ instructionsText3Pal:
 	.short	172
 	.short	17293
 	.short	13640
-	.short	8531
+	.short	4330
 	.short	21216
 	.short	8296
 	.short	27355
@@ -413,25 +413,25 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-4095
-	.short	-4094
-	.short	-4093
-	.short	-4092
-	.short	-4091
-	.short	-4090
-	.short	-4089
-	.short	-4088
-	.short	-4087
-	.short	-4086
-	.short	-4085
-	.short	-4084
-	.short	-4083
-	.short	-4082
-	.short	-4081
-	.short	-4080
-	.short	-4079
-	.short	-4078
-	.short	-4077
+	.short	1
+	.short	2
+	.short	3
+	.short	4
+	.short	5
+	.short	6
+	.short	7
+	.short	8
+	.short	9
+	.short	10
+	.short	11
+	.short	12
+	.short	13
+	.short	14
+	.short	15
+	.short	16
+	.short	17
+	.short	18
+	.short	19
 	.short	0
 	.short	0
 	.short	0
@@ -445,26 +445,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-4076
-	.short	-4075
-	.short	-4074
-	.short	-4073
-	.short	-4072
-	.short	-4071
-	.short	-4070
-	.short	-4069
-	.short	-4068
-	.short	-4067
-	.short	-4066
-	.short	-4065
-	.short	-4064
-	.short	-4063
-	.short	-4062
-	.short	-4061
-	.short	-4060
-	.short	-4059
-	.short	-4062
-	.short	-4058
+	.short	20
+	.short	21
+	.short	22
+	.short	23
+	.short	24
+	.short	25
+	.short	26
+	.short	27
+	.short	28
+	.short	29
+	.short	30
+	.short	31
+	.short	32
+	.short	33
+	.short	34
+	.short	35
+	.short	36
+	.short	37
+	.short	34
+	.short	38
 	.short	0
 	.short	0
 	.short	0
@@ -477,26 +477,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-4057
-	.short	-4056
-	.short	-4055
-	.short	-4054
-	.short	-4053
-	.short	-4052
-	.short	-4051
-	.short	-4050
-	.short	-4049
-	.short	-4048
-	.short	-4047
-	.short	-4046
-	.short	-4045
-	.short	-4044
-	.short	-4043
-	.short	-4042
-	.short	-4041
-	.short	-4040
-	.short	-4039
-	.short	-4038
+	.short	39
+	.short	40
+	.short	41
+	.short	42
+	.short	43
+	.short	44
+	.short	45
+	.short	46
+	.short	47
+	.short	48
+	.short	49
+	.short	50
+	.short	51
+	.short	52
+	.short	53
+	.short	54
+	.short	55
+	.short	56
+	.short	57
+	.short	58
 	.short	0
 	.short	0
 	.short	0
@@ -509,25 +509,25 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-4037
-	.short	-4036
-	.short	-4035
-	.short	-4034
-	.short	-4033
-	.short	-4032
-	.short	-4031
-	.short	-4030
-	.short	-4029
-	.short	-4028
-	.short	-4027
-	.short	-4026
-	.short	-4025
-	.short	-4024
-	.short	-4023
-	.short	-4022
-	.short	-4021
-	.short	-4020
-	.short	-4019
+	.short	59
+	.short	60
+	.short	61
+	.short	62
+	.short	63
+	.short	64
+	.short	65
+	.short	66
+	.short	67
+	.short	68
+	.short	69
+	.short	70
+	.short	71
+	.short	72
+	.short	73
+	.short	74
+	.short	75
+	.short	76
+	.short	77
 	.short	0
 	.short	0
 	.short	0
@@ -541,27 +541,27 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-4018
-	.short	-4017
-	.short	-4016
-	.short	-4015
-	.short	-4014
-	.short	-4013
-	.short	-4012
-	.short	-4011
-	.short	-4010
-	.short	-4009
-	.short	-4008
-	.short	-4007
-	.short	-4006
-	.short	-4005
-	.short	-4004
-	.short	-4003
-	.short	-961
-	.short	-4002
-	.short	-4001
-	.short	-4000
-	.short	-3999
+	.short	78
+	.short	79
+	.short	80
+	.short	81
+	.short	82
+	.short	83
+	.short	84
+	.short	85
+	.short	86
+	.short	87
+	.short	88
+	.short	89
+	.short	90
+	.short	91
+	.short	92
+	.short	93
+	.short	3135
+	.short	94
+	.short	95
+	.short	96
+	.short	97
 	.short	0
 	.short	0
 	.short	0
@@ -573,25 +573,25 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3998
-	.short	-3997
-	.short	-3996
-	.short	-3995
-	.short	-966
-	.short	-3994
-	.short	-3993
-	.short	-3992
-	.short	-3991
-	.short	-3990
-	.short	-3989
-	.short	-3988
-	.short	-3987
-	.short	-3986
-	.short	-3985
-	.short	-3984
-	.short	-3983
-	.short	-3982
-	.short	-3981
+	.short	98
+	.short	99
+	.short	100
+	.short	101
+	.short	3130
+	.short	102
+	.short	103
+	.short	104
+	.short	105
+	.short	106
+	.short	107
+	.short	108
+	.short	109
+	.short	110
+	.short	111
+	.short	112
+	.short	113
+	.short	114
+	.short	115
 	.short	0
 	.short	0
 	.short	0
@@ -605,26 +605,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3980
-	.short	-3979
-	.short	-3978
-	.short	-3977
-	.short	-3976
-	.short	-3975
-	.short	-3974
-	.short	-3973
-	.short	-3972
-	.short	-3971
-	.short	-3970
-	.short	-3969
-	.short	-3968
-	.short	-3967
-	.short	-2022
-	.short	-3966
-	.short	-2018
-	.short	-990
-	.short	-3965
-	.short	-3964
+	.short	116
+	.short	117
+	.short	118
+	.short	119
+	.short	120
+	.short	121
+	.short	122
+	.short	123
+	.short	124
+	.short	125
+	.short	126
+	.short	127
+	.short	128
+	.short	129
+	.short	2074
+	.short	130
+	.short	2078
+	.short	3106
+	.short	131
+	.short	132
 	.short	0
 	.short	0
 	.short	0
@@ -637,26 +637,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3963
-	.short	-1022
-	.short	-3962
-	.short	-3961
-	.short	-3960
-	.short	-3959
-	.short	-3958
-	.short	-3957
-	.short	-3956
-	.short	-3955
-	.short	-3954
-	.short	-3953
-	.short	-3952
-	.short	-3951
-	.short	-3950
-	.short	-3949
-	.short	-3948
-	.short	-3947
-	.short	-3946
-	.short	-3945
+	.short	133
+	.short	3074
+	.short	134
+	.short	135
+	.short	136
+	.short	137
+	.short	138
+	.short	139
+	.short	140
+	.short	141
+	.short	142
+	.short	143
+	.short	144
+	.short	145
+	.short	146
+	.short	147
+	.short	148
+	.short	149
+	.short	150
+	.short	151
 	.short	0
 	.short	0
 	.short	0
@@ -669,26 +669,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3944
-	.short	-3943
-	.short	-3942
-	.short	-3941
-	.short	-3940
-	.short	-3939
-	.short	-3938
-	.short	-3937
-	.short	-3936
-	.short	-3935
-	.short	-3934
-	.short	-3933
-	.short	-3932
-	.short	-3931
-	.short	-3930
-	.short	-3929
-	.short	-3928
-	.short	-3927
-	.short	-3926
-	.short	-3925
+	.short	152
+	.short	153
+	.short	154
+	.short	155
+	.short	156
+	.short	157
+	.short	158
+	.short	159
+	.short	160
+	.short	161
+	.short	162
+	.short	163
+	.short	164
+	.short	165
+	.short	166
+	.short	167
+	.short	168
+	.short	169
+	.short	170
+	.short	171
 	.short	0
 	.short	0
 	.short	0
@@ -701,26 +701,26 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3924
-	.short	-3923
-	.short	-3922
-	.short	-3921
-	.short	-3920
-	.short	-3919
-	.short	-3918
-	.short	-3917
-	.short	-3916
-	.short	-3915
-	.short	-3914
-	.short	-3913
-	.short	-3912
-	.short	-3911
-	.short	-3910
-	.short	-3909
-	.short	-3908
-	.short	-3907
-	.short	-3906
-	.short	-3905
+	.short	172
+	.short	173
+	.short	174
+	.short	175
+	.short	176
+	.short	177
+	.short	178
+	.short	179
+	.short	180
+	.short	181
+	.short	182
+	.short	183
+	.short	184
+	.short	185
+	.short	186
+	.short	187
+	.short	188
+	.short	189
+	.short	190
+	.short	191
 	.short	0
 	.short	0
 	.short	0
@@ -733,25 +733,25 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3904
-	.short	-3903
-	.short	-3902
-	.short	-3901
-	.short	-3900
-	.short	-3899
-	.short	-3898
-	.short	-3897
-	.short	-3896
-	.short	-3895
-	.short	-3894
-	.short	-3893
-	.short	-3892
-	.short	-3891
-	.short	-3890
-	.short	-3889
-	.short	-3888
-	.short	-3887
-	.short	-3886
+	.short	192
+	.short	193
+	.short	194
+	.short	195
+	.short	196
+	.short	197
+	.short	198
+	.short	199
+	.short	200
+	.short	201
+	.short	202
+	.short	203
+	.short	204
+	.short	205
+	.short	206
+	.short	207
+	.short	208
+	.short	209
+	.short	210
 	.short	0
 	.short	0
 	.short	0
@@ -765,21 +765,20 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-1909
-	.short	-3885
-	.short	-3884
-	.short	-3883
-	.short	-3882
-	.short	-3881
-	.short	-3880
-	.short	-3879
-	.short	-3878
-	.short	-3877
-	.short	-4086
-	.short	-3876
-	.short	-3875
-	.short	-3874
-	.short	-3873
+	.short	2187
+	.short	211
+	.short	212
+	.short	213
+	.short	214
+	.short	11
+	.short	215
+	.short	216
+	.short	217
+	.short	218
+	.short	219
+	.short	220
+	.short	221
+	.short	222
 	.short	0
 	.short	0
 	.short	0
@@ -797,7 +796,8 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.short	0
-	.short	-3872
+	.short	0
+	.short	223
 	.short	0
 	.short	0
 	.short	0
@@ -1301,7 +1301,7 @@ instructionsText3Map:
 	.short	0
 	.short	0
 	.type	instructionsText3Tiles, %object
-	.size	instructionsText3Tiles, 7200
+	.size	instructionsText3Tiles, 7168
 instructionsText3Tiles:
 	.short	0
 	.short	0
@@ -4700,176 +4700,94 @@ instructionsText3Tiles:
 	.short	0
 	.short	0
 	.short	4080
-	.short	-256
+	.short	0
 	.short	240
+	.short	0
 	.short	240
+	.short	0
 	.short	240
-	.short	3840
+	.short	0
 	.short	240
-	.short	-4096
-	.short	240
-	.short	4080
-	.short	0
-	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	-4096
-	.short	0
-	.short	-256
-	.short	0
-	.short	-4096
-	.short	0
-	.short	-4096
-	.short	0
-	.short	-4096
-	.short	0
-	.short	-4096
-	.short	0
-	.short	0
-	.short	255
-	.short	0
-	.short	0
-	.short	0
-	.short	-4081
 	.short	15
 	.short	3840
-	.short	240
-	.short	3840
-	.short	240
-	.short	3840
-	.short	240
-	.short	-4096
-	.short	15
 	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	255
-	.short	-4096
-	.short	15
-	.short	0
-	.short	15
-	.short	0
-	.short	15
-	.short	-4096
-	.short	15
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	15
-	.short	-4096
-	.short	240
-	.short	0
-	.short	255
-	.short	0
-	.short	240
-	.short	0
-	.short	255
-	.short	0
-	.short	0
-	.short	0
-	.short	4080
-	.short	0
-	.short	15
-	.short	0
-	.short	255
-	.short	4080
-	.short	15
-	.short	-4081
-	.short	15
-	.short	-1
-	.short	15
-	.short	15
-	.short	15
 	.short	-16
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
+	.short	-256
+	.short	3840
 	.short	240
+	.short	3840
+	.short	240
+	.short	3840
+	.short	240
+	.short	3840
+	.short	-256
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	-4096
+	.short	15
 	.short	-4081
-	.short	240
+	.short	0
 	.short	-4081
-	.short	-256
-	.short	4080
-	.short	-256
-	.short	4080
-	.short	3840
-	.short	3840
 	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	-256
-	.short	0
-	.short	240
-	.short	0
-	.short	3840
+	.short	-4081
 	.short	0
 	.short	-4096
 	.short	0
-	.short	4080
 	.short	0
 	.short	0
 	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	4080
-	.short	4080
-	.short	15
-	.short	-4081
-	.short	15
-	.short	-4081
-	.short	15
-	.short	-4081
-	.short	4080
-	.short	4080
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	-256
-	.short	15
-	.short	3840
-	.short	-3856
-	.short	3840
-	.short	-3856
-	.short	3840
-	.short	-3856
-	.short	3840
-	.short	240
-	.short	0
-	.short	0
-	.short	3840
-	.short	0
-	.short	3840
-	.short	0
-	.short	4095
-	.short	-256
-	.short	3840
-	.short	240
-	.short	3840
-	.short	3840
-	.short	3840
+	.short	255
 	.short	-4096
+	.short	0
+	.short	-256
+	.short	15
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	255
+	.short	-4081
+	.short	3840
+	.short	-4081
 	.short	4095
 	.short	4080
 	.short	0
+	.short	4080
+	.short	4095
+	.short	240
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3840
+	.short	0
+	.short	3840
+	.short	0
+	.short	255
+	.short	0
+	.short	255
+	.short	0
+	.short	240
 	.short	0
 	.short	0
 	.short	0
@@ -4877,14 +4795,80 @@ instructionsText3Tiles:
 	.short	0
 	.short	0
 	.short	0
+	.short	4080
+	.short	-256
+	.short	15
+	.short	240
+	.short	240
+	.short	-16
+	.short	3840
+	.short	240
+	.short	255
+	.short	-256
 	.short	0
 	.short	0
 	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	255
+	.short	-4081
+	.short	-4096
+	.short	-4081
+	.short	-4096
+	.short	-4096
+	.short	-4096
+	.short	15
+	.short	255
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	255
+	.short	-16
+	.short	3840
+	.short	240
+	.short	3840
+	.short	240
+	.short	3840
+	.short	240
+	.short	255
+	.short	240
 	.short	0
 	.short	0
 	.short	0
 	.short	240
 	.short	0
+	.short	240
+	.short	-4096
+	.short	255
+	.short	3855
+	.short	240
+	.short	3855
+	.short	240
+	.short	3855
+	.short	240
+	.short	-4081
+	.short	255
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	4080
+	.short	0
+	.short	15
+	.short	0
+	.short	240
+	.short	0
+	.short	3840
+	.short	0
+	.short	255
+	.short	15
 	.short	0
 	.short	0
 	.short	-16

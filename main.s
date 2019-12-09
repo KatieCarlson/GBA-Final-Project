@@ -98,7 +98,7 @@ goToStart:
 .L4:
 	.word	puzzle
 	.word	11025
-	.word	1232896
+	.word	1976156
 	.word	StartTheme
 	.word	playSoundA
 	.word	1431655766
@@ -350,7 +350,7 @@ goToGame:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
-	mov	r3, #2160
+	mov	r3, #2144
 	mov	r2, #100663296
 	ldr	r1, .L27+20
 	mov	r0, #3
@@ -634,7 +634,7 @@ instructions:
 	mov	r0, #3
 	mov	lr, pc
 	bx	r5
-	mov	r3, #3600
+	mov	r3, #3584
 	mov	r2, #100663296
 	ldr	r1, .L91+60
 	mov	r0, #3

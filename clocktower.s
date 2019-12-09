@@ -1949,10 +1949,11 @@ clocktowerMap:
 	.short	33
 	.short	34
 	.short	35
-	.short	36
+	.short	0
 	.short	0
 	.short	34
 	.short	35
+	.short	36
 	.short	37
 	.short	38
 	.short	39
@@ -1960,74 +1961,73 @@ clocktowerMap:
 	.short	41
 	.short	42
 	.short	43
+	.short	0
+	.short	0
+	.short	0
 	.short	44
-	.short	0
-	.short	0
-	.short	0
 	.short	45
-	.short	46
 	.short	0
+	.short	46
 	.short	47
 	.short	48
+	.short	33
+	.short	34
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
 	.short	49
-	.short	33
-	.short	34
+	.short	45
 	.short	0
 	.short	0
 	.short	0
-	.short	0
-	.short	0
-	.short	3
 	.short	50
-	.short	46
-	.short	0
-	.short	0
-	.short	0
-	.short	51
+	.short	39
 	.short	40
-	.short	41
 	.short	33
 	.short	34
 	.short	34
 	.short	35
-	.short	37
+	.short	36
 	.short	34
+	.short	51
 	.short	52
-	.short	53
 	.short	0
+	.short	53
 	.short	54
-	.short	55
 	.short	34
 	.short	35
+	.short	55
+	.short	1076
+	.short	45
 	.short	56
-	.short	1077
-	.short	46
-	.short	57
-	.short	39
+	.short	38
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	3
-	.short	42
+	.short	41
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
+	.short	57
 	.short	58
+	.short	38
 	.short	59
-	.short	39
-	.short	60
 	.short	33
 	.short	34
 	.short	35
+	.short	60
 	.short	61
 	.short	62
 	.short	63
-	.short	64
 	.short	34
 	.short	35
 	.short	33
@@ -2042,64 +2042,224 @@ clocktowerMap:
 	.short	0
 	.short	0
 	.short	3
+	.short	64
 	.short	65
 	.short	66
+	.short	36
 	.short	67
-	.short	37
 	.short	68
 	.short	69
 	.short	70
 	.short	71
 	.short	72
+	.short	59
 	.short	73
-	.short	60
 	.short	74
 	.short	75
 	.short	76
-	.short	77
+	.short	71
 	.short	72
-	.short	73
-	.short	60
+	.short	59
+	.short	77
 	.short	78
 	.short	79
 	.short	80
-	.short	81
+	.short	71
 	.short	72
-	.short	73
-	.short	60
-	.short	72
+	.short	59
+	.short	71
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	3
-	.short	73
+	.short	72
+	.short	42
 	.short	43
-	.short	44
-	.short	41
+	.short	40
+	.short	81
 	.short	82
 	.short	83
 	.short	84
-	.short	85
-	.short	37
+	.short	36
 	.short	34
 	.short	35
+	.short	85
 	.short	86
 	.short	87
 	.short	88
+	.short	36
+	.short	34
+	.short	35
 	.short	89
-	.short	37
-	.short	34
-	.short	35
-	.short	90
 	.short	0
+	.short	90
 	.short	91
-	.short	92
-	.short	37
+	.short	36
 	.short	34
 	.short	35
+	.short	36
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	92
+	.short	93
+	.short	94
+	.short	95
+	.short	96
+	.short	97
+	.short	98
+	.short	99
+	.short	100
+	.short	59
+	.short	71
+	.short	101
+	.short	102
+	.short	0
+	.short	103
+	.short	100
+	.short	59
+	.short	71
+	.short	1123
+	.short	0
+	.short	104
+	.short	105
+	.short	100
+	.short	59
+	.short	71
+	.short	100
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	33
+	.short	34
+	.short	35
+	.short	106
+	.short	2121
+	.short	2122
+	.short	107
+	.short	108
+	.short	33
+	.short	34
+	.short	33
+	.short	109
+	.short	110
+	.short	111
+	.short	112
+	.short	33
+	.short	34
+	.short	33
+	.short	113
+	.short	114
+	.short	115
+	.short	116
+	.short	33
+	.short	117
+	.short	0
+	.short	118
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	72
 	.short	37
+	.short	38
+	.short	39
+	.short	40
+	.short	33
+	.short	37
+	.short	38
+	.short	39
+	.short	40
+	.short	33
+	.short	34
+	.short	38
+	.short	39
+	.short	40
+	.short	33
+	.short	34
+	.short	33
+	.short	34
+	.short	34
+	.short	35
+	.short	36
+	.short	37
+	.short	42
+	.short	119
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	34
+	.short	36
+	.short	34
+	.short	35
+	.short	36
+	.short	37
+	.short	36
+	.short	34
+	.short	120
+	.short	0
+	.short	0
+	.short	42
+	.short	121
+	.short	35
+	.short	36
+	.short	37
+	.short	38
+	.short	37
+	.short	38
+	.short	35
+	.short	33
+	.short	65
+	.short	0
+	.short	0
+	.short	65
+	.short	120
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	0
+	.short	3
+	.short	59
+	.short	71
+	.short	100
+	.short	94
+	.short	59
+	.short	71
+	.short	94
+	.short	59
+	.short	71
+	.short	100
+	.short	33
+	.short	34
+	.short	35
+	.short	33
+	.short	34
+	.short	35
+	.short	33
+	.short	34
+	.short	35
+	.short	71
+	.short	72
+	.short	59
+	.short	122
+	.short	0
+	.short	0
+	.short	123
 	.short	0
 	.short	0
 	.short	0
@@ -2109,223 +2269,63 @@ clocktowerMap:
 	.short	93
 	.short	94
 	.short	95
-	.short	96
-	.short	97
-	.short	98
-	.short	99
-	.short	100
-	.short	101
-	.short	60
-	.short	72
-	.short	102
-	.short	103
-	.short	0
-	.short	104
-	.short	101
-	.short	60
-	.short	72
-	.short	1124
-	.short	0
-	.short	105
-	.short	106
-	.short	101
-	.short	60
-	.short	72
-	.short	101
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	3
-	.short	33
-	.short	34
-	.short	35
-	.short	107
-	.short	2122
-	.short	2123
-	.short	108
-	.short	109
-	.short	33
-	.short	34
-	.short	33
-	.short	110
-	.short	111
-	.short	112
-	.short	113
-	.short	33
-	.short	34
-	.short	33
-	.short	114
-	.short	115
-	.short	116
-	.short	117
-	.short	33
-	.short	118
-	.short	0
-	.short	119
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	3
-	.short	73
-	.short	38
-	.short	39
-	.short	40
-	.short	41
-	.short	33
-	.short	38
-	.short	39
-	.short	40
-	.short	41
-	.short	33
-	.short	34
-	.short	39
-	.short	40
-	.short	41
-	.short	33
-	.short	34
-	.short	33
-	.short	34
-	.short	34
-	.short	35
-	.short	37
-	.short	38
-	.short	43
-	.short	120
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	3
-	.short	34
-	.short	37
-	.short	34
-	.short	35
-	.short	37
-	.short	38
-	.short	37
-	.short	34
-	.short	121
-	.short	0
-	.short	0
-	.short	43
-	.short	122
-	.short	35
-	.short	37
-	.short	38
-	.short	39
-	.short	38
-	.short	39
-	.short	35
-	.short	33
-	.short	66
-	.short	0
-	.short	0
-	.short	66
-	.short	121
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	3
-	.short	60
-	.short	72
-	.short	101
-	.short	95
-	.short	60
-	.short	72
-	.short	95
-	.short	60
-	.short	72
-	.short	101
-	.short	33
-	.short	34
-	.short	35
-	.short	33
-	.short	34
-	.short	35
-	.short	33
-	.short	34
-	.short	35
-	.short	72
-	.short	73
-	.short	60
-	.short	123
-	.short	0
-	.short	0
 	.short	124
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	0
-	.short	3
+	.short	73
+	.short	74
+	.short	125
+	.short	126
 	.short	94
 	.short	95
-	.short	96
-	.short	125
-	.short	74
-	.short	75
-	.short	126
-	.short	127
-	.short	95
-	.short	96
-	.short	73
-	.short	78
-	.short	128
-	.short	1099
-	.short	1098
 	.short	72
-	.short	73
-	.short	60
+	.short	77
+	.short	127
+	.short	1098
+	.short	1097
+	.short	71
+	.short	72
+	.short	59
+	.short	77
 	.short	78
 	.short	79
 	.short	80
-	.short	81
-	.short	37
+	.short	36
+	.short	128
+	.short	120
 	.short	129
-	.short	121
-	.short	130
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	0
 	.short	3
-	.short	131
-	.short	125
-	.short	107
-	.short	41
-	.short	86
-	.short	87
-	.short	132
-	.short	133
-	.short	39
+	.short	130
+	.short	124
+	.short	106
 	.short	40
+	.short	85
+	.short	86
+	.short	131
+	.short	132
+	.short	38
+	.short	39
 	.short	34
-	.short	90
-	.short	134
-	.short	1111
+	.short	89
+	.short	133
 	.short	1110
-	.short	37
+	.short	1109
+	.short	36
 	.short	34
 	.short	35
-	.short	90
+	.short	89
 	.short	0
+	.short	90
 	.short	91
-	.short	92
-	.short	101
-	.short	60
-	.short	72
-	.short	101
+	.short	100
+	.short	59
+	.short	71
+	.short	100
 	.type	clocktowerTiles, %object
-	.size	clocktowerTiles, 4320
+	.size	clocktowerTiles, 4288
 clocktowerTiles:
 	.short	0
 	.short	0
@@ -2903,22 +2903,6 @@ clocktowerTiles:
 	.short	-4370
 	.short	-8739
 	.short	-8483
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
-	.short	-13108
 	.short	-1
 	.short	-1
 	.short	-8500

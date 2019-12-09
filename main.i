@@ -1093,7 +1093,7 @@ extern const unsigned short instructionsText2Pal[256];
 # 9 "main.c" 2
 # 1 "instructionsText3.h" 1
 # 22 "instructionsText3.h"
-extern const unsigned short instructionsText3Tiles[3600];
+extern const unsigned short instructionsText3Tiles[3584];
 
 
 extern const unsigned short instructionsText3Map[1024];
@@ -1133,7 +1133,7 @@ extern const unsigned short cityPal[256];
 # 13 "main.c" 2
 # 1 "clocktower.h" 1
 # 22 "clocktower.h"
-extern const unsigned short clocktowerTiles[2160];
+extern const unsigned short clocktowerTiles[2144];
 
 
 extern const unsigned short clocktowerMap[2048];
@@ -1174,7 +1174,7 @@ extern const unsigned char PuzzleDoneChime[59470];
 # 19 "main.c" 2
 # 1 "StartTheme.h" 1
 # 20 "StartTheme.h"
-extern const unsigned char StartTheme[1232896];
+extern const unsigned char StartTheme[1976556];
 # 20 "main.c" 2
 
 SOUND soundA;
@@ -1351,7 +1351,7 @@ void instructions() {
             DMANow(3, STATE_instructions3Tiles, &((charblock *)0x6000000)[2], 11328 / 2);
             DMANow(3, STATE_instructions3Map, &((screenblock *)0x6000000)[31], 2048 / 2);
 
-            DMANow(3, instructionsText3Tiles, &((charblock *)0x6000000)[0], 7200 / 2);
+            DMANow(3, instructionsText3Tiles, &((charblock *)0x6000000)[0], 7168 / 2);
             DMANow(3, instructionsText3Map, &((screenblock *)0x6000000)[29], 2048 / 2);
 
 
@@ -1437,7 +1437,7 @@ void win() {
 }
 
 void goToStart() {
-    playSoundA(StartTheme, 1232896, 11025, 1);
+    playSoundA(StartTheme, 1976556 - 400, 11025, 1);
 
     cursor = 0;
     initGame(puzzle % 3);
@@ -1503,7 +1503,7 @@ void goToGame() {
 
 
 
-    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 4320 / 2);
+    DMANow(3, clocktowerTiles, &((charblock *)0x6000000)[0], 4288 / 2);
     DMANow(3, clocktowerMap, &((screenblock *)0x6000000)[29], 4096 / 2);
 
 

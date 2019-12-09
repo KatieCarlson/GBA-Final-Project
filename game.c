@@ -81,7 +81,6 @@ int windColdel;
 
 singleBlock cheatBlock;
 singleBlock gear;
-singleBlock gear2;
 int gearTimer;
 int soundWasSwitched;
 
@@ -158,8 +157,6 @@ void updateGame() {
     //update gear
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
-    gear2.screenRow = gear2.worldRow - vOff;
-    gear2.screenCol = gear2.worldCol - hOff;
     gearTimer++;
     if (gearTimer > 359) {
         gearTimer = 0;
@@ -202,13 +199,6 @@ void drawGame() {
         shadowOAM[gear.spriteNum].attr0 = (ROWMASK & (gear.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_DOUBLEAFFINE;
         shadowOAM[gear.spriteNum].attr1 = (COLMASK & (gear.screenCol)) | ATTR1_LARGE | ATTR1_AFFINEINDEX(0);
         shadowOAM[gear.spriteNum].attr2 = ATTR2_PALROW(gear.palRow) | ATTR2_TILEID(gear.sheetCol, gear.sheetRow);
-    }
-    if (gear2.screenRow < 0 - gear2.height - 16 || gear2.screenRow > 160) {
-        shadowOAM[gear2.spriteNum].attr0 = ATTR0_HIDE;
-    } else {
-        shadowOAM[gear2.spriteNum].attr0 = (ROWMASK & (gear2.screenRow)) | ATTR0_SQUARE | ATTR0_4BPP | ATTR0_DOUBLEAFFINE;
-        shadowOAM[gear2.spriteNum].attr1 = (COLMASK & (gear2.screenCol)) | ATTR1_LARGE | ATTR1_AFFINEINDEX(0);
-        shadowOAM[gear2.spriteNum].attr2 = ATTR2_PALROW(gear2.palRow) | ATTR2_TILEID(gear2.sheetCol, gear2.sheetRow);
     }
 
     REG_BG2HOFF = hOff;
@@ -585,17 +575,6 @@ void initBoard() {
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
 
-    gear2.worldRow = 116;
-    gear2.worldCol = 96;
-    gear2.sheetRow = 24;
-    gear2.sheetCol = 0;
-    gear2.palRow = 2;
-    gear2.width = 64;
-    gear2.height = 64;
-    gear2.spriteNum = 127;
-    gear2.screenRow = gear2.worldRow - vOff;
-    gear2.screenCol = gear2.worldCol - hOff;
-
 }
 
 void drawBoardSquare(boardSquare* bs) {
@@ -649,8 +628,8 @@ void initPieceParents() {
     }
 
     cheatBlock.selected = 0;
-    cheatBlock.worldRow = 52; // 52 used to be 2
-    cheatBlock.worldCol = 9; // 9 used to be 19
+    cheatBlock.worldRow = 53;
+    cheatBlock.worldCol = 9;
     cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff;
     cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff;
     cheatBlock.vOffset = 0;

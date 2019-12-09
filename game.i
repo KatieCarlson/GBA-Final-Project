@@ -1150,7 +1150,6 @@ int windColdel;
 
 singleBlock cheatBlock;
 singleBlock gear;
-singleBlock gear2;
 int gearTimer;
 int soundWasSwitched;
 
@@ -1227,8 +1226,6 @@ void updateGame() {
 
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
-    gear2.screenRow = gear2.worldRow - vOff;
-    gear2.screenCol = gear2.worldCol - hOff;
     gearTimer++;
     if (gearTimer > 359) {
         gearTimer = 0;
@@ -1271,13 +1268,6 @@ void drawGame() {
         shadowOAM[gear.spriteNum].attr0 = (0xFF & (gear.screenRow)) | (0<<14) | (0<<13) | (3<<8);
         shadowOAM[gear.spriteNum].attr1 = (0x1FF & (gear.screenCol)) | (3<<14) | ((0) << 9);
         shadowOAM[gear.spriteNum].attr2 = ((gear.palRow)<<12) | ((gear.sheetRow)*32+(gear.sheetCol));
-    }
-    if (gear2.screenRow < 0 - gear2.height - 16 || gear2.screenRow > 160) {
-        shadowOAM[gear2.spriteNum].attr0 = (2<<8);
-    } else {
-        shadowOAM[gear2.spriteNum].attr0 = (0xFF & (gear2.screenRow)) | (0<<14) | (0<<13) | (3<<8);
-        shadowOAM[gear2.spriteNum].attr1 = (0x1FF & (gear2.screenCol)) | (3<<14) | ((0) << 9);
-        shadowOAM[gear2.spriteNum].attr2 = ((gear2.palRow)<<12) | ((gear2.sheetRow)*32+(gear2.sheetCol));
     }
 
     (*(volatile unsigned short *)0x04000018) = hOff;
@@ -1654,17 +1644,6 @@ void initBoard() {
     gear.screenRow = gear.worldRow - vOff;
     gear.screenCol = gear.worldCol - hOff;
 
-    gear2.worldRow = 116;
-    gear2.worldCol = 96;
-    gear2.sheetRow = 24;
-    gear2.sheetCol = 0;
-    gear2.palRow = 2;
-    gear2.width = 64;
-    gear2.height = 64;
-    gear2.spriteNum = 127;
-    gear2.screenRow = gear2.worldRow - vOff;
-    gear2.screenCol = gear2.worldCol - hOff;
-
 }
 
 void drawBoardSquare(boardSquare* bs) {
@@ -1718,7 +1697,7 @@ void initPieceParents() {
     }
 
     cheatBlock.selected = 0;
-    cheatBlock.worldRow = 52;
+    cheatBlock.worldRow = 53;
     cheatBlock.worldCol = 9;
     cheatBlock.screenRow = cheatBlock.worldRow * 8 - vOff;
     cheatBlock.screenCol = cheatBlock.worldCol * 8 - hOff;

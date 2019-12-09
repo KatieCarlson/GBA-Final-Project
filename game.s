@@ -1316,41 +1316,28 @@ initBoard:
 	str	lr, [r3, #8]
 	b	.L203
 .L201:
-	mov	r5, #116
-	mov	r4, #96
+	mov	r6, #116
+	mov	r5, #96
+	mov	r4, #0
+	mov	lr, #22
 	mov	r1, #64
-	mov	lr, #0
-	mov	r9, #22
-	mov	r8, #126
-	mov	r7, #24
-	mov	r6, #127
 	mov	ip, #2
+	mov	r0, #126
 	ldr	r3, .L209+8
-	ldrh	r0, [r3]
-	ldr	r2, .L209+12
-	ldr	r3, .L209+16
-	sub	r0, r5, r0
-	str	r0, [r2, #4]
-	str	r0, [r3, #4]
-	ldr	r0, .L209+20
-	ldrh	r0, [r0]
-	sub	r0, r4, r0
-	str	r9, [r2, #52]
-	str	r8, [r2, #68]
-	str	r7, [r3, #48]
-	str	r6, [r3, #68]
-	str	r5, [r2, #12]
-	str	r5, [r3, #12]
-	str	r4, [r2, #16]
-	str	r4, [r3, #16]
-	str	lr, [r2, #48]
+	ldrh	r2, [r3]
+	ldr	r3, .L209+12
+	sub	r2, r6, r2
+	str	r2, [r3, #4]
+	ldr	r2, .L209+16
+	ldrh	r2, [r2]
+	sub	r2, r5, r2
+	str	r6, [r3, #12]
+	str	r5, [r3, #16]
+	str	r4, [r3, #48]
 	str	lr, [r3, #52]
-	str	r0, [r2, #8]
-	str	r0, [r3, #8]
-	str	ip, [r2, #56]
 	str	ip, [r3, #56]
-	str	r1, [r2, #36]
-	str	r1, [r2, #40]
+	str	r0, [r3, #68]
+	str	r2, [r3, #8]
 	str	r1, [r3, #36]
 	str	r1, [r3, #40]
 	pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
@@ -1362,7 +1349,6 @@ initBoard:
 	.word	board
 	.word	vOff
 	.word	gear
-	.word	gear2
 	.word	hOff
 	.size	initBoard, .-initBoard
 	.align	2
@@ -1528,7 +1514,7 @@ initPieceParents:
 	bne	.L225
 	mov	r1, #0
 	mov	r0, #8
-	mov	r7, #52
+	mov	r7, #53
 	mov	r6, #9
 	mov	r5, #1
 	mov	r4, #19
@@ -1536,7 +1522,7 @@ initPieceParents:
 	mov	ip, #88
 	ldr	r2, [sp, #4]
 	ldr	r3, .L229+20
-	rsb	fp, fp, #416
+	rsb	fp, fp, #424
 	rsb	r2, r2, #72
 	str	fp, [r3, #4]
 	str	r2, [r3, #8]
@@ -1711,13 +1697,13 @@ drawGame:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	push	{r4, r5, r6, r7, r8, r9, r10, lr}
-	ldr	r6, .L255
+	ldr	r6, .L253
 	bl	drawPlayer
 	ldr	r3, [r6]
 	cmp	r3, #0
 	ble	.L245
 	mov	r5, #0
-	ldr	r4, .L255+4
+	ldr	r4, .L253+4
 .L246:
 	mov	r0, r4
 	bl	drawBoardSquare
@@ -1727,17 +1713,17 @@ drawGame:
 	add	r4, r4, #52
 	bgt	.L246
 .L245:
-	ldr	r0, .L255+8
+	ldr	r0, .L253+8
 	bl	drawPieceParent
-	ldr	r0, .L255+12
+	ldr	r0, .L253+12
 	bl	drawPieceParent
-	ldr	r0, .L255+16
+	ldr	r0, .L253+16
 	bl	drawPieceParent
-	ldr	r0, .L255+20
+	ldr	r0, .L253+20
 	bl	drawPieceParent
-	ldr	r0, .L255+24
+	ldr	r0, .L253+24
 	bl	drawPieceParent
-	ldr	r3, .L255+28
+	ldr	r3, .L253+28
 	ldr	r2, [r3, #4]
 	cmp	r2, #160
 	movle	r1, #0
@@ -1750,24 +1736,24 @@ drawGame:
 	ldr	r1, [r3, #68]
 	beq	.L247
 	mov	r3, #512
-	ldr	ip, .L255+32
+	ldr	r7, .L253+32
 	lsl	r1, r1, #3
-	strh	r3, [ip, r1]	@ movhi
+	strh	r3, [r7, r1]	@ movhi
 .L248:
-	ldr	r0, .L255+36
-	ldr	lr, [r0, #4]
+	ldr	r0, .L253+36
+	ldr	ip, [r0, #4]
 	mvn	r3, #15
-	cmp	lr, #160
-	movle	r7, #0
-	movgt	r7, #1
-	ldr	r1, .L255+40
-	ldr	r2, .L255+44
+	cmp	ip, #160
+	movle	lr, #0
+	movgt	lr, #1
+	ldr	r1, .L253+40
+	ldr	r2, .L253+44
 	ldr	r1, [r1]
 	smull	r8, r9, r1, r2
 	ldr	r4, [r0, #40]
 	sub	r3, r3, r4
-	cmp	lr, r3
-	orrlt	r7, r7, #1
+	cmp	ip, r3
+	orrlt	lr, lr, #1
 	add	r4, r1, r9
 	asr	r3, r1, #31
 	rsb	r3, r3, r4, asr #8
@@ -1785,7 +1771,7 @@ drawGame:
 	asr	r5, r10, #31
 	rsb	r5, r5, r8, asr #8
 	add	r5, r5, r5, lsl #1
-	ldr	r8, .L255+48
+	ldr	r8, .L253+48
 	rsb	r5, r5, r5, lsl #4
 	sub	r5, r10, r5, lsl #3
 	add	r2, r2, r2, lsl #1
@@ -1797,7 +1783,7 @@ drawGame:
 	ldr	r2, [r8, r3, lsl #2]
 	lsl	r3, r4, #16
 	asr	r3, r3, #16
-	cmp	r7, #0
+	cmp	lr, #0
 	strh	r3, [r1, #6]	@ movhi
 	strh	r3, [r1, #30]	@ movhi
 	strh	r5, [r1, #14]	@ movhi
@@ -1806,29 +1792,12 @@ drawGame:
 	beq	.L249
 	mov	r2, #512
 	lsl	r3, r3, #3
-	strh	r2, [ip, r3]	@ movhi
+	strh	r2, [r7, r3]	@ movhi
 .L250:
-	ldr	r3, .L255+52
-	ldr	r2, [r3, #4]
-	mvn	r0, #15
-	cmp	r2, #160
-	movle	r1, #0
-	movgt	r1, #1
-	ldr	lr, [r3, #40]
-	sub	r0, r0, lr
-	cmp	r2, r0
-	orrlt	r1, r1, #1
-	cmp	r1, #0
-	ldr	r1, [r3, #68]
-	beq	.L251
-	mov	r3, #512
-	lsl	r1, r1, #3
-	strh	r3, [ip, r1]	@ movhi
-.L252:
 	mov	r3, #67108864
-	ldr	r2, .L255+56
+	ldr	r2, .L253+52
 	ldrh	r0, [r2]
-	ldr	r1, .L255+60
+	ldr	r1, .L253+56
 	strh	r0, [r3, #24]	@ movhi
 	ldrh	r0, [r1]
 	strh	r0, [r3, #26]	@ movhi
@@ -1838,80 +1807,61 @@ drawGame:
 	ldrh	r2, [r1]
 	lsr	r2, r2, #1
 	strh	r2, [r3, #30]	@ movhi
-	ldr	r3, .L255+64
+	ldr	r3, .L253+60
 	mov	lr, pc
 	bx	r3
-	ldr	r4, .L255+68
+	ldr	r4, .L253+64
 	mov	r3, #512
 	mov	r2, #117440512
-	ldr	r1, .L255+32
+	ldr	r1, .L253+32
 	mov	r0, #3
 	mov	lr, pc
 	bx	r4
 	pop	{r4, r5, r6, r7, r8, r9, r10, lr}
 	bx	lr
-.L251:
-	ldr	r0, [r3, #8]
-	lsl	r0, r0, #23
-	lsr	r0, r0, #23
-	mvn	r0, r0, lsl #18
-	mvn	r0, r0, lsr #18
-	add	r5, r3, #48
-	ldm	r5, {r5, lr}
-	ldr	r4, [r3, #56]
-	lsl	r1, r1, #3
-	add	r3, lr, r5, lsl #5
-	and	r2, r2, #255
-	add	lr, ip, r1
-	orr	r2, r2, #768
-	orr	r3, r3, r4, lsl #12
-	strh	r2, [ip, r1]	@ movhi
-	strh	r0, [lr, #2]	@ movhi
-	strh	r3, [lr, #4]	@ movhi
-	b	.L252
 .L249:
 	ldr	r2, [r0, #8]
 	lsl	r2, r2, #23
 	lsr	r2, r2, #23
 	mvn	r2, r2, lsl #18
 	mvn	r2, r2, lsr #18
-	ldr	r4, [r0, #48]
+	ldr	lr, [r0, #48]
 	ldr	r1, [r0, #52]
 	ldr	r0, [r0, #56]
 	lsl	r3, r3, #3
-	and	lr, lr, #255
-	add	r1, r1, r4, lsl #5
+	and	ip, ip, #255
+	add	r1, r1, lr, lsl #5
 	orr	r1, r1, r0, lsl #12
-	orr	lr, lr, #768
-	add	r0, ip, r3
-	strh	lr, [ip, r3]	@ movhi
+	orr	ip, ip, #768
+	add	r0, r7, r3
+	strh	ip, [r7, r3]	@ movhi
 	strh	r2, [r0, #2]	@ movhi
 	strh	r1, [r0, #4]	@ movhi
 	b	.L250
 .L247:
+	ldr	ip, [r3, #60]
 	ldr	lr, [r3, #64]
 	ldr	r0, [r3, #8]
-	ldr	ip, [r3, #60]
-	add	r0, r0, lr, lsl #3
-	ldr	r5, [r3, #48]
-	ldr	lr, [r3, #52]
 	add	r2, r2, ip, lsl #3
-	ldr	r4, [r3, #56]
-	ldr	ip, .L255+32
+	add	ip, r3, #52
+	add	r0, r0, lr, lsl #3
+	ldr	r4, [r3, #48]
+	ldm	ip, {ip, lr}
+	ldr	r7, .L253+32
 	lsl	r1, r1, #3
 	lsl	r3, r0, #23
-	add	r0, lr, r5, lsl #5
+	add	r0, ip, r4, lsl #5
 	and	r2, r2, #255
-	add	lr, ip, r1
+	add	ip, r7, r1
 	lsr	r3, r3, #23
-	orr	r0, r0, r4, lsl #12
-	strh	r2, [ip, r1]	@ movhi
-	strh	r3, [lr, #2]	@ movhi
-	strh	r0, [lr, #4]	@ movhi
+	orr	r0, r0, lr, lsl #12
+	strh	r2, [r7, r1]	@ movhi
+	strh	r3, [ip, #2]	@ movhi
+	strh	r0, [ip, #4]	@ movhi
 	b	.L248
-.L256:
+.L254:
 	.align	2
-.L255:
+.L253:
 	.word	.LANCHOR0
 	.word	board
 	.word	pieceParents
@@ -1925,7 +1875,6 @@ drawGame:
 	.word	gearTimer
 	.word	-1240768329
 	.word	sin_lut_fixed8
-	.word	gear2
 	.word	hOff
 	.word	vOff
 	.word	waitForVBlank
@@ -1941,8 +1890,8 @@ updatePieceParent:
 	@ Function supports interworking.
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
-	ldr	r2, .L261
-	ldr	r3, .L261+4
+	ldr	r2, .L259
+	ldr	r3, .L259+4
 	push	{r4, lr}
 	ldr	lr, [r0, #4]
 	ldr	ip, [r0, #16]
@@ -1954,9 +1903,9 @@ updatePieceParent:
 	rsb	r3, r3, r1, lsl #3
 	ldr	ip, [r0, #24]
 	ldr	r1, [r0, #28]
-	ble	.L258
-	ldr	r4, .L261+8
-	ldr	lr, .L261+12
+	ble	.L256
+	ldr	r4, .L259+8
+	ldr	lr, .L259+12
 	ldr	r4, [r4]
 	ldr	lr, [lr]
 	add	ip, ip, r4
@@ -1969,16 +1918,16 @@ updatePieceParent:
 	str	r1, [r0, #28]
 	pop	{r4, lr}
 	bx	lr
-.L258:
+.L256:
 	add	r2, r2, ip
 	add	r3, r3, r1
 	str	r2, [r0, #8]
 	str	r3, [r0, #12]
 	pop	{r4, lr}
 	bx	lr
-.L262:
+.L260:
 	.align	2
-.L261:
+.L259:
 	.word	vOff
 	.word	hOff
 	.word	vselDel
@@ -1996,33 +1945,33 @@ updateGame:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	push	{r4, r5, r6, r7, r8, lr}
-	ldr	r5, .L277
+	ldr	r5, .L275
 	ldr	r3, [r5]
 	cmp	r3, #0
-	beq	.L265
-	ldr	r3, .L277+4
-	ldr	r2, .L277+8
+	beq	.L263
+	ldr	r3, .L275+4
+	ldr	r2, .L275+8
 	ldr	r3, [r3]
 	ldr	r2, [r2]
 	sub	r3, r3, r2
 	mvn	r3, r3, lsl #17
 	mvn	r3, r3, lsr #17
-	ldr	r0, .L277+12
-	ldr	r1, .L277+16
-	ldr	r2, .L277+20
+	ldr	r0, .L275+12
+	ldr	r1, .L275+16
+	ldr	r2, .L275+20
 	ldr	r4, [r0]
 	ldr	r0, [r1]
-	ldr	r1, .L277+24
+	ldr	r1, .L275+24
 	ldr	r7, [r2]
 	sub	r4, r4, r0, lsl #1
-	ldr	r6, .L277+28
+	ldr	r6, .L275+28
 	ldr	r8, [r1]
 	lsl	r4, r4, #16
 	add	r7, r7, #1
 	lsr	r4, r4, #16
 	str	r7, [r2]
 	mov	r1, r8
-	ldr	r2, .L277+32
+	ldr	r2, .L275+32
 	strh	r3, [r6, #2]	@ movhi
 	mov	r0, r7
 	strh	r4, [r6]	@ movhi
@@ -2038,96 +1987,88 @@ updateGame:
 	strh	r0, [r6, #4]	@ movhi
 	strheq	r3, [r6]	@ movhi
 	streq	r2, [r5]
-.L265:
+.L263:
 	bl	updatePlayer
-	ldr	r3, .L277+36
+	ldr	r3, .L275+36
 	ldr	r0, [r3]
 	cmp	r0, #0
-	ldr	r5, .L277+40
-	ldr	r4, .L277+44
-	ble	.L267
+	ldr	r5, .L275+40
+	ldr	r4, .L275+44
+	ble	.L265
 	add	r2, r0, r0, lsl #1
-	ldr	r3, .L277+48
+	ldr	r3, .L275+48
 	add	r0, r0, r2, lsl #2
 	ldrh	lr, [r5]
 	ldrh	ip, [r4]
 	add	r0, r3, r0, lsl #2
-.L268:
+.L266:
 	add	r1, r3, #8
 	ldm	r1, {r1, r2}
 	rsb	r1, lr, r1, lsl #3
 	rsb	r2, ip, r2, lsl #3
 	stm	r3, {r1, r2}
 	add	r3, r3, #52
-	cmp	r0, r3
-	bne	.L268
-.L267:
-	ldr	r0, .L277+52
+	cmp	r3, r0
+	bne	.L266
+.L265:
+	ldr	r0, .L275+52
 	bl	updatePieceParent
-	ldr	r0, .L277+56
+	ldr	r0, .L275+56
 	bl	updatePieceParent
-	ldr	r0, .L277+60
+	ldr	r0, .L275+60
 	bl	updatePieceParent
-	ldr	r0, .L277+64
+	ldr	r0, .L275+64
 	bl	updatePieceParent
-	ldr	r0, .L277+68
+	ldr	r0, .L275+68
 	bl	updatePieceParent
-	ldr	r3, .L277+72
-	ldr	ip, [r3]
+	ldr	r3, .L275+72
+	ldr	r0, [r3]
 	add	r1, r3, #12
-	ldrh	lr, [r4]
+	ldrh	ip, [r4]
 	ldm	r1, {r1, r2}
-	ldrh	r0, [r5]
-	cmp	ip, #0
-	add	r4, r3, #20
-	rsb	r1, r0, r1, lsl #3
-	rsb	r2, lr, r2, lsl #3
-	ldm	r4, {r4, ip}
-	ble	.L269
-	ldr	r6, .L277+76
-	ldr	r5, .L277+80
+	ldrh	lr, [r5]
+	cmp	r0, #0
+	rsb	r1, lr, r1, lsl #3
+	rsb	r2, ip, r2, lsl #3
+	ldr	r4, [r3, #20]
+	ldr	r0, [r3, #24]
+	ble	.L267
+	ldr	r6, .L275+76
+	ldr	r5, .L275+80
 	ldr	r6, [r6]
 	ldr	r5, [r5]
 	add	r4, r4, r6
-	add	ip, ip, r5
+	add	r0, r0, r5
 	add	r1, r4, r1
-	add	r2, ip, r2
+	add	r2, r0, r2
 	str	r1, [r3, #4]
 	str	r4, [r3, #20]
 	str	r2, [r3, #8]
-	str	ip, [r3, #24]
-.L270:
-	ldr	r2, .L277+84
-	ldr	ip, [r2, #12]
-	ldr	r3, .L277+88
-	ldr	r5, .L277+92
-	sub	ip, ip, r0
-	str	ip, [r2, #4]
-	ldr	ip, [r3, #12]
-	ldr	r1, [r5]
-	sub	ip, ip, r0
-	ldr	r0, [r3, #16]
-	add	r1, r1, #1
-	cmp	r1, #360
+	str	r0, [r3, #24]
+.L268:
+	ldr	r4, .L275+84
+	ldr	r3, .L275+88
+	ldr	r2, [r4]
+	add	r0, r3, #12
+	ldm	r0, {r0, r1}
+	add	r2, r2, #1
+	cmp	r2, #360
 	sub	r0, r0, lr
-	str	ip, [r3, #4]
-	str	r0, [r3, #8]
+	sub	r1, r1, ip
+	stmib	r3, {r0, r1}
 	movge	r3, #0
-	ldr	r4, [r2, #16]
-	sub	r4, r4, lr
-	str	r4, [r2, #8]
-	strlt	r1, [r5]
-	strge	r3, [r5]
+	strlt	r2, [r4]
+	strge	r3, [r4]
 	pop	{r4, r5, r6, r7, r8, lr}
 	bx	lr
-.L269:
+.L267:
 	add	r1, r1, r4
-	add	r2, r2, ip
+	add	r2, r2, r0
 	stmib	r3, {r1, r2}
-	b	.L270
-.L278:
+	b	.L268
+.L276:
 	.align	2
-.L277:
+.L275:
 	.word	windIsOn
 	.word	windCol
 	.word	windColdel
@@ -2149,16 +2090,14 @@ updateGame:
 	.word	cheatBlock
 	.word	vselDel
 	.word	hselDel
-	.word	gear
-	.word	gear2
 	.word	gearTimer
+	.word	gear
 	.size	updateGame, .-updateGame
 	.global	shadowAffine
 	.comm	vOff,2,2
 	.comm	hOff,2,2
 	.comm	soundWasSwitched,4,4
 	.comm	gearTimer,4,4
-	.comm	gear2,72,4
 	.comm	gear,72,4
 	.comm	cheatBlock,72,4
 	.comm	windColdel,4,4
